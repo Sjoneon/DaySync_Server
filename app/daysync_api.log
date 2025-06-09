@@ -1,0 +1,6 @@
+2025-06-05 17:20:45,228 - database - INFO - 데이터베이스 연결 URL: mysql+mysqlconnector://root:****@localhost:3306/daysync_db
+2025-06-05 17:20:45,336 - database - INFO - 데이터베이스 엔진 생성 완료
+2025-06-05 17:21:54,235 - database - INFO - 데이터베이스 연결 URL: mysql+mysqlconnector://root:****@localhost:3306/daysync_db
+2025-06-05 17:21:54,320 - database - INFO - 데이터베이스 엔진 생성 완료
+2025-06-05 17:22:13,430 - database - INFO - 데이터베이스 연결 URL: mysql+mysqlconnector://root:****@localhost:3306/daysync_db
+2025-06-05 17:22:13,556 - database - INFO - 데이터베이스 엔진 생성 완료
