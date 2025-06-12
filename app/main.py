@@ -1,3 +1,5 @@
+# app/main.py
+
 # uvicorn app.main:app --reload  <-- 이 명령어로 서버 실행
 
 from fastapi import FastAPI, Depends, HTTPException, Request
@@ -10,24 +12,12 @@ import time
 import os
 import sys
 
-# 현재 경로를 파이썬 경로에 추가 (import 문제 해결)
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-if parent_dir not in sys.path:
-    sys.path.append(parent_dir)
+# 로컬 모듈 임포트 (상대 경로로 수정)
+from . import models
+from . import schemas
+from .database import engine, get_db
+from .routers import users
 
-# 로컬 모듈 임포트
-try:
-    import models
-    import schemas
-    from .database import engine, get_db
-    from .routers import users
-except ImportError:
-    # 상대 경로 import 실패 시 절대 경로로 시도
-    import models
-    import schemas
-    from database import engine, get_db
-    from routers import users
 
 # 로깅 설정
 logging.basicConfig(
@@ -64,7 +54,7 @@ async def lifespan(app: FastAPI):
         logger.error("UUID 생성 테스트 실패: {}".format(e))
         raise
     
-    logger.info("서버 시작 완료! http://localhost:8000/docs 에서 API 문서를 확인하세요.")
+    logger.info("서버 열림 _ http://localhost:8000/docs 에서 API 확인")
     
     yield
     
@@ -75,14 +65,14 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="DaySync API",
     description="""
-    DaySync 애플리케이션을 위한 API 서비스입니다.
+    DaySync 애플리케이션을 위한 통합 API 서비스입니다.
     
     ## 주요 기능
     
     * **사용자 관리**: UUID 기반 로그인 없는 사용자 시스템
     * **대화 세션**: AI와의 대화 세션 관리 (추후 구현)
-    * **버스 정보**: 실시간 버스 정보 제공 (추후 구현)
-    * **일정 관리**: 개인 일정 및 알람 관리 (추후 구현)
+    * **버스 정보**: 실시간 버스 정보 제공 (추후 구현_외부 API)
+    * **일정 관리**: 개인 일정 및 알람 관리 (추후 구현_고민)
     
     ## 사용 방법
     
@@ -96,13 +86,13 @@ app = FastAPI(
     2. POST /api/users/ 로 사용자 생성 테스트
     3. 생성된 UUID로 다른 API 테스트
     """,
-    version="0.1.0",
+    version="0.1.7",
     contact={
-        "name": "DaySync 개발팀",
-        "email": "dev@daysync.app"
+        "name": "DaySync 개발자자",
+        "email": "spdjdps1649@gmail.com"
     },
     license_info={
-        "name": "MIT License",
+        "name": "opensource_MIT License",
         "url": "https://opensource.org/licenses/MIT"
     },
     lifespan=lifespan
@@ -196,8 +186,8 @@ async def read_root():
 
 @app.get("/health", 
          response_model=schemas.HealthCheckResponse,
-         tags=["Health"],
-         summary="헬스체크",
+         tags=["DB_Server"],
+         summary="DB_Server_연결확인",
          description="서버와 데이터베이스 연결 상태를 확인합니다.")
 async def health_check(db: Session = Depends(get_db)):
     """
@@ -214,7 +204,7 @@ async def health_check(db: Session = Depends(get_db)):
         uuid_status = "working"
         
     except Exception as e:
-        logger.error(f"헬스체크 실패: {e}")
+        logger.error(f"연결상태 확인 실패: {e}")
         db_status = "disconnected"
         uuid_status = "failed"
         raise HTTPException(
@@ -240,7 +230,7 @@ async def api_info():
     """
     return {
         "api_name": "DaySync API",
-        "version": "0.1.0",
+        "version": "0.1.7",
         "description": "버스 기반 일정-이동 최적화 비서",
         "supported_features": {
             "user_management": True,

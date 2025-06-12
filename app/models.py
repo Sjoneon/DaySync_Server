@@ -1,7 +1,8 @@
+# app/models.py
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, Text, Float, JSON, DECIMAL, ForeignKey, Index
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from sqlalchemy.sql import func
-from database import Base  # 상대 import 제거
+from .database import Base  # 상대 경로로 수정되었습니다.
 
 class User(Base):
     """사용자 정보 테이블"""
