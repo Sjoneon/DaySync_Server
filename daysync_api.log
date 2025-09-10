@@ -1,0 +1,290 @@
+2025-06-09 18:16:18,886 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-09 18:16:18,891 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-09 18:16:18,892 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-09 18:16:19,138 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-09 18:16:19,138 - app.main - INFO - UUID 생성 테스트 성공: f9831a34-9c67-4f3c-9683-d9586c031255
+2025-06-09 18:16:19,139 - app.main - INFO - 서버 시작 완료! http://localhost:8000/docs 에서 API 문서를 확인하세요.
+2025-06-09 18:24:05,282 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-09 18:24:05,285 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-09 18:24:05,285 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-09 18:24:05,361 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-09 18:24:05,361 - app.main - INFO - UUID 생성 테스트 성공: e0ea77ee-18e2-488a-9519-3bbc03414b1e
+2025-06-09 18:24:05,362 - app.main - INFO - 서버 시작 완료! http://localhost:8000/docs 에서 API 문서를 확인하세요.
+2025-06-09 18:24:19,608 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-09 18:24:19,609 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.001초
+2025-06-09 18:24:19,962 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-09 18:24:19,975 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-06-09 18:24:19,985 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.023초
+2025-06-09 18:24:28,004 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/users/
+2025-06-09 18:24:28,095 - app.crud - INFO - 새 사용자 생성됨: UUID=c8d24304-5b24-4dd4-9e44-1853f4ae8507, 닉네임=사용자
+2025-06-09 18:24:28,095 - app.routers.users - INFO - 새 사용자 생성 성공: UUID=c8d24304-5b24-4dd4-9e44-1853f4ae8507
+2025-06-09 18:24:28,098 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/users/ - 상태: 201 - 시간: 0.094초
+2025-06-09 18:26:34,710 - app.main - INFO - 요청 시작: GET http://localhost:8000/api/users/c8d24304-5b24-4dd4-9e44-1853f4ae8507
+2025-06-09 18:26:34,767 - app.main - INFO - 요청 완료: GET http://localhost:8000/api/users/c8d24304-5b24-4dd4-9e44-1853f4ae8507 - 상태: 200 - 시간: 0.057초
+2025-06-09 18:27:35,306 - app.main - INFO - 요청 시작: GET http://localhost:8000/api/users/c8d24304-5b24-4dd4-9e44-1853f4ae8507
+2025-06-09 18:27:35,333 - app.main - INFO - 요청 완료: GET http://localhost:8000/api/users/c8d24304-5b24-4dd4-9e44-1853f4ae8507 - 상태: 200 - 시간: 0.027초
+2025-06-09 18:38:13,297 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-06-09 23:26:19,261 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-09 23:26:19,270 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-09 23:26:19,271 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-09 23:26:19,493 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-09 23:26:19,495 - app.main - INFO - UUID 생성 테스트 성공: 31e3d12b-f70f-4e6e-b0f7-a5ac9f70e55d
+2025-06-09 23:26:19,496 - app.main - INFO - 서버 시작 완료! http://localhost:8000/docs 에서 API 문서를 확인하세요.
+2025-06-09 23:26:32,173 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-09 23:26:32,177 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.003초
+2025-06-09 23:26:32,560 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-09 23:26:32,580 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-06-09 23:26:32,594 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.034초
+2025-06-09 23:28:02,227 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-06-09 23:28:06,644 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-09 23:28:06,650 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-09 23:28:06,651 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-09 23:28:06,816 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-09 23:28:06,816 - app.main - INFO - UUID 생성 테스트 성공: f300301b-8e88-4bcb-a7f3-4da795604593
+2025-06-09 23:28:06,817 - app.main - INFO - 서버 시작 완료! http://localhost:8000/docs 에서 API 문서를 확인하세요.
+2025-06-09 23:32:18,388 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/users/
+2025-06-09 23:32:18,598 - app.crud - INFO - 새 사용자 생성됨: UUID=876fbe6f-5b49-480f-99c7-02b8fe834063, 닉네임=사용자
+2025-06-09 23:32:18,598 - app.routers.users - INFO - 새 사용자 생성 성공: UUID=876fbe6f-5b49-480f-99c7-02b8fe834063
+2025-06-09 23:32:18,607 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/users/ - 상태: 201 - 시간: 0.219초
+2025-06-09 23:36:08,698 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-06-09 23:36:12,235 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-09 23:36:12,241 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-09 23:36:12,242 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-09 23:36:12,391 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-09 23:36:12,392 - app.main - INFO - UUID 생성 테스트 성공: 0eed98c6-5b7c-4b8f-9933-863fbab8f281
+2025-06-09 23:36:12,392 - app.main - INFO - 서버 시작 완료! http://localhost:8000/docs 에서 API 문서를 확인하세요.
+2025-06-09 23:36:12,419 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-09 23:36:12,421 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.002초
+2025-06-09 23:36:12,740 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-09 23:36:12,774 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-06-09 23:36:12,790 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.050초
+2025-06-09 23:36:54,324 - app.main - INFO - 요청 시작: GET http://localhost:8000/api/users/0eed98c6-5b7c-4b8f-9933-863fbab8f281/stats
+2025-06-09 23:36:54,448 - app.database - ERROR - 데이터베이스 세션 오류: 404: 사용자를 찾을 수 없습니다
+2025-06-09 23:36:54,454 - app.main - INFO - 요청 완료: GET http://localhost:8000/api/users/0eed98c6-5b7c-4b8f-9933-863fbab8f281/stats - 상태: 404 - 시간: 0.130초
+2025-06-09 23:37:23,715 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/users/
+2025-06-09 23:37:23,774 - app.crud - INFO - 새 사용자 생성됨: UUID=68cf0467-0fa7-4df9-8685-1232a5a6091e, 닉네임=사용자
+2025-06-09 23:37:23,775 - app.routers.users - INFO - 새 사용자 생성 성공: UUID=68cf0467-0fa7-4df9-8685-1232a5a6091e
+2025-06-09 23:37:23,782 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/users/ - 상태: 201 - 시간: 0.067초
+2025-06-09 23:37:53,397 - app.main - INFO - 요청 시작: GET http://localhost:8000/api/users/68cf0467-0fa7-4df9-8685-1232a5a6091e/stats
+2025-06-09 23:37:53,446 - app.main - INFO - 요청 완료: GET http://localhost:8000/api/users/68cf0467-0fa7-4df9-8685-1232a5a6091e/stats - 상태: 200 - 시간: 0.049초
+2025-06-09 23:38:42,785 - app.main - INFO - 요청 시작: GET http://localhost:8000/
+2025-06-09 23:38:42,788 - app.main - INFO - 요청 완료: GET http://localhost:8000/ - 상태: 200 - 시간: 0.003초
+2025-06-09 23:38:59,225 - app.main - INFO - 요청 시작: GET http://localhost:8000/health
+2025-06-09 23:38:59,227 - app.main - ERROR - 헬스체크 실패: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-06-09 23:38:59,227 - app.database - ERROR - 데이터베이스 세션 오류: 503: 시스템 상태 확인에 실패했습니다
+2025-06-09 23:38:59,228 - app.main - INFO - 요청 완료: GET http://localhost:8000/health - 상태: 503 - 시간: 0.004초
+2025-06-09 23:44:33,755 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-06-11 20:34:55,012 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-11 20:34:55,016 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-11 20:34:55,016 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-11 20:34:55,324 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-11 20:34:55,325 - app.main - INFO - UUID 생성 테스트 성공: 6fac7272-0778-4eb1-932e-8adc8d30d59b
+2025-06-11 20:34:55,326 - app.main - INFO - 서버 시작 완료! http://localhost:8000/docs 에서 API 문서를 확인하세요.
+2025-06-11 20:35:16,625 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-11 20:35:16,627 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.001초
+2025-06-11 20:35:16,856 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-11 20:35:16,868 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-06-11 20:35:16,879 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.024초
+2025-06-11 20:45:04,794 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-11 20:45:04,796 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.002초
+2025-06-11 20:45:05,109 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-11 20:45:05,110 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.001초
+2025-06-11 20:45:09,658 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-11 20:45:09,673 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.015초
+2025-06-11 20:45:09,899 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-11 20:45:09,902 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.003초
+2025-06-11 20:45:19,580 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-06-11 20:45:24,365 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-11 20:45:24,368 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-11 20:45:24,368 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-11 20:45:24,443 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-11 20:45:24,444 - app.main - INFO - UUID 생성 테스트 성공: ba34fc2c-473e-415d-831f-fbcac53822be
+2025-06-11 20:45:24,444 - app.main - INFO - 서버 시작 완료! http://localhost:8000/docs 에서 API 문서를 확인하세요.
+2025-06-11 20:45:26,266 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-11 20:45:26,272 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.006초
+2025-06-11 20:45:26,492 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-11 20:45:26,508 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-06-11 20:45:26,514 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.023초
+2025-06-11 20:45:57,530 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-06-11 20:45:59,741 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-11 20:46:17,286 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-11 20:47:02,627 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-11 20:47:02,634 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-11 20:47:02,635 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-11 20:47:02,685 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-11 20:47:02,687 - app.main - INFO - UUID 생성 테스트 성공: 8600ffc4-4561-4bd5-b49b-19e12053f6a4
+2025-06-11 20:47:02,688 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-06-11 20:47:04,865 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-06-11 20:47:07,397 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-11 20:47:07,401 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-11 20:47:07,401 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-11 20:47:07,486 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-11 20:47:07,487 - app.main - INFO - UUID 생성 테스트 성공: 4b94e5ae-48e1-40f0-808d-2fe8cdbff5a7
+2025-06-11 20:47:07,487 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-06-11 20:47:09,834 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-11 20:47:09,835 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.001초
+2025-06-11 20:47:10,004 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-11 20:47:10,014 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-06-11 20:47:10,020 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.016초
+2025-06-11 20:47:31,007 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-06-11 20:47:33,850 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-11 20:47:33,859 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-11 20:47:33,859 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-11 20:47:33,989 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-11 20:47:33,990 - app.main - INFO - UUID 생성 테스트 성공: adf9ca99-c10c-4da8-b850-8b235a3af06a
+2025-06-11 20:47:33,990 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-06-11 20:47:38,208 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-11 20:47:38,210 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.002초
+2025-06-11 20:47:38,364 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-11 20:47:38,392 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-06-11 20:47:38,405 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.041초
+2025-06-11 20:49:21,201 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-06-11 20:49:25,393 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-11 20:49:25,397 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-11 20:49:25,398 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-11 20:49:25,474 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-11 20:49:25,474 - app.main - INFO - UUID 생성 테스트 성공: f5735aff-2a69-4966-8d41-bfc29d6041f5
+2025-06-11 20:49:25,475 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-06-11 20:51:36,359 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-11 20:51:36,361 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.002초
+2025-06-11 20:51:36,526 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-11 20:51:36,542 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-06-11 20:51:36,554 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.028초
+2025-06-11 21:07:17,591 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-06-11 23:10:32,072 - app.main - INFO - 사용자 라우터 등록 완료
+2025-06-11 23:10:32,080 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-06-11 23:10:32,081 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-06-11 23:10:32,471 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-06-11 23:10:32,471 - app.main - INFO - UUID 생성 테스트 성공: bddf7813-1b85-4a61-83b9-be258fb3062a
+2025-06-11 23:10:32,472 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-06-11 23:10:54,263 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-11 23:10:54,264 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.001초
+2025-06-11 23:10:54,466 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-11 23:10:54,475 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-06-11 23:10:54,481 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.015초
+2025-06-11 23:10:59,011 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-06-11 23:10:59,012 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.001초
+2025-06-11 23:10:59,292 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-06-11 23:10:59,295 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.003초
+2025-06-11 23:12:05,503 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/users/
+2025-06-11 23:12:05,650 - app.crud - INFO - 새 사용자 생성됨: UUID=adb9dcfa-4a40-4646-9579-6f820da5eb08, 닉네임=사용자
+2025-06-11 23:12:05,650 - app.routers.users - INFO - 새 사용자 생성 성공: UUID=adb9dcfa-4a40-4646-9579-6f820da5eb08
+2025-06-11 23:12:05,653 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/users/ - 상태: 201 - 시간: 0.151초
+2025-06-11 23:12:21,492 - app.main - INFO - 요청 시작: GET http://localhost:8000/api/users/adb9dcfa-4a40-4646-9579-6f820da5eb08
+2025-06-11 23:12:21,541 - app.main - INFO - 요청 완료: GET http://localhost:8000/api/users/adb9dcfa-4a40-4646-9579-6f820da5eb08 - 상태: 200 - 시간: 0.049초
+2025-06-11 23:12:38,071 - app.main - INFO - 요청 시작: GET http://localhost:8000/api/users/adb9dcfa-4a40-4646-9579-6f820da5eb08/stats
+2025-06-11 23:12:38,101 - app.main - INFO - 요청 완료: GET http://localhost:8000/api/users/adb9dcfa-4a40-4646-9579-6f820da5eb08/stats - 상태: 200 - 시간: 0.030초
+2025-06-11 23:12:48,129 - app.main - INFO - 요청 시작: DELETE http://localhost:8000/api/users/adb9dcfa-4a40-4646-9579-6f820da5eb08
+2025-06-11 23:12:48,140 - app.crud - INFO - 사용자 논리적 삭제됨: UUID=adb9dcfa-4a40-4646-9579-6f820da5eb08
+2025-06-11 23:12:48,140 - app.routers.users - INFO - 사용자 삭제 완료: UUID=adb9dcfa-4a40-4646-9579-6f820da5eb08
+2025-06-11 23:12:48,142 - app.main - INFO - 요청 완료: DELETE http://localhost:8000/api/users/adb9dcfa-4a40-4646-9579-6f820da5eb08 - 상태: 204 - 시간: 0.014초
+2025-06-11 23:53:29,972 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-07-22 13:39:10,400 - app.main - INFO - 사용자 라우터 등록 완료
+2025-07-22 13:39:10,423 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-07-22 13:39:10,423 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-07-22 13:39:10,517 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-22 13:40:37,044 - app.main - INFO - 사용자 라우터 등록 완료
+2025-07-22 13:40:37,048 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-07-22 13:40:37,048 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-07-22 13:40:37,131 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-22 13:53:50,384 - app.main - INFO - 사용자 라우터 등록 완료
+2025-07-22 13:53:50,418 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-07-22 13:53:50,418 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-07-22 13:53:50,577 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-22 14:36:21,037 - app.main - INFO - 사용자 라우터 등록 완료
+2025-07-22 14:36:21,041 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-07-22 14:36:21,041 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-07-22 14:36:21,303 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-22 14:37:33,505 - app.main - INFO - 사용자 라우터 등록 완료
+2025-07-22 14:37:33,532 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-07-22 14:37:33,532 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-07-22 14:37:33,616 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-22 14:42:39,371 - app.main - INFO - 사용자 라우터 등록 완료
+2025-07-22 14:42:39,379 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-07-22 14:42:39,379 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-07-22 14:42:39,593 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-22 14:45:09,786 - app.main - INFO - 사용자 라우터 등록 완료
+2025-07-22 14:45:09,789 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-07-22 14:45:09,790 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-07-22 14:45:09,840 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-22 14:49:49,972 - app.main - INFO - 사용자 라우터 등록 완료
+2025-07-22 14:49:49,975 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-07-22 14:49:49,975 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-07-22 14:49:49,997 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-22 14:54:40,856 - app.main - INFO - 사용자 라우터 등록 완료
+2025-07-22 14:54:40,859 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-07-22 14:54:40,859 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-07-22 14:54:40,898 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-22 14:56:29,328 - app.main - INFO - 사용자 라우터 등록 완료
+2025-07-22 14:56:29,331 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-07-22 14:56:29,331 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-07-22 14:56:29,410 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-07-22 14:56:29,411 - app.main - INFO - UUID 생성 테스트 성공: fcda4f0c-9718-442f-ad44-00ab962b6366
+2025-07-22 14:56:29,411 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-07-22 14:57:24,001 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-07-22 14:57:24,002 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.001초
+2025-07-22 14:57:28,168 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-07-22 14:57:28,208 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-07-22 14:57:28,236 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.068초
+2025-09-10 22:28:24,904 - app.main - INFO - 사용자 라우터 등록 완료
+2025-09-10 22:28:24,906 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-09-10 22:28:24,907 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-09-10 22:28:25,069 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-10 22:32:44,764 - app.main - INFO - 사용자 라우터 등록 완료
+2025-09-10 22:32:44,771 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-09-10 22:32:44,772 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-09-10 22:32:44,883 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-10 22:34:30,045 - app.main - INFO - 사용자 라우터 등록 완료
+2025-09-10 22:34:30,059 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-09-10 22:34:30,059 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-09-10 22:34:30,096 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-10 22:36:56,743 - app.main - INFO - 사용자 라우터 등록 완료
+2025-09-10 22:36:56,746 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-09-10 22:36:56,747 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-09-10 22:36:56,774 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-10 22:38:09,156 - app.main - INFO - 사용자 라우터 등록 완료
+2025-09-10 22:38:09,159 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-09-10 22:38:09,159 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-09-10 22:38:09,195 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-10 22:38:49,780 - app.main - INFO - 사용자 라우터 등록 완료
+2025-09-10 22:38:49,782 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-09-10 22:38:49,783 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-09-10 22:38:49,801 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-10 22:39:18,344 - app.main - INFO - 사용자 라우터 등록 완료
+2025-09-10 22:39:18,346 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-09-10 22:39:18,347 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-09-10 22:39:18,390 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-09-10 22:39:18,390 - app.main - INFO - UUID 생성 테스트 성공: 20d2d7f7-5cb2-4775-8958-58417a57f0d4
+2025-09-10 22:39:18,391 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-09-10 22:39:33,812 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-09-10 22:39:33,813 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.001초
+2025-09-10 22:39:34,122 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-09-10 22:39:34,133 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-09-10 22:39:34,140 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.018초
+2025-09-10 22:42:18,375 - app.main - INFO - DaySync API 서버가 종료됩니다
