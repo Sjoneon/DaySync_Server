@@ -3,6 +3,8 @@
 # uvicorn app.main:app --reload  <-- 이 명령어로 서버 실행
 
 from fastapi import FastAPI, Depends, HTTPException, Request
+from .routers import users, ai_chat  # ai_cha → ai_chat으로 수정
+from .database import engine, Base
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
@@ -15,8 +17,7 @@ import sys
 # 로컬 모듈 임포트 (상대 경로로 수정)
 from . import models
 from . import schemas
-from .database import engine, get_db
-from .routers import users
+from .database import get_db
 
 
 # 로깅 설정
@@ -70,7 +71,7 @@ app = FastAPI(
     ## 주요 기능
     
     * **사용자 관리**: UUID 기반 로그인 없는 사용자 시스템
-    * **대화 세션**: AI와의 대화 세션 관리 (추후 구현)
+    * **AI 대화**: Gemini 1.5 Flash 기반 AI 비서
     * **버스 정보**: 실시간 버스 정보 제공 (추후 구현_외부 API)
     * **일정 관리**: 개인 일정 및 알람 관리 (추후 구현_고민)
     
@@ -79,6 +80,7 @@ app = FastAPI(
     1. **사용자 생성**: POST /api/users/ 로 새 사용자 생성
     2. **UUID 저장**: 반환받은 UUID를 앱에서 저장하여 사용
     3. **API 호출**: 이후 모든 API 호출 시 UUID 사용
+    4. **AI 대화**: POST /api/ai/chat 로 AI와 대화
     
     ## 테스트 방법
     
@@ -86,7 +88,7 @@ app = FastAPI(
     2. POST /api/users/ 로 사용자 생성 테스트
     3. 생성된 UUID로 다른 API 테스트
     """,
-    version="0.1.7",
+    version="0.2.0",
     contact={
         "name": "DaySync 개발자자",
         "email": "spdjdps1649@gmail.com"
@@ -155,6 +157,9 @@ async def global_exception_handler(request: Request, exc: Exception):
 try:
     app.include_router(users.router)
     logger.info("사용자 라우터 등록 완료")
+    
+    app.include_router(ai_chat.router)  # AI 채팅 라우터 추가
+    logger.info("AI 채팅 라우터 등록 완료")
 except Exception as e:
     logger.error("라우터 등록 실패: {}".format(e))
 
@@ -173,12 +178,13 @@ async def read_root():
     return schemas.SuccessResponse(
         message="DaySync API에 오신 것을 환영합니다! 서버가 정상적으로 실행 중입니다.",
         data={
-            "version": "0.1.0",
+            "version": "0.2.0",
             "status": "running",
-            "features": ["사용자 관리", "대화 세션 (예정)", "버스 정보 (예정)", "일정 관리 (예정)"],
+            "features": ["사용자 관리", "AI 대화", "버스 정보 (예정)", "일정 관리 (예정)"],
             "endpoints": {
                 "docs": "/docs",
                 "users": "/api/users",
+                "ai": "/api/ai",
                 "health": "/health"
             }
         }
@@ -216,7 +222,7 @@ async def health_check(db: Session = Depends(get_db)):
         status="healthy",
         timestamp=time.time(),
         database=db_status,
-        version="0.1.0"
+        version="0.2.0"
     )
 
 @app.get("/api/info",
@@ -230,19 +236,21 @@ async def api_info():
     """
     return {
         "api_name": "DaySync API",
-        "version": "0.1.7",
+        "version": "0.2.0",
         "description": "버스 기반 일정-이동 최적화 비서",
         "supported_features": {
             "user_management": True,
             "uuid_generation": True,
-            "chat_sessions": False,  # 추후 구현
-            "bus_info": False,       # 추후 구현
-            "calendar": False,       # 추후 구현
-            "alarms": False,         # 추후 구현
-            "weather": False         # 추후 구현
+            "ai_chat": True,          # AI 채팅 추가
+            "chat_sessions": True,    # 세션 관리 추가
+            "bus_info": False,        # 추후 구현
+            "calendar": False,        # 추후 구현
+            "alarms": False,          # 추후 구현
+            "weather": False          # 추후 구현
         },
         "endpoints": {
             "users": "/api/users",
+            "ai": "/api/ai",          # AI 엔드포인트 추가
             "sessions": "/api/sessions",  # 추후 구현
             "messages": "/api/messages",  # 추후 구현
             "bus": "/api/bus",           # 추후 구현
@@ -254,7 +262,8 @@ async def api_info():
             "quick_test": {
                 "step1": "POST /api/users/ (새 사용자 생성)",
                 "step2": "GET /api/users/{uuid} (사용자 정보 조회)",
-                "step3": "PUT /api/users/{uuid} (사용자 정보 수정)"
+                "step3": "POST /api/ai/chat (AI와 대화)",
+                "step4": "PUT /api/users/{uuid} (사용자 정보 수정)"
             }
         },
         "contact": {

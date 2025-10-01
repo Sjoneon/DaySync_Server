@@ -5,9 +5,11 @@ from sqlalchemy.pool import QueuePool
 import os
 import logging
 from dotenv import load_dotenv
+from pathlib import Path
 
-# 환경변수 로드
-load_dotenv()
+# .env 파일 경로 명시적으로 지정
+env_path = Path(__file__).parent / '.env'
+load_dotenv(dotenv_path=env_path)
 
 # 로깅 설정
 logger = logging.getLogger(__name__)
@@ -16,7 +18,7 @@ logger = logging.getLogger(__name__)
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PORT = os.getenv("DB_PORT", "3306")
 DB_USER = os.getenv("DB_USER", "root")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "0000")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "0000")  # 이제 .env에서 "1234"를 읽음
 DB_NAME = os.getenv("DB_NAME", "daysync_db")
 
 # 데이터베이스 URL 생성

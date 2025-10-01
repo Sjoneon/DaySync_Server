@@ -1,8 +1,8 @@
 # app/models.py
-from sqlalchemy import Column, Integer, String, Boolean, DateTime, Text, Float, JSON, DECIMAL, ForeignKey, Index
+from datetime import datetime
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, Text, Float, ForeignKey, func
 from sqlalchemy.orm import relationship, Mapped, mapped_column
-from sqlalchemy.sql import func
-from .database import Base  # 상대 경로로 수정되었습니다.
+from .database import Base
 
 class User(Base):
     """사용자 정보 테이블"""
@@ -24,6 +24,7 @@ class User(Base):
     alarms: Mapped[list["Alarm"]] = relationship("Alarm", back_populates="user_owner", cascade="all, delete-orphan")
     notifications: Mapped[list["Notification"]] = relationship("Notification", back_populates="user_owner", cascade="all, delete-orphan")
     user_patterns: Mapped[list["UserPattern"]] = relationship("UserPattern", back_populates="user_owner", cascade="all, delete-orphan")
+    sessions = relationship("Session", back_populates="user", cascade="all, delete-orphan")
 
     __table_args__ = (
         Index('idx_uuid', 'uuid'),
@@ -240,3 +241,34 @@ class PoiCache(Base):
     __table_args__ = (
         Index('idx_poi_loc_cat_query_expires', 'latitude', 'longitude', 'category', 'expires_at'),
     )
+    
+class Session(Base):
+    """AI 대화 세션 테이블"""
+    __tablename__ = "sessions"
+    
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
+    user_uuid: Mapped[str] = mapped_column(String(36), ForeignKey("users.uuid", ondelete="CASCADE"), nullable=False)
+    title: Mapped[str] = mapped_column(String(255), default="새 대화")
+    category: Mapped[str] = mapped_column(String(50), default="general")
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=func.now(), onupdate=func.now())
+    
+    # Relationships
+    user = relationship("User", back_populates="sessions")
+    messages = relationship("Message", back_populates="session", cascade="all, delete-orphan")
+
+
+class Message(Base):
+    """AI 대화 메시지 테이블"""
+    __tablename__ = "messages"
+    
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
+    session_id: Mapped[int] = mapped_column(Integer, ForeignKey("sessions.id", ondelete="CASCADE"), nullable=False)
+    content: Mapped[str] = mapped_column(Text, nullable=False)
+    is_user: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    intent: Mapped[str] = mapped_column(String(100), nullable=True)
+    confidence: Mapped[float] = mapped_column(Float, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
+    
+    # Relationships
+    session = relationship("Session", back_populates="messages")

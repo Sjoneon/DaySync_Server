@@ -288,3 +288,757 @@ To install, run: pip install email-validator
 To install, run: pip install email-validator
 2025-09-10 22:39:34,140 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.018초
 2025-09-10 22:42:18,375 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-01 12:46:10,277 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:46:10,280 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:46:10,280 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:46:10,426 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 12:47:24,058 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:47:24,064 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:47:24,064 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:47:24,102 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 12:49:29,768 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:49:29,771 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:49:29,772 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:49:29,798 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 12:49:45,735 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:49:45,739 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:49:45,739 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:49:45,776 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 12:51:09,124 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:51:09,129 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:51:09,129 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:51:09,165 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 12:53:32,206 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:53:32,209 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:53:32,209 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:53:32,235 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 12:55:05,582 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:55:05,585 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:55:05,585 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:55:05,609 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 12:55:14,840 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:55:14,843 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:55:14,843 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:55:14,865 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 12:55:40,673 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:55:40,677 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:55:40,677 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:55:40,702 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 12:55:56,438 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:55:56,441 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:55:56,441 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:55:56,460 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 12:56:48,268 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:56:48,268 - app.main - ERROR - 라우터 등록 실패: module 'app.routers.ai_chat' has no attribute 'router'
+2025-10-01 12:56:48,271 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:56:48,272 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:56:48,303 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 12:58:02,388 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 12:58:02,389 - app.main - ERROR - 라우터 등록 실패: module 'app.routers.ai_chat' has no attribute 'router'
+2025-10-01 12:58:02,392 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 12:58:02,393 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 12:58:02,419 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 13:06:59,960 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 13:06:59,964 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-01 13:06:59,968 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 13:06:59,968 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 13:07:00,003 - app.main - ERROR - 데이터베이스 초기화 오류: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-01 13:14:12,965 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 13:14:12,969 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-01 13:14:12,972 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 13:14:12,973 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 13:14:13,013 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-01 13:14:13,014 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,017 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-01 13:14:13,018 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,020 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-01 13:14:13,020 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,023 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:14:13,024 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-01 13:14:13,025 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,033 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-01 13:14:13,034 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,038 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-01 13:14:13,038 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,041 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-01 13:14:13,041 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,044 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-01 13:14:13,045 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,048 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-01 13:14:13,049 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,054 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-01 13:14:13,054 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,056 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-01 13:14:13,057 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,062 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-01 13:14:13,063 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,065 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-01 13:14:13,066 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,071 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-01 13:14:13,071 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,074 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-01 13:14:13,075 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:14:13,079 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:14:13,081 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-01 13:14:13,082 - app.main - INFO - UUID 생성 테스트 성공: 86798309-615f-4190-be4b-03556a0ebeb0
+2025-10-01 13:14:13,082 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-01 13:15:02,225 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-10-01 13:15:02,226 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.002초
+2025-10-01 13:15:02,697 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-10-01 13:15:02,710 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-10-01 13:15:02,722 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.025초
+2025-10-01 13:15:20,277 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/users/
+2025-10-01 13:15:20,316 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:15:20,322 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:15:20,323 - sqlalchemy.engine.Engine - INFO - [generated in 0.00132s] {'uuid_1': '3bd7285f-3cdf-49e4-ad42-4bbe52ccb581', 'param_1': 1}
+2025-10-01 13:15:20,333 - sqlalchemy.engine.Engine - INFO - INSERT INTO users (uuid, nickname, prep_time, created_at, last_active, is_deleted) VALUES (%(uuid)s, %(nickname)s, %(prep_time)s, %(created_at)s, %(last_active)s, %(is_deleted)s)
+2025-10-01 13:15:20,334 - sqlalchemy.engine.Engine - INFO - [generated in 0.00113s] {'uuid': '3bd7285f-3cdf-49e4-ad42-4bbe52ccb581', 'nickname': '사용자', 'prep_time': 1800, 'created_at': datetime.datetime(2025, 10, 1, 13, 15, 20, 331346), 'last_active': datetime.datetime(2025, 10, 1, 13, 15, 20, 331350), 'is_deleted': 0}
+2025-10-01 13:15:20,351 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:15:20,359 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:15:20,361 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.uuid, users.nickname, users.prep_time, users.created_at, users.last_active, users.is_deleted 
+FROM users 
+WHERE users.id = %(pk_1)s
+2025-10-01 13:15:20,361 - sqlalchemy.engine.Engine - INFO - [generated in 0.00156s] {'pk_1': 1}
+2025-10-01 13:15:20,365 - app.crud - INFO - 새 사용자 생성됨: UUID=3bd7285f-3cdf-49e4-ad42-4bbe52ccb581, 닉네임=사용자
+2025-10-01 13:15:20,366 - app.routers.users - INFO - 새 사용자 생성 성공: UUID=3bd7285f-3cdf-49e4-ad42-4bbe52ccb581
+2025-10-01 13:15:20,369 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:15:20,375 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/users/ - 상태: 201 - 시간: 0.098초
+2025-10-01 13:16:53,905 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/ai/chat
+2025-10-01 13:16:53,913 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:16:53,917 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:16:53,918 - sqlalchemy.engine.Engine - INFO - [generated in 0.00205s] {'uuid_1': '3bd7285f-3cdf-49e4-ad42-4bbe52ccb581', 'param_1': 1}
+2025-10-01 13:16:53,925 - sqlalchemy.engine.Engine - INFO - INSERT INTO sessions (user_uuid, title, category, created_at, updated_at) VALUES (%(user_uuid)s, %(title)s, %(category)s, now(), now())
+2025-10-01 13:16:53,926 - sqlalchemy.engine.Engine - INFO - [generated in 0.00141s] {'user_uuid': '3bd7285f-3cdf-49e4-ad42-4bbe52ccb581', 'title': '새 대화', 'category': 'general'}
+2025-10-01 13:16:53,973 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:16:53,986 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:16:53,994 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id, sessions.user_uuid, sessions.title, sessions.category, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = %(pk_1)s
+2025-10-01 13:16:53,996 - sqlalchemy.engine.Engine - INFO - [generated in 0.00337s] {'pk_1': 1}
+2025-10-01 13:16:54,011 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-01 13:16:54,014 - sqlalchemy.engine.Engine - INFO - [generated in 0.00423s] {'session_id_1': 1, 'param_1': 10}
+2025-10-01 13:16:54,521 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:16:54,527 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-01 13:16:54,530 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/ai/chat - 상태: 500 - 시간: 0.625초
+2025-10-01 13:18:12,841 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-01 13:18:20,163 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 13:18:20,165 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-01 13:18:20,168 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 13:18:20,169 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 13:18:20,189 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-01 13:18:20,189 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,192 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-01 13:18:20,193 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,194 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-01 13:18:20,194 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,196 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:18:20,196 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-01 13:18:20,197 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,202 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-01 13:18:20,202 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,205 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-01 13:18:20,205 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,209 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-01 13:18:20,209 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,212 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-01 13:18:20,213 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,216 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-01 13:18:20,216 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,220 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-01 13:18:20,221 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,224 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-01 13:18:20,224 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,228 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-01 13:18:20,229 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,232 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-01 13:18:20,233 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,236 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-01 13:18:20,237 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,239 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-01 13:18:20,240 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:20,243 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:18:20,245 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-01 13:18:20,245 - app.main - INFO - UUID 생성 테스트 성공: faacae20-5fa6-4263-818f-fc00dcab8fa0
+2025-10-01 13:18:20,245 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-01 13:18:22,750 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 13:18:22,755 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-01 13:18:22,758 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 13:18:22,759 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 13:18:22,784 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-01 13:18:22,784 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,787 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-01 13:18:22,788 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,789 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-01 13:18:22,790 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,792 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:18:22,793 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-01 13:18:22,793 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,797 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-01 13:18:22,798 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,801 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-01 13:18:22,801 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,804 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-01 13:18:22,805 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,808 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-01 13:18:22,808 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,812 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-01 13:18:22,813 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,815 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-01 13:18:22,816 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,819 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-01 13:18:22,820 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,824 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-01 13:18:22,824 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,828 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-01 13:18:22,829 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,832 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-01 13:18:22,833 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,835 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-01 13:18:22,835 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:22,838 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:18:22,839 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-01 13:18:22,839 - app.main - INFO - UUID 생성 테스트 성공: 34d1f828-474c-44fd-9ee0-2eb709f49409
+2025-10-01 13:18:22,839 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-01 13:18:24,046 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-01 13:18:26,659 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 13:18:26,662 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-01 13:18:26,664 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 13:18:26,664 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 13:18:26,683 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-01 13:18:26,684 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,687 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-01 13:18:26,687 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,689 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-01 13:18:26,690 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,692 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:18:26,693 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-01 13:18:26,694 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,697 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-01 13:18:26,698 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,700 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-01 13:18:26,700 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,703 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-01 13:18:26,703 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,706 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-01 13:18:26,707 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,709 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-01 13:18:26,710 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,712 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-01 13:18:26,713 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,715 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-01 13:18:26,716 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,719 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-01 13:18:26,720 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,722 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-01 13:18:26,723 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,725 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-01 13:18:26,725 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,729 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-01 13:18:26,729 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:26,731 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:18:26,733 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-01 13:18:26,733 - app.main - INFO - UUID 생성 테스트 성공: 0eac1ec3-156e-4779-ba22-cd2c68862ad7
+2025-10-01 13:18:26,734 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-01 13:18:28,972 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 13:18:28,974 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-01 13:18:28,977 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 13:18:28,977 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 13:18:28,995 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-01 13:18:28,996 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:28,997 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-01 13:18:28,998 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:28,998 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-01 13:18:28,999 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,000 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:18:29,000 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-01 13:18:29,001 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,004 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-01 13:18:29,004 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,006 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-01 13:18:29,007 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,008 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-01 13:18:29,009 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,010 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-01 13:18:29,010 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,012 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-01 13:18:29,013 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,015 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-01 13:18:29,015 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,017 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-01 13:18:29,017 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,018 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-01 13:18:29,018 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,021 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-01 13:18:29,021 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,023 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-01 13:18:29,023 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,026 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-01 13:18:29,026 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:18:29,028 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:18:29,028 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-01 13:18:29,029 - app.main - INFO - UUID 생성 테스트 성공: c8a53105-f08f-4ba1-803b-7a2494f246c1
+2025-10-01 13:18:29,029 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-01 13:19:28,039 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 13:19:28,041 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-01 13:19:28,044 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 13:19:28,044 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 13:19:28,060 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-01 13:19:28,061 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,062 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-01 13:19:28,062 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,063 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-01 13:19:28,063 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,064 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:19:28,065 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-01 13:19:28,065 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,067 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-01 13:19:28,068 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,069 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-01 13:19:28,070 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,071 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-01 13:19:28,072 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,074 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-01 13:19:28,074 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,076 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-01 13:19:28,077 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,079 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-01 13:19:28,080 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,082 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-01 13:19:28,082 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,085 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-01 13:19:28,085 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,088 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-01 13:19:28,088 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,091 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-01 13:19:28,092 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,094 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-01 13:19:28,095 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:19:28,098 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:19:28,099 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-01 13:19:28,100 - app.main - INFO - UUID 생성 테스트 성공: 967a8be7-ee53-4e93-afe9-ea81999b5621
+2025-10-01 13:19:28,100 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-01 13:19:34,095 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-10-01 13:19:34,096 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.001초
+2025-10-01 13:19:34,858 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-10-01 13:19:34,877 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-10-01 13:19:34,886 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.029초
+2025-10-01 13:19:39,916 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/users/
+2025-10-01 13:19:39,948 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:19:39,953 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:19:39,954 - sqlalchemy.engine.Engine - INFO - [generated in 0.00161s] {'uuid_1': '34b55bcf-5f8b-44fa-97da-d1f8b41bde4a', 'param_1': 1}
+2025-10-01 13:19:39,960 - sqlalchemy.engine.Engine - INFO - INSERT INTO users (uuid, nickname, prep_time, created_at, last_active, is_deleted) VALUES (%(uuid)s, %(nickname)s, %(prep_time)s, %(created_at)s, %(last_active)s, %(is_deleted)s)
+2025-10-01 13:19:39,961 - sqlalchemy.engine.Engine - INFO - [generated in 0.00142s] {'uuid': '34b55bcf-5f8b-44fa-97da-d1f8b41bde4a', 'nickname': '사용자', 'prep_time': 1800, 'created_at': datetime.datetime(2025, 10, 1, 13, 19, 39, 956649), 'last_active': datetime.datetime(2025, 10, 1, 13, 19, 39, 956652), 'is_deleted': 0}
+2025-10-01 13:19:39,964 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:19:39,970 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:19:39,973 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.uuid, users.nickname, users.prep_time, users.created_at, users.last_active, users.is_deleted 
+FROM users 
+WHERE users.id = %(pk_1)s
+2025-10-01 13:19:39,974 - sqlalchemy.engine.Engine - INFO - [generated in 0.00168s] {'pk_1': 2}
+2025-10-01 13:19:39,978 - app.crud - INFO - 새 사용자 생성됨: UUID=34b55bcf-5f8b-44fa-97da-d1f8b41bde4a, 닉네임=사용자
+2025-10-01 13:19:39,978 - app.routers.users - INFO - 새 사용자 생성 성공: UUID=34b55bcf-5f8b-44fa-97da-d1f8b41bde4a
+2025-10-01 13:19:39,979 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:19:39,981 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/users/ - 상태: 201 - 시간: 0.065초
+2025-10-01 13:20:02,145 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/ai/chat
+2025-10-01 13:20:02,152 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:20:02,154 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:20:02,155 - sqlalchemy.engine.Engine - INFO - [generated in 0.00139s] {'uuid_1': '34b55bcf-5f8b-44fa-97da-d1f8b41bde4a', 'param_1': 1}
+2025-10-01 13:20:02,163 - sqlalchemy.engine.Engine - INFO - INSERT INTO sessions (user_uuid, title, category, created_at, updated_at) VALUES (%(user_uuid)s, %(title)s, %(category)s, now(), now())
+2025-10-01 13:20:02,164 - sqlalchemy.engine.Engine - INFO - [generated in 0.00163s] {'user_uuid': '34b55bcf-5f8b-44fa-97da-d1f8b41bde4a', 'title': '새 대화', 'category': 'general'}
+2025-10-01 13:20:02,170 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:20:02,180 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:20:02,189 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id, sessions.user_uuid, sessions.title, sessions.category, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = %(pk_1)s
+2025-10-01 13:20:02,192 - sqlalchemy.engine.Engine - INFO - [generated in 0.00419s] {'pk_1': 2}
+2025-10-01 13:20:02,207 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-01 13:20:02,209 - sqlalchemy.engine.Engine - INFO - [generated in 0.00402s] {'session_id_1': 2, 'param_1': 10}
+2025-10-01 13:20:02,771 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:20:02,777 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-01 13:20:02,781 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/ai/chat - 상태: 500 - 시간: 0.635초
+2025-10-01 13:20:37,964 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/ai/chat
+2025-10-01 13:20:37,972 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:20:37,975 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:20:37,977 - sqlalchemy.engine.Engine - INFO - [cached since 35.82s ago] {'uuid_1': '34b55bcf-5f8b-44fa-97da-d1f8b41bde4a', 'param_1': 1}
+2025-10-01 13:20:37,985 - sqlalchemy.engine.Engine - INFO - INSERT INTO sessions (user_uuid, title, category, created_at, updated_at) VALUES (%(user_uuid)s, %(title)s, %(category)s, now(), now())
+2025-10-01 13:20:37,987 - sqlalchemy.engine.Engine - INFO - [cached since 35.82s ago] {'user_uuid': '34b55bcf-5f8b-44fa-97da-d1f8b41bde4a', 'title': '새 대화', 'category': 'general'}
+2025-10-01 13:20:37,992 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:20:38,010 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:20:38,014 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id, sessions.user_uuid, sessions.title, sessions.category, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = %(pk_1)s
+2025-10-01 13:20:38,016 - sqlalchemy.engine.Engine - INFO - [cached since 35.83s ago] {'pk_1': 3}
+2025-10-01 13:20:38,024 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-01 13:20:38,027 - sqlalchemy.engine.Engine - INFO - [cached since 35.82s ago] {'session_id_1': 3, 'param_1': 10}
+2025-10-01 13:20:38,160 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:20:38,161 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-01 13:20:38,162 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/ai/chat - 상태: 500 - 시간: 0.198초
+2025-10-01 13:20:56,682 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/ai/chat
+2025-10-01 13:20:56,757 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:20:56,770 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:20:56,771 - sqlalchemy.engine.Engine - INFO - [generated in 0.00265s] {'uuid_1': '34b55bcf-5f8b-44fa-97da-d1f8b41bde4a', 'param_1': 1}
+2025-10-01 13:20:56,782 - sqlalchemy.engine.Engine - INFO - INSERT INTO sessions (user_uuid, title, category, created_at, updated_at) VALUES (%(user_uuid)s, %(title)s, %(category)s, now(), now())
+2025-10-01 13:20:56,784 - sqlalchemy.engine.Engine - INFO - [generated in 0.00247s] {'user_uuid': '34b55bcf-5f8b-44fa-97da-d1f8b41bde4a', 'title': '새 대화', 'category': 'general'}
+2025-10-01 13:20:56,789 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:20:56,798 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:20:56,803 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id, sessions.user_uuid, sessions.title, sessions.category, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = %(pk_1)s
+2025-10-01 13:20:56,805 - sqlalchemy.engine.Engine - INFO - [generated in 0.00295s] {'pk_1': 4}
+2025-10-01 13:20:56,816 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-01 13:20:56,817 - sqlalchemy.engine.Engine - INFO - [generated in 0.00247s] {'session_id_1': 4, 'param_1': 10}
+2025-10-01 13:20:57,182 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:20:57,186 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-01 13:20:57,188 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/ai/chat - 상태: 500 - 시간: 0.506초
+2025-10-01 13:21:55,900 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/ai/chat
+2025-10-01 13:21:55,905 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:21:55,907 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:21:55,909 - sqlalchemy.engine.Engine - INFO - [cached since 59.14s ago] {'uuid_1': '34b55bcf-5f8b-44fa-97da-d1f8b41bde4a', 'param_1': 1}
+2025-10-01 13:21:55,913 - sqlalchemy.engine.Engine - INFO - INSERT INTO sessions (user_uuid, title, category, created_at, updated_at) VALUES (%(user_uuid)s, %(title)s, %(category)s, now(), now())
+2025-10-01 13:21:55,913 - sqlalchemy.engine.Engine - INFO - [cached since 59.13s ago] {'user_uuid': '34b55bcf-5f8b-44fa-97da-d1f8b41bde4a', 'title': '새 대화', 'category': 'general'}
+2025-10-01 13:21:55,915 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:21:55,923 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:21:55,925 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id, sessions.user_uuid, sessions.title, sessions.category, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = %(pk_1)s
+2025-10-01 13:21:55,925 - sqlalchemy.engine.Engine - INFO - [cached since 59.12s ago] {'pk_1': 5}
+2025-10-01 13:21:55,929 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-01 13:21:55,929 - sqlalchemy.engine.Engine - INFO - [cached since 59.11s ago] {'session_id_1': 5, 'param_1': 10}
+2025-10-01 13:21:56,146 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:21:56,149 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-01 13:21:56,150 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/ai/chat - 상태: 500 - 시간: 0.251초
+2025-10-01 13:22:10,280 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-01 13:22:23,516 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 13:22:23,519 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-01 13:22:23,521 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 13:22:23,521 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 13:22:23,543 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-01 13:22:23,543 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,546 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-01 13:22:23,547 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,550 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-01 13:22:23,551 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,553 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:22:23,554 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-01 13:22:23,555 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,559 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-01 13:22:23,560 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,562 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-01 13:22:23,562 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,565 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-01 13:22:23,566 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,568 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-01 13:22:23,568 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,571 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-01 13:22:23,572 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,574 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-01 13:22:23,575 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,577 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-01 13:22:23,577 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,580 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-01 13:22:23,581 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,584 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-01 13:22:23,585 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,587 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-01 13:22:23,588 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,591 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-01 13:22:23,591 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:22:23,594 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:22:23,595 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-01 13:22:23,595 - app.main - INFO - UUID 생성 테스트 성공: 020b732f-4798-4c30-a9f4-63ce94c4f2e5
+2025-10-01 13:22:23,595 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-01 13:22:28,623 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-10-01 13:22:28,625 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.002초
+2025-10-01 13:22:28,963 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-10-01 13:22:28,973 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-10-01 13:22:28,979 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.016초
+2025-10-01 13:22:37,801 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/users/
+2025-10-01 13:22:37,848 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:22:37,852 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:22:37,853 - sqlalchemy.engine.Engine - INFO - [generated in 0.00157s] {'uuid_1': '20bfbbd8-d858-4938-a1e4-f7d7e3168265', 'param_1': 1}
+2025-10-01 13:22:37,858 - sqlalchemy.engine.Engine - INFO - INSERT INTO users (uuid, nickname, prep_time, created_at, last_active, is_deleted) VALUES (%(uuid)s, %(nickname)s, %(prep_time)s, %(created_at)s, %(last_active)s, %(is_deleted)s)
+2025-10-01 13:22:37,859 - sqlalchemy.engine.Engine - INFO - [generated in 0.00104s] {'uuid': '20bfbbd8-d858-4938-a1e4-f7d7e3168265', 'nickname': '사용자', 'prep_time': 1800, 'created_at': datetime.datetime(2025, 10, 1, 13, 22, 37, 856371), 'last_active': datetime.datetime(2025, 10, 1, 13, 22, 37, 856376), 'is_deleted': 0}
+2025-10-01 13:22:37,861 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:22:37,868 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:22:37,871 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.uuid, users.nickname, users.prep_time, users.created_at, users.last_active, users.is_deleted 
+FROM users 
+WHERE users.id = %(pk_1)s
+2025-10-01 13:22:37,872 - sqlalchemy.engine.Engine - INFO - [generated in 0.00130s] {'pk_1': 3}
+2025-10-01 13:22:37,874 - app.crud - INFO - 새 사용자 생성됨: UUID=20bfbbd8-d858-4938-a1e4-f7d7e3168265, 닉네임=사용자
+2025-10-01 13:22:37,875 - app.routers.users - INFO - 새 사용자 생성 성공: UUID=20bfbbd8-d858-4938-a1e4-f7d7e3168265
+2025-10-01 13:22:37,876 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:22:37,877 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/users/ - 상태: 201 - 시간: 0.076초
+2025-10-01 13:22:52,629 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/users/
+2025-10-01 13:22:52,633 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:22:52,634 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:22:52,635 - sqlalchemy.engine.Engine - INFO - [cached since 14.78s ago] {'uuid_1': '91769dbb-4f44-48e3-8854-42482feb2619', 'param_1': 1}
+2025-10-01 13:22:52,639 - sqlalchemy.engine.Engine - INFO - INSERT INTO users (uuid, nickname, prep_time, created_at, last_active, is_deleted) VALUES (%(uuid)s, %(nickname)s, %(prep_time)s, %(created_at)s, %(last_active)s, %(is_deleted)s)
+2025-10-01 13:22:52,639 - sqlalchemy.engine.Engine - INFO - [cached since 14.78s ago] {'uuid': '91769dbb-4f44-48e3-8854-42482feb2619', 'nickname': '사용자', 'prep_time': 1800, 'created_at': datetime.datetime(2025, 10, 1, 13, 22, 52, 637238), 'last_active': datetime.datetime(2025, 10, 1, 13, 22, 52, 637241), 'is_deleted': 0}
+2025-10-01 13:22:52,642 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:22:52,652 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:22:52,653 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.uuid, users.nickname, users.prep_time, users.created_at, users.last_active, users.is_deleted 
+FROM users 
+WHERE users.id = %(pk_1)s
+2025-10-01 13:22:52,653 - sqlalchemy.engine.Engine - INFO - [cached since 14.78s ago] {'pk_1': 4}
+2025-10-01 13:22:52,656 - app.crud - INFO - 새 사용자 생성됨: UUID=91769dbb-4f44-48e3-8854-42482feb2619, 닉네임=사용자
+2025-10-01 13:22:52,656 - app.routers.users - INFO - 새 사용자 생성 성공: UUID=91769dbb-4f44-48e3-8854-42482feb2619
+2025-10-01 13:22:52,657 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:22:52,660 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/users/ - 상태: 201 - 시간: 0.030초
+2025-10-01 13:23:29,443 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/ai/chat
+2025-10-01 13:23:29,446 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:23:29,448 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:23:29,448 - sqlalchemy.engine.Engine - INFO - [generated in 0.00069s] {'uuid_1': '91769dbb-4f44-48e3-8854-42482feb2619', 'param_1': 1}
+2025-10-01 13:23:29,452 - sqlalchemy.engine.Engine - INFO - INSERT INTO sessions (user_uuid, title, category, created_at, updated_at) VALUES (%(user_uuid)s, %(title)s, %(category)s, now(), now())
+2025-10-01 13:23:29,453 - sqlalchemy.engine.Engine - INFO - [generated in 0.00124s] {'user_uuid': '91769dbb-4f44-48e3-8854-42482feb2619', 'title': '새 대화', 'category': 'general'}
+2025-10-01 13:23:29,461 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:23:29,468 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:23:29,470 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id, sessions.user_uuid, sessions.title, sessions.category, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = %(pk_1)s
+2025-10-01 13:23:29,471 - sqlalchemy.engine.Engine - INFO - [generated in 0.00179s] {'pk_1': 6}
+2025-10-01 13:23:29,477 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-01 13:23:29,478 - sqlalchemy.engine.Engine - INFO - [generated in 0.00181s] {'session_id_1': 6, 'param_1': 10}
+2025-10-01 13:23:29,955 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:23:29,957 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-01 13:23:29,958 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/ai/chat - 상태: 500 - 시간: 0.514초
+2025-10-01 13:25:51,743 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-01 13:25:57,336 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 13:25:57,339 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-01 13:25:57,342 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 13:25:57,342 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 13:25:57,372 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-01 13:25:57,372 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,374 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-01 13:25:57,375 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,376 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-01 13:25:57,377 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,379 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:25:57,380 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-01 13:25:57,381 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,391 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-01 13:25:57,392 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,396 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-01 13:25:57,397 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,400 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-01 13:25:57,401 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,404 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-01 13:25:57,405 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,408 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-01 13:25:57,409 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,412 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-01 13:25:57,413 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,417 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-01 13:25:57,417 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,421 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-01 13:25:57,421 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,426 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-01 13:25:57,426 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,431 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-01 13:25:57,431 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,435 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-01 13:25:57,435 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:25:57,439 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:25:57,441 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-01 13:25:57,441 - app.main - INFO - UUID 생성 테스트 성공: a25c168b-0559-46d9-a666-34ae8a6e1038
+2025-10-01 13:25:57,441 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-01 13:26:03,518 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-01 13:26:06,213 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 13:26:06,217 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-01 13:26:06,219 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 13:26:06,220 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 13:26:06,250 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-01 13:26:06,252 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,257 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-01 13:26:06,258 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,261 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-01 13:26:06,262 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,267 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:26:06,270 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-01 13:26:06,271 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,278 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-01 13:26:06,280 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,286 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-01 13:26:06,287 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,295 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-01 13:26:06,295 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,302 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-01 13:26:06,304 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,311 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-01 13:26:06,314 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,323 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-01 13:26:06,324 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,334 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-01 13:26:06,335 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,341 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-01 13:26:06,343 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,353 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-01 13:26:06,354 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,361 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-01 13:26:06,362 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,367 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-01 13:26:06,368 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:06,374 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:26:06,376 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-01 13:26:06,377 - app.main - INFO - UUID 생성 테스트 성공: c61d9c4d-04d1-4dfb-9dc6-96ae3d7b1928
+2025-10-01 13:26:06,378 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-01 13:26:25,883 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-01 13:26:25,887 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-01 13:26:25,890 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-01 13:26:25,891 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-01 13:26:25,926 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-01 13:26:25,927 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,929 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-01 13:26:25,930 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,931 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-01 13:26:25,931 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,937 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:26:25,938 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-01 13:26:25,939 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,943 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-01 13:26:25,944 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,948 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-01 13:26:25,948 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,951 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-01 13:26:25,951 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,956 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-01 13:26:25,957 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,959 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-01 13:26:25,961 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,965 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-01 13:26:25,966 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,970 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-01 13:26:25,971 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,975 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-01 13:26:25,975 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,980 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-01 13:26:25,981 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,984 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-01 13:26:25,984 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,989 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-01 13:26:25,990 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-01 13:26:25,995 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:26:25,998 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-01 13:26:25,998 - app.main - INFO - UUID 생성 테스트 성공: ad0a09ba-ef0d-4ff0-837b-f9455211d4fd
+2025-10-01 13:26:25,999 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-01 13:26:36,287 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-10-01 13:26:36,288 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.001초
+2025-10-01 13:26:36,472 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-10-01 13:26:36,482 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-10-01 13:26:36,488 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.015초
+2025-10-01 13:26:57,075 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/ai/chat
+2025-10-01 13:26:57,116 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:26:57,121 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:26:57,122 - sqlalchemy.engine.Engine - INFO - [generated in 0.00159s] {'uuid_1': 'ad0a09ba-ef0d-4ff0-837b-f9455211d4fd', 'param_1': 1}
+2025-10-01 13:26:57,125 - app.database - ERROR - 데이터베이스 세션 오류: 404: 사용자를 찾을 수 없습니다.
+2025-10-01 13:26:57,126 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:26:57,130 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/ai/chat - 상태: 404 - 시간: 0.055초
+2025-10-01 13:28:28,808 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/users/
+2025-10-01 13:28:28,818 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:28:28,822 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:28:28,824 - sqlalchemy.engine.Engine - INFO - [generated in 0.00247s] {'uuid_1': 'd1c2baf0-af9e-4019-88f2-7118a0c2cb42', 'param_1': 1}
+2025-10-01 13:28:28,832 - sqlalchemy.engine.Engine - INFO - INSERT INTO users (uuid, nickname, prep_time, created_at, last_active, is_deleted) VALUES (%(uuid)s, %(nickname)s, %(prep_time)s, %(created_at)s, %(last_active)s, %(is_deleted)s)
+2025-10-01 13:28:28,833 - sqlalchemy.engine.Engine - INFO - [generated in 0.00155s] {'uuid': 'd1c2baf0-af9e-4019-88f2-7118a0c2cb42', 'nickname': '사용자', 'prep_time': 1800, 'created_at': datetime.datetime(2025, 10, 1, 13, 28, 28, 828057), 'last_active': datetime.datetime(2025, 10, 1, 13, 28, 28, 828062), 'is_deleted': 0}
+2025-10-01 13:28:28,838 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:28:28,846 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:28:28,850 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.uuid, users.nickname, users.prep_time, users.created_at, users.last_active, users.is_deleted 
+FROM users 
+WHERE users.id = %(pk_1)s
+2025-10-01 13:28:28,851 - sqlalchemy.engine.Engine - INFO - [generated in 0.00178s] {'pk_1': 5}
+2025-10-01 13:28:28,854 - app.crud - INFO - 새 사용자 생성됨: UUID=d1c2baf0-af9e-4019-88f2-7118a0c2cb42, 닉네임=사용자
+2025-10-01 13:28:28,855 - app.routers.users - INFO - 새 사용자 생성 성공: UUID=d1c2baf0-af9e-4019-88f2-7118a0c2cb42
+2025-10-01 13:28:28,857 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:28:28,863 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/users/ - 상태: 201 - 시간: 0.054초
+2025-10-01 13:29:50,246 - app.main - INFO - 요청 시작: POST http://localhost:8000/api/ai/chat
+2025-10-01 13:29:50,254 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:29:50,258 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-01 13:29:50,261 - sqlalchemy.engine.Engine - INFO - [cached since 173.1s ago] {'uuid_1': 'd1c2baf0-af9e-4019-88f2-7118a0c2cb42', 'param_1': 1}
+2025-10-01 13:29:50,277 - sqlalchemy.engine.Engine - INFO - INSERT INTO sessions (user_uuid, title, category, created_at, updated_at) VALUES (%(user_uuid)s, %(title)s, %(category)s, now(), now())
+2025-10-01 13:29:50,279 - sqlalchemy.engine.Engine - INFO - [generated in 0.00405s] {'user_uuid': 'd1c2baf0-af9e-4019-88f2-7118a0c2cb42', 'title': '새 대화', 'category': 'general'}
+2025-10-01 13:29:50,287 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-01 13:29:50,305 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-01 13:29:50,314 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id, sessions.user_uuid, sessions.title, sessions.category, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = %(pk_1)s
+2025-10-01 13:29:50,316 - sqlalchemy.engine.Engine - INFO - [generated in 0.00344s] {'pk_1': 7}
+2025-10-01 13:29:50,337 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-01 13:29:50,339 - sqlalchemy.engine.Engine - INFO - [generated in 0.00395s] {'session_id_1': 7, 'param_1': 10}
+2025-10-01 13:29:50,962 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-01 13:29:50,965 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-01 13:29:50,967 - app.main - INFO - 요청 완료: POST http://localhost:8000/api/ai/chat - 상태: 500 - 시간: 0.721초
+2025-10-01 13:34:57,941 - app.main - INFO - DaySync API 서버가 종료됩니다
