@@ -1,7 +1,7 @@
 # app/main.py
 
-# uvicorn app.main:app --reload  <-- 이 명령어로 서버 실행
-
+# uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload  <-- 이 명령어로 서버 실행
+# 현재 로컬에서 테스트 중이므로 안드로이드 스튜디오 - ApiClient.java에 있는 로컬 ip를 테스트 환경에 맞게 수정해야 정상 작동합니다.
 from fastapi import FastAPI, Depends, HTTPException, Request
 from .routers import users, ai_chat  # ai_cha → ai_chat으로 수정
 from .database import engine, Base
