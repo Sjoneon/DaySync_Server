@@ -1,0 +1,14 @@
+# Python
+   __pycache__/
+   *.py[cod]
+   venv/
+   env/
+   
+   # 환경 변수
+   .env
+   .env.*
+   *.env
+   
+   # 로그 파일
+   *.log
+   daysync_api.log
