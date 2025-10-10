@@ -5,6 +5,7 @@
 from fastapi import FastAPI, Depends, HTTPException, Request
 from .routers import users, ai_chat  # ai_cha → ai_chat으로 수정
 from .database import engine, Base
+from .routers import users, ai_chat, calendar_alarm  # calendar_alarm 
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
@@ -13,6 +14,7 @@ import logging
 import time
 import os
 import sys
+
 
 # 로컬 모듈 임포트 (상대 경로로 수정)
 from . import models
@@ -385,6 +387,21 @@ async def debug_db_test(db: Session = Depends(get_db)):
             status_code=500,
             detail=f"데이터베이스 테스트 실패: {str(e)}"
         )
+        
+try:
+    app.include_router(users.router)
+    logger.info("사용자 라우터 등록 완료")
+    
+    app.include_router(ai_chat.router)
+    logger.info("AI 채팅 라우터 등록 완료")
+    
+    # 새로 추가
+    app.include_router(calendar_alarm.router)
+    logger.info("일정/알람 라우터 등록 완료")
+    
+except Exception as e:
+    logger.error("라우터 등록 실패: {}".format(e))
+    
 
 if __name__ == "__main__":
     import uvicorn

@@ -12,3 +12,4 @@
    # 로그 파일
    *.log
    daysync_api.log
+app/.env

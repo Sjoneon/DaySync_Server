@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 import google.generativeai as genai
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Optional
 from dotenv import load_dotenv
 from pathlib import Path
@@ -24,8 +24,98 @@ if not GEMINI_API_KEY:
 
 genai.configure(api_key=GEMINI_API_KEY)
 
-# Gemini 2.0 Flash 모델 초기화
-model = genai.GenerativeModel('gemini-2.0-flash')
+create_schedule_function = genai.protos.FunctionDeclaration(
+    name="create_schedule",
+    description="사용자의 일정을 생성합니다. 날짜, 시간, 제목을 파악하여 일정을 추가합니다.",
+    parameters=genai.protos.Schema(
+        type=genai.protos.Type.OBJECT,
+        properties={
+            "title": genai.protos.Schema(type=genai.protos.Type.STRING, description="일정 제목"),
+            "start_time": genai.protos.Schema(type=genai.protos.Type.STRING, description="시작 시간 (ISO 8601 형식)"),
+            "end_time": genai.protos.Schema(type=genai.protos.Type.STRING, description="종료 시간 (선택)"),
+            "description": genai.protos.Schema(type=genai.protos.Type.STRING, description="일정 설명 (선택)"),
+            "location": genai.protos.Schema(type=genai.protos.Type.STRING, description="장소 (선택)")
+        },
+        required=["title", "start_time"]
+    )
+)
+
+create_alarm_function = genai.protos.FunctionDeclaration(
+    name="create_alarm",
+    description="사용자의 알람을 설정합니다. 시간과 레이블을 파악하여 알람을 추가합니다.",
+    parameters=genai.protos.Schema(
+        type=genai.protos.Type.OBJECT,
+        properties={
+            "time": genai.protos.Schema(type=genai.protos.Type.STRING, description="알람 시간 (ISO 8601 형식)"),
+            "label": genai.protos.Schema(type=genai.protos.Type.STRING, description="알람 레이블"),
+            "repeat_days": genai.protos.Schema(type=genai.protos.Type.STRING, description="반복 요일 (선택)")
+        },
+        required=["time", "label"]
+    )
+)
+
+schedule_tool = genai.protos.Tool(
+    function_declarations=[create_schedule_function, create_alarm_function]
+)
+# =============================================
+
+# Gemini 2.0 Flash 모델 초기화 (tools 파라미터 추가)
+model = genai.GenerativeModel('gemini-2.0-flash', tools=[schedule_tool])
+
+# ===== [새로 추가] Function 실행 헬퍼 함수 =====
+def execute_function_call(function_name: str, args: dict, user_uuid: str, db: Session):
+    """Gemini가 요청한 함수를 실행합니다."""
+    
+    if function_name == "create_schedule":
+        # 가이드라인 준수: null 체크
+        if not args.get("title") or not args.get("start_time"):
+            return {"status": "error", "message": "제목과 시작 시간이 필요합니다."}
+        
+        # 일정 생성
+        new_event = models.Calendar(
+            user_uuid=user_uuid,
+            event_title=args.get("title"),
+            event_start_time=datetime.fromisoformat(args.get("start_time")),
+            event_end_time=datetime.fromisoformat(args.get("end_time")) if args.get("end_time") else None,
+            description=args.get("description"),
+            location_alias=args.get("location")
+        )
+        db.add(new_event)
+        db.commit()
+        db.refresh(new_event)
+        
+        return {
+            "status": "success",
+            "message": f"'{args.get('title')}' 일정이 추가되었습니다.",
+            "event_id": new_event.id
+        }
+    
+    elif function_name == "create_alarm":
+        # 가이드라인 준수: null 체크
+        if not args.get("time") or not args.get("label"):
+            return {"status": "error", "message": "시간과 레이블이 필요합니다."}
+        
+        # 알람 생성
+        new_alarm = models.Alarm(
+            user_uuid=user_uuid,
+            alarm_time=datetime.fromisoformat(args.get("time")),
+            label=args.get("label"),
+            is_enabled=True,
+            repeat_days=args.get("repeat_days")
+        )
+        db.add(new_alarm)
+        db.commit()
+        db.refresh(new_alarm)
+        
+        return {
+            "status": "success",
+            "message": f"'{args.get('label')}' 알람이 설정되었습니다.",
+            "alarm_id": new_alarm.id
+        }
+    
+    else:
+        return {"status": "error", "message": "알 수 없는 함수입니다."}
+# =============================================
 
 # ========================================
 # Pydantic 스키마
@@ -42,6 +132,7 @@ class ChatResponse(BaseModel):
     ai_response: str
     session_id: int
     message_id: int
+    function_called: Optional[str] = None  # [새로 추가] 호출된 함수명
 
 # ========================================
 # AI 채팅 엔드포인트
@@ -58,7 +149,7 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
     - **context**: 추가 컨텍스트 정보 (선택)
     """
     try:
-        # 1. 사용자 존재 확인
+        # 1. 사용자 존재 확인 (가이드라인 준수: null 체크)
         user = db.query(models.User).filter(
             models.User.uuid == request.user_uuid,
             models.User.is_deleted == False
@@ -103,9 +194,17 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
             })
         
         # ============================================
-        # 시스템 프롬프트 (수정된 부분)
+        # 시스템 프롬프트 (기존 유지 + 날짜 정보만 추가)
         # ============================================
-        system_prompt = """당신은 DaySync 앱의 전용 AI 비서입니다.
+        current_time = datetime.now()
+        system_prompt = f"""당신은 DaySync 앱의 전용 AI 비서입니다.
+
+현재 시간: {current_time.strftime('%Y년 %m월 %d일 %H시 %M분')}
+
+상대적 시간 해석:
+- "내일" = {(current_time + timedelta(days=1)).strftime('%Y-%m-%d')}
+- "모레" = {(current_time + timedelta(days=2)).strftime('%Y-%m-%d')}
+- "다음 주" = {(current_time + timedelta(weeks=1)).strftime('%Y-%m-%d')}
 
 **역할 및 제공 가능한 기능:**
 1. 일정 관리 (일정 추가, 수정, 삭제, 조회, 알림 설정)
@@ -147,7 +246,14 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
 **답변 스타일:**
 - 친절하고 간결하게 답변합니다.
 - 필요시 일정 추가, 경로 검색, 알림 설정 등을 적극 제안합니다.
-- 사용자의 맥락을 고려하여 실용적인 조언을 제공합니다."""
+- 사용자의 맥락을 고려하여 실용적인 조언을 제공합니다.
+
+**일정/알람 추가 규칙 (중요):**
+- 사용자가 일정/알람 추가를 요청하면 즉시 함수를 호출하여 실행합니다.
+- 제목, 시간 등 필수 정보가 부족한 경우에만 한 번 질문합니다.
+- 정보를 받은 후에는 재확인 없이 바로 추가하고 "추가되었습니다"라고 알립니다.
+- "추가하시겠습니까?", "추가해드릴까요?" 같은 재확인 질문을 하지 않습니다.
+- 함수 실행 후에는 완료 메시지만 전달하고 추가 질문을 하지 않습니다."""
         
         if request.context:
             system_prompt += f"\n\n추가 컨텍스트: {request.context}"
@@ -161,7 +267,50 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
             # 새로운 대화 시작
             response = model.generate_content(system_prompt + "\n\n사용자: " + request.message)
         
-        ai_response_text = response.text
+        # ===== [새로 추가] Function Call 처리 =====
+        function_called = None
+        ai_response_text = ""
+        
+        # 가이드라인 준수: null 체크
+        if response and response.candidates and len(response.candidates) > 0:
+            if response.candidates[0].content and response.candidates[0].content.parts:
+                for part in response.candidates[0].content.parts:
+                    if hasattr(part, 'function_call') and part.function_call:
+                        func_call = part.function_call
+                        function_called = func_call.name
+                        
+                        # 함수 실행
+                        func_args = dict(func_call.args)
+                        result = execute_function_call(func_call.name, func_args, request.user_uuid, db)
+                        
+                        # 함수 실행 결과를 Gemini에게 전달
+                        function_response = genai.protos.Part(
+                            function_response=genai.protos.FunctionResponse(
+                                name=func_call.name,
+                                response={"result": result}
+                            )
+                        )
+                        
+                        # 최종 응답 생성
+                        if conversation_history:
+                            final_response = chat.send_message(function_response)
+                        else:
+                            # 새 채팅인 경우
+                            history = [
+                                {"role": "user", "parts": [system_prompt + "\n\n사용자: " + request.message]},
+                                {"role": "model", "parts": [part]}
+                            ]
+                            chat = model.start_chat(history=history)
+                            final_response = chat.send_message(function_response)
+                        
+                        ai_response_text = final_response.text if final_response else ""
+                    elif hasattr(part, 'text'):
+                        ai_response_text = part.text
+        
+        # 응답이 없으면 기본 메시지
+        if not ai_response_text:
+            ai_response_text = response.text if response else "응답을 생성할 수 없습니다."
+        # =============================================
         
         # 6. 사용자 메시지 저장
         user_message = models.Message(
@@ -189,7 +338,8 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
             success=True,
             ai_response=ai_response_text,
             session_id=session.id,
-            message_id=ai_message.id
+            message_id=ai_message.id,
+            function_called=function_called  # [새로 추가]
         )
         
     except HTTPException:

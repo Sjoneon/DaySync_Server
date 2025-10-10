@@ -2016,3 +2016,1202 @@ WHERE messages.id = %(pk_1)s
 2025-10-02 14:02:38,275 - sqlalchemy.engine.Engine - INFO - ROLLBACK
 2025-10-02 14:02:38,278 - app.main - INFO - 요청 완료: POST http://172.29.10.197:8000/api/ai/chat - 상태: 200 - 시간: 1.666초
 2025-10-02 14:17:05,999 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-02 14:17:13,720 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-02 14:17:13,723 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-02 14:17:13,725 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-02 14:17:13,725 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-02 14:17:13,750 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-02 14:17:13,750 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,753 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-02 14:17:13,753 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,754 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-02 14:17:13,755 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,756 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-02 14:17:13,757 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-02 14:17:13,757 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,761 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-02 14:17:13,761 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,764 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-02 14:17:13,764 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,766 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-02 14:17:13,767 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,769 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-02 14:17:13,769 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,771 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-02 14:17:13,772 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,774 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-02 14:17:13,775 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,777 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-02 14:17:13,778 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,781 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-02 14:17:13,781 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,783 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-02 14:17:13,783 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,786 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-02 14:17:13,787 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,789 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-02 14:17:13,789 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-02 14:17:13,792 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-02 14:17:13,793 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-02 14:17:13,793 - app.main - INFO - UUID 생성 테스트 성공: 8c0b2618-4011-44fe-8acc-5f70049e2b7a
+2025-10-02 14:17:13,794 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-02 14:17:46,768 - app.main - INFO - 요청 시작: POST http://172.29.10.197:8000/api/ai/chat
+2025-10-02 14:17:46,798 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-02 14:17:46,802 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-02 14:17:46,803 - sqlalchemy.engine.Engine - INFO - [generated in 0.00085s] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-02 14:17:46,806 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-02 14:17:46,807 - sqlalchemy.engine.Engine - INFO - [generated in 0.00069s] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-02 14:17:46,813 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-02 14:17:46,814 - sqlalchemy.engine.Engine - INFO - [generated in 0.00138s] {'session_id_1': 10, 'param_1': 10}
+2025-10-02 14:17:48,238 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-02 14:17:48,239 - sqlalchemy.engine.Engine - INFO - [generated in 0.00127s] {'updated_at': datetime.datetime(2025, 10, 2, 14, 17, 48, 234608), 'sessions_id': 10}
+2025-10-02 14:17:48,243 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-02 14:17:48,244 - sqlalchemy.engine.Engine - INFO - [generated in 0.00155s] {'session_id': 10, 'content': '소예찬이라는 인물을 서술해봐.', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-02 14:17:48,254 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-02 14:17:48,255 - sqlalchemy.engine.Engine - INFO - [cached since 0.01223s ago] {'session_id': 10, 'content': '죄송합니다. 해당 내용은 DaySync 앱에서 제공하지 않는 정보입니다.\n\n저는 다음과 같은 도움을 드릴 수 있습니다:\n- 일정 관리 및 알림 설정\n- 경로 안내 및 교통 정보\n- 시간 관리 및 준비 시간 계산\n\n어떤 일정이나 경로 관련 도움이 필요하신가요?\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-02 14:17:48,258 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-02 14:17:48,273 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-02 14:17:48,275 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-02 14:17:48,276 - sqlalchemy.engine.Engine - INFO - [generated in 0.00102s] {'pk_1': 44}
+2025-10-02 14:17:48,279 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-02 14:17:48,281 - app.main - INFO - 요청 완료: POST http://172.29.10.197:8000/api/ai/chat - 상태: 200 - 시간: 1.513초
+2025-10-03 19:23:11,521 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-03 19:23:11,525 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-03 19:23:11,528 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-03 19:23:11,529 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-03 19:23:11,671 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-03 19:23:11,671 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,675 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-03 19:23:11,675 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,678 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-03 19:23:11,678 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,680 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:23:11,681 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-03 19:23:11,682 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,702 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-03 19:23:11,703 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,709 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-03 19:23:11,709 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,712 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-03 19:23:11,713 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,716 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-03 19:23:11,717 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,720 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-03 19:23:11,721 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,725 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-03 19:23:11,726 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,729 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-03 19:23:11,730 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,733 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-03 19:23:11,734 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,737 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-03 19:23:11,738 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,741 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-03 19:23:11,742 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,744 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-03 19:23:11,745 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:23:11,748 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:23:11,749 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-03 19:23:11,750 - app.main - INFO - UUID 생성 테스트 성공: 953cadec-17a6-4089-90d8-116d8f4363bb
+2025-10-03 19:23:11,750 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-03 19:26:26,811 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:26:26,900 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:26:26,911 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:26:26,912 - sqlalchemy.engine.Engine - INFO - [generated in 0.00232s] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:26:26,928 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:26:26,931 - sqlalchemy.engine.Engine - INFO - [generated in 0.00368s] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:26:26,948 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:26:26,950 - sqlalchemy.engine.Engine - INFO - [generated in 0.00323s] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:26:28,267 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:26:28,268 - sqlalchemy.engine.Engine - INFO - [generated in 0.00224s] {'updated_at': datetime.datetime(2025, 10, 3, 19, 26, 28, 261390), 'sessions_id': 10}
+2025-10-03 19:26:28,295 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:26:28,297 - sqlalchemy.engine.Engine - INFO - [generated in 0.00323s] {'session_id': 10, 'content': '안녕', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:26:28,303 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:26:28,308 - sqlalchemy.engine.Engine - INFO - [cached since 0.01362s ago] {'session_id': 10, 'content': '안녕하세요! DaySync 앱의 AI 비서입니다. 오늘 하루도 효율적인 시간 관리와 편리한 이동을 위해 최선을 다하겠습니다. 어떤 도움이 필요하신가요? 😊\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:26:28,313 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:26:28,323 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:26:28,328 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:26:28,330 - sqlalchemy.engine.Engine - INFO - [generated in 0.00283s] {'pk_1': 46}
+2025-10-03 19:26:28,341 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:26:28,345 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 1.534초
+2025-10-03 19:26:40,004 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:26:40,007 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:26:40,008 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:26:40,008 - sqlalchemy.engine.Engine - INFO - [cached since 13.1s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:26:40,010 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:26:40,010 - sqlalchemy.engine.Engine - INFO - [cached since 13.08s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:26:40,019 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:26:40,021 - sqlalchemy.engine.Engine - INFO - [cached since 13.07s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:26:40,166 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:26:40,177 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 200
+Please retry in 19.764077737s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 19
+}
+]
+2025-10-03 19:26:40,185 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 500 - 시간: 0.181초
+2025-10-03 19:26:48,284 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:26:48,290 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:26:48,296 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:26:48,299 - sqlalchemy.engine.Engine - INFO - [cached since 21.39s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:26:48,305 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:26:48,313 - sqlalchemy.engine.Engine - INFO - [cached since 21.39s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:26:48,320 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:26:48,326 - sqlalchemy.engine.Engine - INFO - [cached since 21.38s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:26:48,450 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:26:48,457 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 200
+Please retry in 11.483785212s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 11
+}
+]
+2025-10-03 19:26:48,461 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 500 - 시간: 0.177초
+2025-10-03 19:27:01,715 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-03 19:27:09,885 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-03 19:27:09,887 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-03 19:27:09,889 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-03 19:27:09,890 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-03 19:27:09,917 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-03 19:27:09,918 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,919 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-03 19:27:09,920 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,921 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-03 19:27:09,922 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,923 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:27:09,924 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-03 19:27:09,924 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,931 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-03 19:27:09,931 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,933 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-03 19:27:09,934 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,936 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-03 19:27:09,937 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,939 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-03 19:27:09,940 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,942 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-03 19:27:09,943 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,945 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-03 19:27:09,945 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,948 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-03 19:27:09,948 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,951 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-03 19:27:09,951 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,953 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-03 19:27:09,953 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,956 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-03 19:27:09,957 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,959 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-03 19:27:09,959 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:27:09,961 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:27:09,962 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-03 19:27:09,963 - app.main - INFO - UUID 생성 테스트 성공: 3217d285-590a-43ad-ac0c-1c25f1c1a72c
+2025-10-03 19:27:09,963 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-03 19:27:15,795 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:27:15,829 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:27:15,835 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:27:15,836 - sqlalchemy.engine.Engine - INFO - [generated in 0.00182s] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:27:15,841 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:27:15,842 - sqlalchemy.engine.Engine - INFO - [generated in 0.00110s] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:27:15,847 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:27:15,848 - sqlalchemy.engine.Engine - INFO - [generated in 0.00119s] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:27:16,148 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:27:16,150 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 200
+Please retry in 43.780451421s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 43
+}
+]
+2025-10-03 19:27:16,151 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 500 - 시간: 0.356초
+2025-10-03 19:28:35,443 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-03 19:28:39,837 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-03 19:28:39,840 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-03 19:28:39,842 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-03 19:28:39,842 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-03 19:28:39,871 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-03 19:28:39,871 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,874 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-03 19:28:39,874 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,876 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-03 19:28:39,876 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,877 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:28:39,878 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-03 19:28:39,878 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,887 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-03 19:28:39,887 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,890 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-03 19:28:39,891 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,893 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-03 19:28:39,894 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,897 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-03 19:28:39,898 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,903 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-03 19:28:39,903 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,907 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-03 19:28:39,908 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,914 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-03 19:28:39,916 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,921 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-03 19:28:39,922 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,927 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-03 19:28:39,928 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,934 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-03 19:28:39,935 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,943 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-03 19:28:39,945 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:28:39,953 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:28:39,956 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-03 19:28:39,957 - app.main - INFO - UUID 생성 테스트 성공: c66663c6-c870-4810-affa-969626fe46ed
+2025-10-03 19:28:39,958 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-03 19:28:45,249 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:28:45,291 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:28:45,296 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:28:45,297 - sqlalchemy.engine.Engine - INFO - [generated in 0.00170s] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:28:45,303 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:28:45,304 - sqlalchemy.engine.Engine - INFO - [generated in 0.00142s] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:28:45,311 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:28:45,312 - sqlalchemy.engine.Engine - INFO - [generated in 0.00237s] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:28:45,770 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:28:45,773 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 200
+Please retry in 14.16204292s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 14
+}
+]
+2025-10-03 19:28:45,774 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 500 - 시간: 0.525초
+2025-10-03 19:30:16,250 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-03 19:30:20,529 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-03 19:30:20,534 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-03 19:30:20,536 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-03 19:30:20,536 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-03 19:30:20,563 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-03 19:30:20,563 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,565 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-03 19:30:20,566 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,567 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-03 19:30:20,567 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,568 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:30:20,569 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-03 19:30:20,570 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,574 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-03 19:30:20,575 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,578 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-03 19:30:20,580 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,583 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-03 19:30:20,583 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,585 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-03 19:30:20,585 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,588 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-03 19:30:20,589 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,591 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-03 19:30:20,592 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,594 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-03 19:30:20,595 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,598 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-03 19:30:20,598 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,601 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-03 19:30:20,602 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,605 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-03 19:30:20,605 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,609 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-03 19:30:20,609 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:30:20,611 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:30:20,613 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-03 19:30:20,613 - app.main - INFO - UUID 생성 테스트 성공: e8969b1e-c617-426a-a356-e89ed1784127
+2025-10-03 19:30:20,614 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-03 19:30:32,383 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:30:32,413 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:30:32,419 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:30:32,420 - sqlalchemy.engine.Engine - INFO - [generated in 0.00171s] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:30:32,428 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:30:32,430 - sqlalchemy.engine.Engine - INFO - [generated in 0.00192s] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:30:32,436 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:30:32,437 - sqlalchemy.engine.Engine - INFO - [generated in 0.00130s] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:30:32,880 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:30:32,884 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 200
+Please retry in 27.050593054s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 27
+}
+]
+2025-10-03 19:30:32,886 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 500 - 시간: 0.503초
+2025-10-03 19:31:10,176 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-03 19:31:14,506 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-03 19:31:14,508 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-03 19:31:14,510 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-03 19:31:14,511 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-03 19:31:14,534 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-03 19:31:14,534 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,536 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-03 19:31:14,536 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,537 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-03 19:31:14,537 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,539 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:31:14,539 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-03 19:31:14,540 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,544 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-03 19:31:14,544 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,547 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-03 19:31:14,548 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,550 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-03 19:31:14,551 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,553 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-03 19:31:14,554 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,556 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-03 19:31:14,557 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,560 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-03 19:31:14,560 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,563 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-03 19:31:14,564 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,566 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-03 19:31:14,567 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,569 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-03 19:31:14,570 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,572 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-03 19:31:14,573 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,575 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-03 19:31:14,576 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:14,578 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:31:14,579 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-03 19:31:14,579 - app.main - INFO - UUID 생성 테스트 성공: 7ed5386b-077c-4004-9c48-4c157fe833d8
+2025-10-03 19:31:14,579 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-03 19:31:22,030 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:31:22,070 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:31:22,076 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:31:22,077 - sqlalchemy.engine.Engine - INFO - [generated in 0.00150s] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:31:22,085 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:31:22,087 - sqlalchemy.engine.Engine - INFO - [generated in 0.00217s] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:31:22,096 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:31:22,098 - sqlalchemy.engine.Engine - INFO - [generated in 0.00252s] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:31:22,450 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:31:22,454 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 200
+Please retry in 37.484965728s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 37
+}
+]
+2025-10-03 19:31:22,455 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 500 - 시간: 0.425초
+2025-10-03 19:31:50,554 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-03 19:31:50,556 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-03 19:31:50,558 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-03 19:31:50,558 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-03 19:31:50,576 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-03 19:31:50,576 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,578 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-03 19:31:50,578 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,579 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-03 19:31:50,579 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,580 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:31:50,581 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-03 19:31:50,581 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,583 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-03 19:31:50,583 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,585 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-03 19:31:50,585 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,588 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-03 19:31:50,588 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,590 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-03 19:31:50,591 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,593 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-03 19:31:50,593 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,596 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-03 19:31:50,596 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,599 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-03 19:31:50,599 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,601 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-03 19:31:50,601 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,604 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-03 19:31:50,605 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,607 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-03 19:31:50,607 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,609 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-03 19:31:50,609 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:31:50,612 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:31:50,613 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-03 19:31:50,613 - app.main - INFO - UUID 생성 테스트 성공: 377ed43f-f690-4ab6-9d73-c45acf32b9f3
+2025-10-03 19:31:50,613 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-03 19:31:55,855 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:31:55,896 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:31:55,904 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:31:55,905 - sqlalchemy.engine.Engine - INFO - [generated in 0.00180s] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:31:55,911 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:31:55,912 - sqlalchemy.engine.Engine - INFO - [generated in 0.00171s] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:31:55,918 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:31:55,920 - sqlalchemy.engine.Engine - INFO - [generated in 0.00214s] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:31:56,226 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:31:56,229 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 200
+Please retry in 3.70529166s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 3
+}
+]
+2025-10-03 19:31:56,231 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 500 - 시간: 0.375초
+2025-10-03 19:31:58,587 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-03 19:48:02,080 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-03 19:48:02,082 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-03 19:48:02,085 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-03 19:48:02,085 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-03 19:48:02,108 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-03 19:48:02,109 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,111 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-03 19:48:02,111 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,112 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-03 19:48:02,113 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,114 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:48:02,114 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-03 19:48:02,115 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,120 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-03 19:48:02,121 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,123 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-03 19:48:02,123 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,126 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-03 19:48:02,126 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,129 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-03 19:48:02,129 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,133 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-03 19:48:02,134 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,136 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-03 19:48:02,137 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,139 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-03 19:48:02,139 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,141 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-03 19:48:02,142 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,145 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-03 19:48:02,145 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,147 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-03 19:48:02,147 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,150 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-03 19:48:02,150 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:48:02,153 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:48:02,154 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-03 19:48:02,154 - app.main - INFO - UUID 생성 테스트 성공: d8bc19c6-8b81-4b26-85ec-4149ef3e28de
+2025-10-03 19:48:02,154 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-03 19:48:08,398 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:48:08,423 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:48:08,427 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:48:08,427 - sqlalchemy.engine.Engine - INFO - [generated in 0.00117s] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:48:08,430 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:48:08,431 - sqlalchemy.engine.Engine - INFO - [generated in 0.00063s] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:48:08,434 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:48:08,435 - sqlalchemy.engine.Engine - INFO - [generated in 0.00086s] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:48:08,912 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:48:08,916 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 200
+Please retry in 51.00672613s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 51
+}
+]
+2025-10-03 19:48:08,918 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 500 - 시간: 0.519초
+2025-10-03 19:48:55,590 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-03 19:50:34,245 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-03 19:50:34,247 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-03 19:50:34,249 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-03 19:50:34,249 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-03 19:50:34,270 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-03 19:50:34,271 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,272 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-03 19:50:34,273 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,274 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-03 19:50:34,274 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,275 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:50:34,276 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-03 19:50:34,276 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,279 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-03 19:50:34,280 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,282 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-03 19:50:34,282 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,285 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-03 19:50:34,285 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,288 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-03 19:50:34,290 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,293 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-03 19:50:34,294 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,296 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-03 19:50:34,297 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,299 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-03 19:50:34,299 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,302 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-03 19:50:34,303 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,305 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-03 19:50:34,305 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,308 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-03 19:50:34,308 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,311 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-03 19:50:34,311 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:50:34,313 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:50:34,314 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-03 19:50:34,314 - app.main - INFO - UUID 생성 테스트 성공: 89c8c055-038e-4276-aa7f-94e066e8cfc8
+2025-10-03 19:50:34,315 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-03 19:50:52,802 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:50:52,843 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:50:52,847 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:50:52,848 - sqlalchemy.engine.Engine - INFO - [generated in 0.00107s] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:50:52,852 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:50:52,853 - sqlalchemy.engine.Engine - INFO - [generated in 0.00119s] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:50:52,865 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:50:52,867 - sqlalchemy.engine.Engine - INFO - [generated in 0.00167s] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:50:54,322 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:50:54,323 - sqlalchemy.engine.Engine - INFO - [generated in 0.00132s] {'updated_at': datetime.datetime(2025, 10, 3, 19, 50, 54, 320241), 'sessions_id': 10}
+2025-10-03 19:50:54,335 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:50:54,336 - sqlalchemy.engine.Engine - INFO - [generated in 0.00165s] {'session_id': 10, 'content': '테스트', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:50:54,339 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:50:54,340 - sqlalchemy.engine.Engine - INFO - [cached since 0.005721s ago] {'session_id': 10, 'content': '알겠습니다! DaySync 앱의 전용 AI 비서로서, 말씀해주신 규칙을 잘 숙지하고 테스트에 임하겠습니다. 어떤 질문으로 테스트를 진행해볼까요? 😊\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:50:54,343 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:50:54,354 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:50:54,359 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:50:54,360 - sqlalchemy.engine.Engine - INFO - [generated in 0.00190s] {'pk_1': 48}
+2025-10-03 19:50:54,364 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:50:54,367 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 1.565초
+2025-10-03 19:51:04,103 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:51:04,105 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:51:04,106 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:51:04,106 - sqlalchemy.engine.Engine - INFO - [cached since 11.26s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:51:04,108 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:51:04,108 - sqlalchemy.engine.Engine - INFO - [cached since 11.26s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:51:04,110 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:51:04,110 - sqlalchemy.engine.Engine - INFO - [cached since 11.25s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:51:04,994 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:51:04,995 - sqlalchemy.engine.Engine - INFO - [cached since 10.67s ago] {'updated_at': datetime.datetime(2025, 10, 3, 19, 51, 4, 993123), 'sessions_id': 10}
+2025-10-03 19:51:05,006 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:51:05,007 - sqlalchemy.engine.Engine - INFO - [cached since 10.67s ago] {'session_id': 10, 'content': '내일 5시일정 추가', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:51:05,010 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:51:05,013 - sqlalchemy.engine.Engine - INFO - [cached since 10.68s ago] {'session_id': 10, 'content': '어떤 일정을 추가해드릴까요? 제목을 말씀해주세요. 😊\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:51:05,016 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:51:05,023 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:51:05,029 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:51:05,031 - sqlalchemy.engine.Engine - INFO - [cached since 10.67s ago] {'pk_1': 50}
+2025-10-03 19:51:05,036 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:51:05,040 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 0.937초
+2025-10-03 19:51:14,450 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:51:14,454 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:51:14,456 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:51:14,456 - sqlalchemy.engine.Engine - INFO - [cached since 21.61s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:51:14,459 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:51:14,461 - sqlalchemy.engine.Engine - INFO - [cached since 21.61s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:51:14,465 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:51:14,466 - sqlalchemy.engine.Engine - INFO - [cached since 21.6s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:51:15,599 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:51:15,600 - sqlalchemy.engine.Engine - INFO - [cached since 21.28s ago] {'updated_at': datetime.datetime(2025, 10, 3, 19, 51, 15, 598087), 'sessions_id': 10}
+2025-10-03 19:51:15,603 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:51:15,604 - sqlalchemy.engine.Engine - INFO - [cached since 21.27s ago] {'session_id': 10, 'content': '착한아이', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:51:15,606 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:51:15,607 - sqlalchemy.engine.Engine - INFO - [cached since 21.27s ago] {'session_id': 10, 'content': '알겠습니다. 내일 5시에 어떤 일정을 추가해드릴까요? 😊 제목을 말씀해주세요.\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:51:15,609 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:51:15,615 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:51:15,617 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:51:15,618 - sqlalchemy.engine.Engine - INFO - [cached since 21.26s ago] {'pk_1': 52}
+2025-10-03 19:51:15,623 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:51:15,627 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 1.177초
+2025-10-03 19:51:25,780 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:51:25,785 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:51:25,786 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:51:25,787 - sqlalchemy.engine.Engine - INFO - [cached since 32.94s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:51:25,790 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:51:25,791 - sqlalchemy.engine.Engine - INFO - [cached since 32.94s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:51:25,794 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:51:25,796 - sqlalchemy.engine.Engine - INFO - [cached since 32.93s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:51:26,627 - sqlalchemy.engine.Engine - INFO - INSERT INTO calendars (user_uuid, event_title, event_start_time, event_end_time, description, location_alias, location_lat, location_lng, created_at, updated_at) VALUES (%(user_uuid)s, %(event_title)s, %(event_start_time)s, %(event_end_time)s, %(description)s, %(location_alias)s, %(location_lat)s, %(location_lng)s, now(), now())
+2025-10-03 19:51:26,628 - sqlalchemy.engine.Engine - INFO - [generated in 0.00151s] {'user_uuid': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'event_title': '착한아이', 'event_start_time': datetime.datetime(2025, 10, 4, 5, 0), 'event_end_time': None, 'description': None, 'location_alias': None, 'location_lat': None, 'location_lng': None}
+2025-10-03 19:51:26,685 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:51:26,690 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:51:26,694 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id, calendars.user_uuid, calendars.event_title, calendars.event_start_time, calendars.event_end_time, calendars.description, calendars.location_alias, calendars.location_lat, calendars.location_lng, calendars.created_at, calendars.updated_at 
+FROM calendars 
+WHERE calendars.id = %(pk_1)s
+2025-10-03 19:51:26,695 - sqlalchemy.engine.Engine - INFO - [generated in 0.00134s] {'pk_1': 1}
+2025-10-03 19:51:27,454 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:51:27,455 - sqlalchemy.engine.Engine - INFO - [cached since 33.13s ago] {'updated_at': datetime.datetime(2025, 10, 3, 19, 51, 27, 453102), 'sessions_id': 10}
+2025-10-03 19:51:27,458 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:51:27,459 - sqlalchemy.engine.Engine - INFO - [cached since 33.12s ago] {'session_id': 10, 'content': '제목 이름이 착한 아이라고', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:51:27,461 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:51:27,461 - sqlalchemy.engine.Engine - INFO - [cached since 33.13s ago] {'session_id': 10, 'content': "내일 오전 5시에 '착한아이' 일정을 추가했습니다. 다른 필요한 기능이 있으신가요? 😊\n", 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:51:27,462 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:51:27,466 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:51:27,467 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:51:27,467 - sqlalchemy.engine.Engine - INFO - [cached since 33.11s ago] {'pk_1': 54}
+2025-10-03 19:51:27,469 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:51:27,470 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 1.690초
+2025-10-03 19:51:33,157 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:51:33,159 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:51:33,160 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:51:33,160 - sqlalchemy.engine.Engine - INFO - [cached since 40.31s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:51:33,163 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:51:33,164 - sqlalchemy.engine.Engine - INFO - [cached since 40.31s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:51:33,165 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:51:33,166 - sqlalchemy.engine.Engine - INFO - [cached since 40.3s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:51:34,083 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:51:34,084 - sqlalchemy.engine.Engine - INFO - [cached since 39.76s ago] {'updated_at': datetime.datetime(2025, 10, 3, 19, 51, 34, 81765), 'sessions_id': 10}
+2025-10-03 19:51:34,094 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:51:34,096 - sqlalchemy.engine.Engine - INFO - [cached since 39.76s ago] {'session_id': 10, 'content': '없어', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:51:34,101 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:51:34,101 - sqlalchemy.engine.Engine - INFO - [cached since 39.77s ago] {'session_id': 10, 'content': '알겠습니다. 내일(2025-10-04) 오전 5시에 "착한 아이" 일정을 추가해 드릴까요?\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:51:34,105 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:51:34,112 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:51:34,114 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:51:34,115 - sqlalchemy.engine.Engine - INFO - [cached since 39.76s ago] {'pk_1': 56}
+2025-10-03 19:51:34,118 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:51:34,121 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 0.964초
+2025-10-03 19:51:44,705 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:51:44,709 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:51:44,710 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:51:44,711 - sqlalchemy.engine.Engine - INFO - [cached since 51.86s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:51:44,714 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:51:44,715 - sqlalchemy.engine.Engine - INFO - [cached since 51.86s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:51:44,719 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:51:44,720 - sqlalchemy.engine.Engine - INFO - [cached since 51.86s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:51:45,613 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:51:45,614 - sqlalchemy.engine.Engine - INFO - [cached since 51.29s ago] {'updated_at': datetime.datetime(2025, 10, 3, 19, 51, 45, 612368), 'sessions_id': 10}
+2025-10-03 19:51:45,617 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:51:45,617 - sqlalchemy.engine.Engine - INFO - [cached since 51.28s ago] {'session_id': 10, 'content': '추가해 다시 물어보지마', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:51:45,620 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:51:45,620 - sqlalchemy.engine.Engine - INFO - [cached since 51.29s ago] {'session_id': 10, 'content': "알겠습니다. 내일 오전 5시에 '착한아이' 일정을 추가해드릴까요?\n", 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:51:45,622 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:51:45,631 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:51:45,632 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:51:45,633 - sqlalchemy.engine.Engine - INFO - [cached since 51.28s ago] {'pk_1': 58}
+2025-10-03 19:51:45,637 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:51:45,641 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 0.936초
+2025-10-03 19:52:37,025 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:52:37,030 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:52:37,032 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:52:37,033 - sqlalchemy.engine.Engine - INFO - [cached since 104.2s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:52:37,037 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:52:37,038 - sqlalchemy.engine.Engine - INFO - [cached since 104.2s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:52:37,041 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:52:37,043 - sqlalchemy.engine.Engine - INFO - [cached since 104.2s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:52:37,872 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:52:37,874 - sqlalchemy.engine.Engine - INFO - [cached since 103.6s ago] {'updated_at': datetime.datetime(2025, 10, 3, 19, 52, 37, 871846), 'sessions_id': 10}
+2025-10-03 19:52:37,882 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:52:37,882 - sqlalchemy.engine.Engine - INFO - [cached since 103.5s ago] {'session_id': 10, 'content': '내일 오전 5시 일정 추가', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:52:37,884 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:52:37,884 - sqlalchemy.engine.Engine - INFO - [cached since 103.6s ago] {'session_id': 10, 'content': '어떤 일정을 추가해드릴까요? 제목을 말씀해주세요. 😊\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:52:37,890 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:52:37,894 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:52:37,895 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:52:37,896 - sqlalchemy.engine.Engine - INFO - [cached since 103.5s ago] {'pk_1': 60}
+2025-10-03 19:52:37,898 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:52:37,901 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 0.875초
+2025-10-03 19:52:43,671 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:52:43,677 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:52:43,680 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:52:43,682 - sqlalchemy.engine.Engine - INFO - [cached since 110.8s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:52:43,691 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:52:43,693 - sqlalchemy.engine.Engine - INFO - [cached since 110.8s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:52:43,701 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:52:43,703 - sqlalchemy.engine.Engine - INFO - [cached since 110.8s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:52:44,412 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:52:44,413 - sqlalchemy.engine.Engine - INFO - [cached since 110.1s ago] {'updated_at': datetime.datetime(2025, 10, 3, 19, 52, 44, 411308), 'sessions_id': 10}
+2025-10-03 19:52:44,417 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:52:44,418 - sqlalchemy.engine.Engine - INFO - [cached since 110.1s ago] {'session_id': 10, 'content': '착한아이', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:52:44,420 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:52:44,422 - sqlalchemy.engine.Engine - INFO - [cached since 110.1s ago] {'session_id': 10, 'content': '내일 오전 5시에 어떤 일정을 추가해드릴까요? 제목을 말씀해주세요. 😊\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:52:44,425 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:52:44,432 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:52:44,433 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:52:44,434 - sqlalchemy.engine.Engine - INFO - [cached since 110.1s ago] {'pk_1': 62}
+2025-10-03 19:52:44,437 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:52:44,441 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 0.771초
+2025-10-03 19:52:51,832 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:52:51,837 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:52:51,839 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:52:51,840 - sqlalchemy.engine.Engine - INFO - [cached since 119s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:52:51,844 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:52:51,845 - sqlalchemy.engine.Engine - INFO - [cached since 119s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:52:51,849 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:52:51,850 - sqlalchemy.engine.Engine - INFO - [cached since 119s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:52:52,752 - sqlalchemy.engine.Engine - INFO - INSERT INTO calendars (user_uuid, event_title, event_start_time, event_end_time, description, location_alias, location_lat, location_lng, created_at, updated_at) VALUES (%(user_uuid)s, %(event_title)s, %(event_start_time)s, %(event_end_time)s, %(description)s, %(location_alias)s, %(location_lat)s, %(location_lng)s, now(), now())
+2025-10-03 19:52:52,753 - sqlalchemy.engine.Engine - INFO - [cached since 86.13s ago] {'user_uuid': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'event_title': '착한아이', 'event_start_time': datetime.datetime(2025, 10, 4, 5, 0), 'event_end_time': None, 'description': None, 'location_alias': None, 'location_lat': None, 'location_lng': None}
+2025-10-03 19:52:52,755 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:52:52,766 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:52:52,769 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id, calendars.user_uuid, calendars.event_title, calendars.event_start_time, calendars.event_end_time, calendars.description, calendars.location_alias, calendars.location_lat, calendars.location_lng, calendars.created_at, calendars.updated_at 
+FROM calendars 
+WHERE calendars.id = %(pk_1)s
+2025-10-03 19:52:52,769 - sqlalchemy.engine.Engine - INFO - [cached since 86.08s ago] {'pk_1': 2}
+2025-10-03 19:52:53,731 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:52:53,731 - sqlalchemy.engine.Engine - INFO - [cached since 119.4s ago] {'updated_at': datetime.datetime(2025, 10, 3, 19, 52, 53, 730201), 'sessions_id': 10}
+2025-10-03 19:52:53,734 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:52:53,734 - sqlalchemy.engine.Engine - INFO - [cached since 119.4s ago] {'session_id': 10, 'content': '제목 이름이 착한아이라고', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:52:53,741 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:52:53,741 - sqlalchemy.engine.Engine - INFO - [cached since 119.4s ago] {'session_id': 10, 'content': "네, 내일 오전 5시에 '착한아이' 일정을 추가했습니다. 😊 다른 필요한 기능이 있으신가요?\n", 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:52:53,744 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:52:53,749 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:52:53,751 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:52:53,752 - sqlalchemy.engine.Engine - INFO - [cached since 119.4s ago] {'pk_1': 64}
+2025-10-03 19:52:53,758 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:52:53,762 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 1.929초
+2025-10-03 19:53:03,723 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:53:03,727 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:53:03,729 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:53:03,731 - sqlalchemy.engine.Engine - INFO - [cached since 130.9s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:53:03,736 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:53:03,738 - sqlalchemy.engine.Engine - INFO - [cached since 130.9s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:53:03,743 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:53:03,745 - sqlalchemy.engine.Engine - INFO - [cached since 130.9s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:53:04,849 - sqlalchemy.engine.Engine - INFO - INSERT INTO calendars (user_uuid, event_title, event_start_time, event_end_time, description, location_alias, location_lat, location_lng, created_at, updated_at) VALUES (%(user_uuid)s, %(event_title)s, %(event_start_time)s, %(event_end_time)s, %(description)s, %(location_alias)s, %(location_lat)s, %(location_lng)s, now(), now())
+2025-10-03 19:53:04,850 - sqlalchemy.engine.Engine - INFO - [cached since 98.22s ago] {'user_uuid': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'event_title': '착한아이', 'event_start_time': datetime.datetime(2025, 10, 4, 5, 0), 'event_end_time': None, 'description': None, 'location_alias': None, 'location_lat': None, 'location_lng': None}
+2025-10-03 19:53:04,852 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:53:04,863 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:53:04,866 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id, calendars.user_uuid, calendars.event_title, calendars.event_start_time, calendars.event_end_time, calendars.description, calendars.location_alias, calendars.location_lat, calendars.location_lng, calendars.created_at, calendars.updated_at 
+FROM calendars 
+WHERE calendars.id = %(pk_1)s
+2025-10-03 19:53:04,867 - sqlalchemy.engine.Engine - INFO - [cached since 98.17s ago] {'pk_1': 3}
+2025-10-03 19:53:05,750 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:53:05,751 - sqlalchemy.engine.Engine - INFO - [cached since 131.4s ago] {'updated_at': datetime.datetime(2025, 10, 3, 19, 53, 5, 747818), 'sessions_id': 10}
+2025-10-03 19:53:05,760 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:53:05,761 - sqlalchemy.engine.Engine - INFO - [cached since 131.4s ago] {'session_id': 10, 'content': '없어', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:53:05,763 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:53:05,764 - sqlalchemy.engine.Engine - INFO - [cached since 131.4s ago] {'session_id': 10, 'content': "내일 오전 5시에 '착한아이' 일정이 추가되었습니다. 😊 다른 필요한 기능이 있으신가요?\n", 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:53:05,767 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:53:05,774 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:53:05,776 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:53:05,777 - sqlalchemy.engine.Engine - INFO - [cached since 131.4s ago] {'pk_1': 66}
+2025-10-03 19:53:05,783 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:53:05,788 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 2.065초
+2025-10-03 19:53:11,511 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:53:11,515 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:53:11,517 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:53:11,518 - sqlalchemy.engine.Engine - INFO - [cached since 138.7s ago] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:53:11,522 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:53:11,523 - sqlalchemy.engine.Engine - INFO - [cached since 138.7s ago] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:53:11,529 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:53:11,531 - sqlalchemy.engine.Engine - INFO - [cached since 138.7s ago] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:53:12,272 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:53:12,273 - sqlalchemy.engine.Engine - INFO - [cached since 138s ago] {'updated_at': datetime.datetime(2025, 10, 3, 19, 53, 12, 271998), 'sessions_id': 10}
+2025-10-03 19:53:12,275 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:53:12,275 - sqlalchemy.engine.Engine - INFO - [cached since 137.9s ago] {'session_id': 10, 'content': '없다고', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:53:12,277 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:53:12,277 - sqlalchemy.engine.Engine - INFO - [cached since 137.9s ago] {'session_id': 10, 'content': '알겠습니다. 더 필요한 기능이 없으시군요. 😊\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:53:12,278 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:53:12,284 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:53:12,285 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:53:12,285 - sqlalchemy.engine.Engine - INFO - [cached since 137.9s ago] {'pk_1': 68}
+2025-10-03 19:53:12,287 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:53:12,288 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 0.777초
+2025-10-03 19:57:02,567 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-03 19:57:06,815 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-03 19:57:06,817 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-03 19:57:06,819 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-03 19:57:06,819 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-03 19:57:06,848 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-03 19:57:06,849 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,852 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-03 19:57:06,852 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,854 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-03 19:57:06,854 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,858 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:57:06,859 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-03 19:57:06,860 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,868 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-03 19:57:06,870 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,878 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-03 19:57:06,879 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,885 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-03 19:57:06,886 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,892 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-03 19:57:06,893 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,896 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-03 19:57:06,897 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,902 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-03 19:57:06,903 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,909 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-03 19:57:06,910 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,912 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-03 19:57:06,913 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,918 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-03 19:57:06,919 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,925 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-03 19:57:06,926 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,932 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-03 19:57:06,934 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-03 19:57:06,939 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:57:06,942 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-03 19:57:06,943 - app.main - INFO - UUID 생성 테스트 성공: e11faa7f-c714-45e8-a648-12657064132c
+2025-10-03 19:57:06,943 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-03 19:57:36,659 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-03 19:57:36,704 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:57:36,710 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-03 19:57:36,711 - sqlalchemy.engine.Engine - INFO - [generated in 0.00150s] {'uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:57:36,717 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-03 19:57:36,718 - sqlalchemy.engine.Engine - INFO - [generated in 0.00182s] {'id_1': 10, 'user_uuid_1': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'param_1': 1}
+2025-10-03 19:57:36,726 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-03 19:57:36,727 - sqlalchemy.engine.Engine - INFO - [generated in 0.00182s] {'session_id_1': 10, 'param_1': 10}
+2025-10-03 19:57:37,900 - sqlalchemy.engine.Engine - INFO - INSERT INTO calendars (user_uuid, event_title, event_start_time, event_end_time, description, location_alias, location_lat, location_lng, created_at, updated_at) VALUES (%(user_uuid)s, %(event_title)s, %(event_start_time)s, %(event_end_time)s, %(description)s, %(location_alias)s, %(location_lat)s, %(location_lng)s, now(), now())
+2025-10-03 19:57:37,901 - sqlalchemy.engine.Engine - INFO - [generated in 0.00199s] {'user_uuid': 'd2a1b350-5011-47ef-890a-b47bc2603766', 'event_title': '회사 일', 'event_start_time': datetime.datetime(2025, 10, 4, 17, 0), 'event_end_time': None, 'description': None, 'location_alias': None, 'location_lat': None, 'location_lng': None}
+2025-10-03 19:57:37,913 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:57:37,920 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:57:37,923 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id, calendars.user_uuid, calendars.event_title, calendars.event_start_time, calendars.event_end_time, calendars.description, calendars.location_alias, calendars.location_lat, calendars.location_lng, calendars.created_at, calendars.updated_at 
+FROM calendars 
+WHERE calendars.id = %(pk_1)s
+2025-10-03 19:57:37,925 - sqlalchemy.engine.Engine - INFO - [generated in 0.00190s] {'pk_1': 4}
+2025-10-03 19:57:38,680 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-03 19:57:38,681 - sqlalchemy.engine.Engine - INFO - [generated in 0.00133s] {'updated_at': datetime.datetime(2025, 10, 3, 19, 57, 38, 677602), 'sessions_id': 10}
+2025-10-03 19:57:38,686 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:57:38,687 - sqlalchemy.engine.Engine - INFO - [generated in 0.00124s] {'session_id': 10, 'content': '내일 오후 5시 회사 일 일정 추가', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-03 19:57:38,689 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-03 19:57:38,690 - sqlalchemy.engine.Engine - INFO - [cached since 0.0042s ago] {'session_id': 10, 'content': "'회사 일' 일정이 추가되었습니다.\n", 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-03 19:57:38,693 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-03 19:57:38,701 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-03 19:57:38,704 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-03 19:57:38,705 - sqlalchemy.engine.Engine - INFO - [generated in 0.00211s] {'pk_1': 70}
+2025-10-03 19:57:38,711 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-03 19:57:38,713 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 2.055초
