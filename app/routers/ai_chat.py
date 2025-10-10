@@ -42,13 +42,33 @@ create_schedule_function = genai.protos.FunctionDeclaration(
 
 create_alarm_function = genai.protos.FunctionDeclaration(
     name="create_alarm",
-    description="사용자의 알람을 설정합니다. 시간과 레이블을 파악하여 알람을 추가합니다.",
+    description="""사용자의 알람을 설정합니다. 
+    시간과 레이블을 파악하여 알람을 추가합니다.
+    
+    상대적 시간 표현 처리 규칙:
+    - "3시간 뒤" → 현재 시간 + 3시간을 계산하여 ISO 8601 형식으로 변환
+    - "30분 뒤" → 현재 시간 + 30분을 계산
+    - "내일 오전 9시" → 다음날 09:00:00으로 계산
+    - "오늘 저녁 7시" → 오늘 19:00:00으로 계산
+    
+    반드시 계산된 ISO 8601 형식으로 time 파라미터를 전달해야 합니다.""",
     parameters=genai.protos.Schema(
         type=genai.protos.Type.OBJECT,
         properties={
-            "time": genai.protos.Schema(type=genai.protos.Type.STRING, description="알람 시간 (ISO 8601 형식)"),
-            "label": genai.protos.Schema(type=genai.protos.Type.STRING, description="알람 레이블"),
-            "repeat_days": genai.protos.Schema(type=genai.protos.Type.STRING, description="반복 요일 (선택)")
+            "time": genai.protos.Schema(
+                type=genai.protos.Type.STRING, 
+                description="""알람 시간 (ISO 8601 형식: YYYY-MM-DDTHH:MM:SS)
+                사용자가 상대적 시간("3시간 뒤", "30분 뒤")으로 말하면 
+                현재 시간을 기준으로 계산하여 ISO 8601 형식으로 변환하세요."""
+            ),
+            "label": genai.protos.Schema(
+                type=genai.protos.Type.STRING, 
+                description="알람 레이블"
+            ),
+            "repeat_days": genai.protos.Schema(
+                type=genai.protos.Type.STRING, 
+                description="반복 요일 (선택, 예: '월,화,수,목,금')"
+            )
         },
         required=["time", "label"]
     )
@@ -199,12 +219,31 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
         current_time = datetime.now()
         system_prompt = f"""당신은 DaySync 앱의 전용 AI 비서입니다.
 
-현재 시간: {current_time.strftime('%Y년 %m월 %d일 %H시 %M분')}
+**현재 시간: {current_time.strftime('%Y년 %m월 %d일 %H시 %M분')} (ISO: {current_time.isoformat()})**
 
-상대적 시간 해석:
+**상대적 시간 해석:**
 - "내일" = {(current_time + timedelta(days=1)).strftime('%Y-%m-%d')}
 - "모레" = {(current_time + timedelta(days=2)).strftime('%Y-%m-%d')}
 - "다음 주" = {(current_time + timedelta(weeks=1)).strftime('%Y-%m-%d')}
+
+**⚠️ 시간 계산 규칙 (매우 중요!):**
+사용자가 상대적 시간을 말하면 당신이 직접 계산해서 ISO 8601 형식(YYYY-MM-DDTHH:MM:SS)으로 변환하세요.
+
+상대적 시간 변환 예시:
+- "3시간 뒤" → {(current_time + timedelta(hours=3)).isoformat()}
+- "30분 뒤" → {(current_time + timedelta(minutes=30)).isoformat()}
+- "1시간 반 뒤" → {(current_time + timedelta(hours=1, minutes=30)).isoformat()}
+- "2시간 30분 뒤" → {(current_time + timedelta(hours=2, minutes=30)).isoformat()}
+- "1일 뒤" → {(current_time + timedelta(days=1)).isoformat()}
+
+절대 시간 변환 예시:
+- "오후 3시" → {current_time.replace(hour=15, minute=0, second=0).isoformat()}
+- "저녁 7시" → {current_time.replace(hour=19, minute=0, second=0).isoformat()}
+- "오전 9시 30분" → {current_time.replace(hour=9, minute=30, second=0).isoformat()}
+- "내일 오전 9시" → {(current_time + timedelta(days=1)).replace(hour=9, minute=0, second=0).isoformat()}
+- "모레 오후 2시" → {(current_time + timedelta(days=2)).replace(hour=14, minute=0, second=0).isoformat()}
+
+❗**절대 사용자에게 ISO 8601 형식으로 알려달라고 요청하지 마세요. 당신이 직접 변환하세요!**
 
 **역할 및 제공 가능한 기능:**
 1. 일정 관리 (일정 추가, 수정, 삭제, 조회, 알림 설정)
@@ -233,6 +272,8 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
 - "오늘 집에서 몇 시에 나가야 해?"
 - "지금 버스 언제 와?"
 - "오늘 오전 9시 30분 알림"
+- "3시간 뒤 알람 추가해줘"
+- "30분 뒤에 출발 알림"
 
 **거절해야 하는 질문 예시:**
 - 특정 인물에 대한 정보 요청 (예: "소예찬이라는 인물에 대해 알려줘")
