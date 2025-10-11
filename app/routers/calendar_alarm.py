@@ -24,6 +24,14 @@ class CalendarEventCreate(BaseModel):
     location_lat: Optional[float] = None
     location_lng: Optional[float] = None
 
+class CalendarEventUpdate(BaseModel):
+    """일정 수정 요청 스키마"""
+    event_title: Optional[str] = Field(None, min_length=1, max_length=255)
+    event_start_time: Optional[datetime] = None
+    event_end_time: Optional[datetime] = None
+    description: Optional[str] = None
+    location_alias: Optional[str] = None
+
 class CalendarEventResponse(BaseModel):
     """일정 응답 스키마"""
     id: int
@@ -45,9 +53,15 @@ class AlarmCreate(BaseModel):
     label: str = Field(default="알람", max_length=255)
     calendar_event_id: Optional[int] = None
     is_enabled: bool = True
-    repeat_days: Optional[str] = None  # 예: "0,1,2,3,4" (월~금)
+    repeat_days: Optional[str] = None
     sound_enabled: bool = True
     vibration_enabled: bool = True
+
+class AlarmUpdate(BaseModel):
+    """알람 수정 요청 스키마"""
+    alarm_time: Optional[datetime] = None
+    label: Optional[str] = Field(None, max_length=255)
+    repeat_days: Optional[str] = None
 
 class AlarmResponse(BaseModel):
     """알람 응답 스키마"""
@@ -70,7 +84,6 @@ class AlarmResponse(BaseModel):
 async def create_calendar_event(event: CalendarEventCreate, db: Session = Depends(get_db)):
     """새 일정을 생성합니다."""
     try:
-        # 사용자 존재 확인
         user = db.query(models.User).filter(
             models.User.uuid == event.user_uuid,
             models.User.is_deleted == False
@@ -79,7 +92,6 @@ async def create_calendar_event(event: CalendarEventCreate, db: Session = Depend
         if not user:
             raise HTTPException(status_code=404, detail="사용자를 찾을 수 없습니다.")
         
-        # 일정 생성
         new_event = models.Calendar(
             user_uuid=event.user_uuid,
             event_title=event.event_title,
@@ -112,6 +124,38 @@ async def get_user_events(user_uuid: str, db: Session = Depends(get_db)):
     
     return events
 
+@router.put("/calendar/events/{event_id}", response_model=CalendarEventResponse)
+async def update_calendar_event(
+    event_id: int, 
+    event_update: CalendarEventUpdate, 
+    db: Session = Depends(get_db)
+):
+    """일정을 수정합니다."""
+    try:
+        db_event = db.query(models.Calendar).filter(
+            models.Calendar.id == event_id
+        ).first()
+        
+        if not db_event:
+            raise HTTPException(status_code=404, detail="일정을 찾을 수 없습니다.")
+        
+        update_data = event_update.dict(exclude_unset=True)
+        
+        for field, value in update_data.items():
+            if value is not None:
+                setattr(db_event, field, value)
+        
+        db.commit()
+        db.refresh(db_event)
+        
+        return db_event
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"일정 수정 실패: {str(e)}")
+
 @router.delete("/calendar/events/{event_id}")
 async def delete_calendar_event(event_id: int, db: Session = Depends(get_db)):
     """일정을 삭제합니다."""
@@ -133,7 +177,6 @@ async def delete_calendar_event(event_id: int, db: Session = Depends(get_db)):
 async def create_alarm(alarm: AlarmCreate, db: Session = Depends(get_db)):
     """새 알람을 생성합니다."""
     try:
-        # 사용자 존재 확인
         user = db.query(models.User).filter(
             models.User.uuid == alarm.user_uuid,
             models.User.is_deleted == False
@@ -142,7 +185,6 @@ async def create_alarm(alarm: AlarmCreate, db: Session = Depends(get_db)):
         if not user:
             raise HTTPException(status_code=404, detail="사용자를 찾을 수 없습니다.")
         
-        # 알람 생성
         new_alarm = models.Alarm(
             user_uuid=alarm.user_uuid,
             alarm_time=alarm.alarm_time,
@@ -150,7 +192,7 @@ async def create_alarm(alarm: AlarmCreate, db: Session = Depends(get_db)):
             calendar_event_id=alarm.calendar_event_id,
             is_enabled=alarm.is_enabled,
             repeat_days=alarm.repeat_days,
-            sound_uri=None  # 추후 구현
+            sound_uri=None
         )
         
         db.add(new_alarm)
@@ -174,6 +216,38 @@ async def get_user_alarms(user_uuid: str, db: Session = Depends(get_db)):
     ).order_by(models.Alarm.alarm_time).all()
     
     return alarms
+
+@router.put("/alarms/{alarm_id}", response_model=AlarmResponse)
+async def update_alarm(
+    alarm_id: int, 
+    alarm_update: AlarmUpdate, 
+    db: Session = Depends(get_db)
+):
+    """알람을 수정합니다."""
+    try:
+        db_alarm = db.query(models.Alarm).filter(
+            models.Alarm.id == alarm_id
+        ).first()
+        
+        if not db_alarm:
+            raise HTTPException(status_code=404, detail="알람을 찾을 수 없습니다.")
+        
+        update_data = alarm_update.dict(exclude_unset=True)
+        
+        for field, value in update_data.items():
+            if value is not None:
+                setattr(db_alarm, field, value)
+        
+        db.commit()
+        db.refresh(db_alarm)
+        
+        return db_alarm
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"알람 수정 실패: {str(e)}")
 
 @router.delete("/alarms/{alarm_id}")
 async def delete_alarm(alarm_id: int, db: Session = Depends(get_db)):

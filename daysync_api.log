@@ -4630,3 +4630,1109 @@ To install, run: pip install email-validator
 2025-10-10 18:25:07,359 - app.main - INFO - 요청 시작: GET http://localhost:8000/
 2025-10-10 18:25:07,361 - app.main - INFO - 요청 완료: GET http://localhost:8000/ - 상태: 200 - 시간: 0.002초
 2025-10-10 18:25:27,175 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-10 18:25:35,248 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-10 18:25:35,250 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-10 18:25:35,254 - app.main - INFO - 일정/알람 라우터 등록 완료
+2025-10-10 18:25:35,256 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-10 18:25:35,257 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-10 18:25:35,278 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-10 18:25:35,279 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,280 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-10 18:25:35,281 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,282 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-10 18:25:35,283 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,285 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-10 18:25:35,287 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-10 18:25:35,288 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,303 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-10 18:25:35,304 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,311 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-10 18:25:35,312 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,320 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-10 18:25:35,321 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,329 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-10 18:25:35,330 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,339 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-10 18:25:35,341 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,350 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-10 18:25:35,351 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,359 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-10 18:25:35,361 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,367 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-10 18:25:35,369 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,374 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-10 18:25:35,376 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,383 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-10 18:25:35,385 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,393 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-10 18:25:35,394 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:25:35,399 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-10 18:25:35,402 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-10 18:25:35,403 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-10 18:25:44,892 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-10-10 18:25:44,893 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.001초
+2025-10-10 18:25:45,318 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-10-10 18:25:45,331 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-10-10 18:25:45,339 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.021초
+2025-10-10 18:26:17,878 - app.main - INFO - 요청 시작: GET http://localhost:8000/api/users/http://localhost:8000/docs
+2025-10-10 18:26:17,879 - app.main - INFO - 요청 완료: GET http://localhost:8000/api/users/http://localhost:8000/docs - 상태: 404 - 시간: 0.001초
+2025-10-10 18:27:01,517 - app.main - INFO - 요청 시작: GET http://localhost:8000/api/users/2d4977aa-856c-4bd2-b63a-6fec0999733c
+2025-10-10 18:27:01,550 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-10 18:27:01,553 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-10 18:27:01,554 - sqlalchemy.engine.Engine - INFO - [generated in 0.00150s] {'uuid_1': '2d4977aa-856c-4bd2-b63a-6fec0999733c', 'param_1': 1}
+2025-10-10 18:27:01,558 - app.database - ERROR - 데이터베이스 세션 오류: 404: 사용자를 찾을 수 없습니다
+2025-10-10 18:27:01,558 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-10 18:27:01,561 - app.main - INFO - 요청 완료: GET http://localhost:8000/api/users/2d4977aa-856c-4bd2-b63a-6fec0999733c - 상태: 404 - 시간: 0.044초
+2025-10-10 18:31:38,264 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-10 18:31:40,498 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-10 18:31:40,500 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-10 18:31:40,505 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-10 18:31:40,507 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-10 18:31:40,512 - app.main - INFO - 일정/알람 라우터 등록 완료
+2025-10-10 18:31:40,514 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-10 18:31:40,515 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-10 18:31:40,545 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-10 18:31:40,545 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,548 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-10 18:31:40,549 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,550 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-10 18:31:40,550 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,552 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-10 18:31:40,552 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-10 18:31:40,553 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,565 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-10 18:31:40,567 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,572 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-10 18:31:40,573 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,579 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-10 18:31:40,580 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,587 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-10 18:31:40,587 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,592 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-10 18:31:40,592 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,596 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-10 18:31:40,597 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,602 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-10 18:31:40,602 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,606 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-10 18:31:40,607 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,612 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-10 18:31:40,613 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,618 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-10 18:31:40,618 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,622 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-10 18:31:40,624 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-10 18:31:40,629 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-10 18:31:40,630 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-10 18:31:40,631 - app.main - INFO - UUID 생성 테스트 성공: 2bfaae72-576e-4a05-9470-68db239ab445
+2025-10-10 18:31:40,632 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-11 14:24:00,355 - app.main - INFO - 요청 시작: GET http://localhost:8000/docs
+2025-10-11 14:24:00,358 - app.main - INFO - 요청 완료: GET http://localhost:8000/docs - 상태: 200 - 시간: 0.004초
+2025-10-11 14:24:00,565 - app.main - INFO - 요청 시작: GET http://localhost:8000/openapi.json
+2025-10-11 14:24:00,636 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-10-11 14:24:00,660 - app.main - INFO - 요청 완료: GET http://localhost:8000/openapi.json - 상태: 200 - 시간: 0.095초
+2025-10-11 14:25:13,137 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-11 14:25:13,142 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-11 14:25:13,150 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-11 14:25:13,154 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-11 14:25:13,162 - app.main - INFO - 일정/알람 라우터 등록 완료
+2025-10-11 14:25:13,163 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-11 14:25:13,163 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-11 14:25:13,270 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-11 14:25:13,271 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,276 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-11 14:25:13,277 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,278 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-11 14:25:13,279 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,280 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 14:25:13,281 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-11 14:25:13,282 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,319 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-11 14:25:13,319 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,323 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-11 14:25:13,323 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,325 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-11 14:25:13,325 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,329 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-11 14:25:13,329 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,332 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-11 14:25:13,332 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,336 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-11 14:25:13,337 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,340 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-11 14:25:13,341 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,343 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-11 14:25:13,344 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,347 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-11 14:25:13,347 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,351 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-11 14:25:13,352 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,355 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-11 14:25:13,356 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:25:13,359 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 14:25:13,360 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-11 14:25:13,360 - app.main - INFO - UUID 생성 테스트 성공: c005cb05-f8a7-43ca-ac52-0c381a80a368
+2025-10-11 14:25:13,360 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-11 14:25:19,158 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-11 14:25:19,198 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 14:25:19,205 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 14:25:19,206 - sqlalchemy.engine.Engine - INFO - [generated in 0.00127s] {'uuid_1': '2d4977aa-856c-4bd2-b63a-6fec0999733c', 'param_1': 1}
+2025-10-11 14:25:19,211 - app.database - ERROR - 데이터베이스 세션 오류: 404: 사용자를 찾을 수 없습니다.
+2025-10-11 14:25:19,211 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 14:25:19,214 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 404 - 시간: 0.056초
+2025-10-11 14:59:42,437 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-11 14:59:46,823 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-11 14:59:46,827 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-11 14:59:46,833 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-11 14:59:46,836 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-11 14:59:46,843 - app.main - INFO - 일정/알람 라우터 등록 완료
+2025-10-11 14:59:46,844 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-11 14:59:46,845 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-11 14:59:46,873 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-11 14:59:46,874 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,875 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-11 14:59:46,876 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,878 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-11 14:59:46,880 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,883 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 14:59:46,885 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-11 14:59:46,885 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,895 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-11 14:59:46,896 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,902 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-11 14:59:46,902 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,905 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-11 14:59:46,906 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,908 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-11 14:59:46,909 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,912 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-11 14:59:46,913 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,918 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-11 14:59:46,919 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,925 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-11 14:59:46,926 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,931 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-11 14:59:46,931 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,936 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-11 14:59:46,937 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,942 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-11 14:59:46,942 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,946 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-11 14:59:46,947 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-11 14:59:46,950 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 14:59:46,951 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-11 14:59:46,951 - app.main - INFO - UUID 생성 테스트 성공: fa2b58b5-b4dc-408a-b767-46385c3a84ea
+2025-10-11 14:59:46,951 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-11 14:59:50,901 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-11 14:59:50,934 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 14:59:50,940 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 14:59:50,941 - sqlalchemy.engine.Engine - INFO - [generated in 0.00170s] {'uuid_1': '2d4977aa-856c-4bd2-b63a-6fec0999733c', 'param_1': 1}
+2025-10-11 14:59:50,946 - app.database - ERROR - 데이터베이스 세션 오류: 404: 사용자를 찾을 수 없습니다.
+2025-10-11 14:59:50,947 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 14:59:50,950 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 404 - 시간: 0.049초
+2025-10-11 14:59:57,151 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-11 14:59:57,156 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 14:59:57,158 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 14:59:57,158 - sqlalchemy.engine.Engine - INFO - [cached since 6.219s ago] {'uuid_1': '2d4977aa-856c-4bd2-b63a-6fec0999733c', 'param_1': 1}
+2025-10-11 14:59:57,160 - app.database - ERROR - 데이터베이스 세션 오류: 404: 사용자를 찾을 수 없습니다.
+2025-10-11 14:59:57,161 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 14:59:57,163 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 404 - 시간: 0.012초
+2025-10-11 15:00:45,945 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/users/
+2025-10-11 15:00:45,951 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 15:00:45,954 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 15:00:45,956 - sqlalchemy.engine.Engine - INFO - [generated in 0.00223s] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 15:00:45,976 - sqlalchemy.engine.Engine - INFO - INSERT INTO users (uuid, nickname, prep_time, created_at, last_active, is_deleted) VALUES (%(uuid)s, %(nickname)s, %(prep_time)s, %(created_at)s, %(last_active)s, %(is_deleted)s)
+2025-10-11 15:00:45,978 - sqlalchemy.engine.Engine - INFO - [generated in 0.00326s] {'uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'nickname': '안렁랑', 'prep_time': 1800, 'created_at': datetime.datetime(2025, 10, 11, 15, 0, 45, 961817), 'last_active': datetime.datetime(2025, 10, 11, 15, 0, 45, 961822), 'is_deleted': 0}
+2025-10-11 15:00:46,002 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 15:00:46,014 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 15:00:46,021 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.uuid, users.nickname, users.prep_time, users.created_at, users.last_active, users.is_deleted 
+FROM users 
+WHERE users.id = %(pk_1)s
+2025-10-11 15:00:46,023 - sqlalchemy.engine.Engine - INFO - [generated in 0.00282s] {'pk_1': 8}
+2025-10-11 15:00:46,028 - app.crud - INFO - 새 사용자 생성됨: UUID=9abf9e1d-6c20-4120-b829-5af3ed6bce15, 닉네임=안렁랑
+2025-10-11 15:00:46,029 - app.routers.users - INFO - 새 사용자 생성 성공: UUID=9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 15:00:46,035 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 15:00:46,039 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/users/ - 상태: 201 - 시간: 0.094초
+2025-10-11 15:01:13,467 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-11 15:01:13,472 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 15:01:13,474 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 15:01:13,475 - sqlalchemy.engine.Engine - INFO - [cached since 82.54s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 15:01:13,489 - sqlalchemy.engine.Engine - INFO - INSERT INTO sessions (user_uuid, title, category, created_at, updated_at) VALUES (%(user_uuid)s, %(title)s, %(category)s, now(), now())
+2025-10-11 15:01:13,491 - sqlalchemy.engine.Engine - INFO - [generated in 0.00529s] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'title': '새 대화', 'category': 'general'}
+2025-10-11 15:01:13,505 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 15:01:13,516 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 15:01:13,521 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id, sessions.user_uuid, sessions.title, sessions.category, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = %(pk_1)s
+2025-10-11 15:01:13,524 - sqlalchemy.engine.Engine - INFO - [generated in 0.00370s] {'pk_1': 11}
+2025-10-11 15:01:13,547 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-11 15:01:13,549 - sqlalchemy.engine.Engine - INFO - [generated in 0.00259s] {'session_id_1': 11, 'param_1': 10}
+2025-10-11 15:01:14,982 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-11 15:01:14,984 - sqlalchemy.engine.Engine - INFO - [generated in 0.00288s] {'updated_at': datetime.datetime(2025, 10, 11, 15, 1, 14, 978705), 'sessions_id': 11}
+2025-10-11 15:01:14,990 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 15:01:14,994 - sqlalchemy.engine.Engine - INFO - [generated in 0.00402s] {'session_id': 11, 'content': '안낭', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-11 15:01:14,999 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 15:01:15,001 - sqlalchemy.engine.Engine - INFO - [cached since 0.0115s ago] {'session_id': 11, 'content': '죄송합니다. 해당 내용은 DaySync 앱에서 제공하지 않는 정보입니다.\n\n저는 다음과 같은 도움을 드릴 수 있습니다:\n- 일정 관리 및 알림 설정\n- 경로 안내 및 교통 정보\n- 시간 관리 및 준비 시간 계산\n\n어떤 일정이나 경로 관련 도움이 필요하신가요?\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-11 15:01:15,006 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 15:01:15,016 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 15:01:15,023 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-11 15:01:15,025 - sqlalchemy.engine.Engine - INFO - [generated in 0.00262s] {'pk_1': 134}
+2025-10-11 15:01:15,031 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 15:01:15,035 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 1.569초
+2025-10-11 18:22:26,758 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-11 18:22:26,826 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:22:26,831 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 18:22:26,832 - sqlalchemy.engine.Engine - INFO - [cached since 1.216e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:22:26,846 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-11 18:22:26,847 - sqlalchemy.engine.Engine - INFO - [generated in 0.00194s] {'id_1': 11, 'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:22:26,851 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-11 18:22:26,852 - sqlalchemy.engine.Engine - INFO - [cached since 1.207e+04s ago] {'session_id_1': 11, 'param_1': 10}
+2025-10-11 18:22:28,251 - sqlalchemy.engine.Engine - INFO - INSERT INTO alarms (user_uuid, calendar_event_id, alarm_time, label, is_enabled, repeat_days, sound_uri, created_at, updated_at) VALUES (%(user_uuid)s, %(calendar_event_id)s, %(alarm_time)s, %(label)s, %(is_enabled)s, %(repeat_days)s, %(sound_uri)s, now(), now())
+2025-10-11 18:22:28,252 - sqlalchemy.engine.Engine - INFO - [generated in 0.00145s] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'calendar_event_id': None, 'alarm_time': datetime.datetime(2025, 10, 11, 23, 22, 26, 854942), 'label': '운동', 'is_enabled': 1, 'repeat_days': None, 'sound_uri': None}
+2025-10-11 18:22:28,256 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:22:28,268 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:22:28,271 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id, alarms.user_uuid, alarms.calendar_event_id, alarms.alarm_time, alarms.label, alarms.is_enabled, alarms.repeat_days, alarms.sound_uri, alarms.created_at, alarms.updated_at 
+FROM alarms 
+WHERE alarms.id = %(pk_1)s
+2025-10-11 18:22:28,271 - sqlalchemy.engine.Engine - INFO - [generated in 0.00101s] {'pk_1': 6}
+2025-10-11 18:22:28,726 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:22:28,731 - app.database - ERROR - 데이터베이스 세션 오류: 500: AI 처리 중 오류 발생: 400 Please ensure that the number of function response parts is equal to the number of function call parts of the function call turn.
+2025-10-11 18:22:28,733 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 500 - 시간: 1.977초
+2025-10-11 18:22:38,389 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-11 18:22:38,393 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:22:38,395 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 18:22:38,395 - sqlalchemy.engine.Engine - INFO - [cached since 1.217e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:22:38,399 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-11 18:22:38,399 - sqlalchemy.engine.Engine - INFO - [cached since 11.55s ago] {'id_1': 11, 'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:22:38,403 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-11 18:22:38,404 - sqlalchemy.engine.Engine - INFO - [cached since 1.208e+04s ago] {'session_id_1': 11, 'param_1': 10}
+2025-10-11 18:22:39,336 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-11 18:22:39,336 - sqlalchemy.engine.Engine - INFO - [cached since 1.208e+04s ago] {'updated_at': datetime.datetime(2025, 10, 11, 18, 22, 39, 333287), 'sessions_id': 11}
+2025-10-11 18:22:39,340 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 18:22:39,341 - sqlalchemy.engine.Engine - INFO - [cached since 1.208e+04s ago] {'session_id': 11, 'content': '안녕', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-11 18:22:39,350 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 18:22:39,352 - sqlalchemy.engine.Engine - INFO - [cached since 1.208e+04s ago] {'session_id': 11, 'content': '안녕하세요! 무엇을 도와드릴까요?\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-11 18:22:39,355 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:22:39,364 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:22:39,368 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-11 18:22:39,369 - sqlalchemy.engine.Engine - INFO - [cached since 1.208e+04s ago] {'pk_1': 136}
+2025-10-11 18:22:39,372 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:22:39,375 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 0.986초
+2025-10-11 18:22:56,174 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-11 18:22:56,177 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:22:56,178 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 18:22:56,178 - sqlalchemy.engine.Engine - INFO - [cached since 1.219e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:22:56,180 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-11 18:22:56,180 - sqlalchemy.engine.Engine - INFO - [cached since 29.34s ago] {'id_1': 11, 'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:22:56,182 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-11 18:22:56,183 - sqlalchemy.engine.Engine - INFO - [cached since 1.21e+04s ago] {'session_id_1': 11, 'param_1': 10}
+2025-10-11 18:22:57,263 - sqlalchemy.engine.Engine - INFO - INSERT INTO alarms (user_uuid, calendar_event_id, alarm_time, label, is_enabled, repeat_days, sound_uri, created_at, updated_at) VALUES (%(user_uuid)s, %(calendar_event_id)s, %(alarm_time)s, %(label)s, %(is_enabled)s, %(repeat_days)s, %(sound_uri)s, now(), now())
+2025-10-11 18:22:57,263 - sqlalchemy.engine.Engine - INFO - [cached since 29.01s ago] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'calendar_event_id': None, 'alarm_time': datetime.datetime(2025, 10, 11, 21, 22, 56, 184607), 'label': '운동', 'is_enabled': 1, 'repeat_days': None, 'sound_uri': None}
+2025-10-11 18:22:57,266 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:22:57,280 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:22:57,283 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id, alarms.user_uuid, alarms.calendar_event_id, alarms.alarm_time, alarms.label, alarms.is_enabled, alarms.repeat_days, alarms.sound_uri, alarms.created_at, alarms.updated_at 
+FROM alarms 
+WHERE alarms.id = %(pk_1)s
+2025-10-11 18:22:57,284 - sqlalchemy.engine.Engine - INFO - [cached since 29.01s ago] {'pk_1': 7}
+2025-10-11 18:22:57,983 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-11 18:22:57,984 - sqlalchemy.engine.Engine - INFO - [cached since 1.21e+04s ago] {'updated_at': datetime.datetime(2025, 10, 11, 18, 22, 57, 982267), 'sessions_id': 11}
+2025-10-11 18:22:57,986 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 18:22:57,986 - sqlalchemy.engine.Engine - INFO - [cached since 1.21e+04s ago] {'session_id': 11, 'content': '3시간 뒤 알람 추가 제목은 운동', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-11 18:22:57,989 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 18:22:57,990 - sqlalchemy.engine.Engine - INFO - [cached since 1.21e+04s ago] {'session_id': 11, 'content': '알람이 추가되었습니다.\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-11 18:22:57,992 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:22:58,005 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:22:58,008 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-11 18:22:58,009 - sqlalchemy.engine.Engine - INFO - [cached since 1.21e+04s ago] {'pk_1': 138}
+2025-10-11 18:22:58,014 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:22:58,018 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 1.845초
+2025-10-11 18:23:42,623 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-11 18:23:42,626 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:23:42,627 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 18:23:42,627 - sqlalchemy.engine.Engine - INFO - [cached since 1.223e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:23:42,630 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-11 18:23:42,630 - sqlalchemy.engine.Engine - INFO - [cached since 75.79s ago] {'id_1': 11, 'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:23:42,632 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-11 18:23:42,632 - sqlalchemy.engine.Engine - INFO - [cached since 1.215e+04s ago] {'session_id_1': 11, 'param_1': 10}
+2025-10-11 18:23:43,542 - sqlalchemy.engine.Engine - INFO - INSERT INTO alarms (user_uuid, calendar_event_id, alarm_time, label, is_enabled, repeat_days, sound_uri, created_at, updated_at) VALUES (%(user_uuid)s, %(calendar_event_id)s, %(alarm_time)s, %(label)s, %(is_enabled)s, %(repeat_days)s, %(sound_uri)s, now(), now())
+2025-10-11 18:23:43,543 - sqlalchemy.engine.Engine - INFO - [cached since 75.29s ago] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'calendar_event_id': None, 'alarm_time': datetime.datetime(2025, 10, 11, 23, 23, 42), 'label': '운동', 'is_enabled': 1, 'repeat_days': None, 'sound_uri': None}
+2025-10-11 18:23:43,554 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:23:43,564 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:23:43,566 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id, alarms.user_uuid, alarms.calendar_event_id, alarms.alarm_time, alarms.label, alarms.is_enabled, alarms.repeat_days, alarms.sound_uri, alarms.created_at, alarms.updated_at 
+FROM alarms 
+WHERE alarms.id = %(pk_1)s
+2025-10-11 18:23:43,567 - sqlalchemy.engine.Engine - INFO - [cached since 75.3s ago] {'pk_1': 8}
+2025-10-11 18:23:44,429 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-11 18:23:44,430 - sqlalchemy.engine.Engine - INFO - [cached since 1.215e+04s ago] {'updated_at': datetime.datetime(2025, 10, 11, 18, 23, 44, 427913), 'sessions_id': 11}
+2025-10-11 18:23:44,433 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 18:23:44,434 - sqlalchemy.engine.Engine - INFO - [cached since 1.215e+04s ago] {'session_id': 11, 'content': '3시간뒤 알람 추가 아 5시간뒤도 알람 추가 라벨은 운동으로 해줘.', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-11 18:23:44,436 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 18:23:44,437 - sqlalchemy.engine.Engine - INFO - [cached since 1.215e+04s ago] {'session_id': 11, 'content': '알람이 추가되었습니다.\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-11 18:23:44,439 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:23:44,444 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:23:44,446 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-11 18:23:44,446 - sqlalchemy.engine.Engine - INFO - [cached since 1.215e+04s ago] {'pk_1': 140}
+2025-10-11 18:23:44,452 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:23:44,455 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 1.833초
+2025-10-11 18:23:47,979 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:23:47,983 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:23:47,985 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-11 18:23:47,985 - sqlalchemy.engine.Engine - INFO - [generated in 0.00107s] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:23:47,992 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:23:47,994 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.015초
+2025-10-11 18:24:00,767 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:24:00,771 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:24:00,776 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:24:00,777 - sqlalchemy.engine.Engine - INFO - [generated in 0.00172s] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:24:00,787 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:24:00,791 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.024초
+2025-10-11 18:24:02,444 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:24:02,448 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:24:02,450 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-11 18:24:02,451 - sqlalchemy.engine.Engine - INFO - [cached since 14.47s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:24:02,455 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:24:02,458 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.014초
+2025-10-11 18:24:09,509 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:24:09,513 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:24:09,515 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:24:09,516 - sqlalchemy.engine.Engine - INFO - [cached since 8.741s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:24:09,521 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:24:09,526 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.017초
+2025-10-11 18:24:37,091 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-11 18:24:37,094 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:24:37,096 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 18:24:37,097 - sqlalchemy.engine.Engine - INFO - [cached since 1.229e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:24:37,101 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-11 18:24:37,102 - sqlalchemy.engine.Engine - INFO - [cached since 130.3s ago] {'id_1': 11, 'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:24:37,106 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-11 18:24:37,107 - sqlalchemy.engine.Engine - INFO - [cached since 1.22e+04s ago] {'session_id_1': 11, 'param_1': 10}
+2025-10-11 18:24:37,970 - sqlalchemy.engine.Engine - INFO - INSERT INTO calendars (user_uuid, event_title, event_start_time, event_end_time, description, location_alias, location_lat, location_lng, created_at, updated_at) VALUES (%(user_uuid)s, %(event_title)s, %(event_start_time)s, %(event_end_time)s, %(description)s, %(location_alias)s, %(location_lat)s, %(location_lng)s, now(), now())
+2025-10-11 18:24:37,971 - sqlalchemy.engine.Engine - INFO - [generated in 0.00172s] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'event_title': '회의', 'event_start_time': datetime.datetime(2025, 10, 12, 18, 0), 'event_end_time': None, 'description': None, 'location_alias': None, 'location_lat': None, 'location_lng': None}
+2025-10-11 18:24:37,974 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:24:37,986 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:24:37,989 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id, calendars.user_uuid, calendars.event_title, calendars.event_start_time, calendars.event_end_time, calendars.description, calendars.location_alias, calendars.location_lat, calendars.location_lng, calendars.created_at, calendars.updated_at 
+FROM calendars 
+WHERE calendars.id = %(pk_1)s
+2025-10-11 18:24:37,990 - sqlalchemy.engine.Engine - INFO - [generated in 0.00168s] {'pk_1': 7}
+2025-10-11 18:24:39,010 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-11 18:24:39,011 - sqlalchemy.engine.Engine - INFO - [cached since 1.22e+04s ago] {'updated_at': datetime.datetime(2025, 10, 11, 18, 24, 39, 9430), 'sessions_id': 11}
+2025-10-11 18:24:39,014 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 18:24:39,015 - sqlalchemy.engine.Engine - INFO - [cached since 1.22e+04s ago] {'session_id': 11, 'content': '내일 18시에 회의 일정 추가해줘.', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-11 18:24:39,018 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 18:24:39,019 - sqlalchemy.engine.Engine - INFO - [cached since 1.22e+04s ago] {'session_id': 11, 'content': '알겠습니다. 내일 18시에 회의 일정이 추가되었습니다.\n', 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-11 18:24:39,021 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:24:39,026 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:24:39,027 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-11 18:24:39,027 - sqlalchemy.engine.Engine - INFO - [cached since 1.22e+04s ago] {'pk_1': 142}
+2025-10-11 18:24:39,030 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:24:39,035 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 1.944초
+2025-10-11 18:24:43,165 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:24:43,168 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:24:43,171 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:24:43,172 - sqlalchemy.engine.Engine - INFO - [cached since 42.4s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:24:43,177 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:24:43,179 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.015초
+2025-10-11 18:24:54,309 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:24:54,313 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:24:54,315 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-11 18:24:54,317 - sqlalchemy.engine.Engine - INFO - [cached since 66.33s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:24:54,321 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:24:54,324 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.015초
+2025-10-11 18:24:56,130 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:24:56,135 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:24:56,137 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:24:56,139 - sqlalchemy.engine.Engine - INFO - [cached since 55.36s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:24:56,142 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:24:56,147 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.017초
+2025-10-11 18:54:13,792 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:54:13,798 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:54:13,800 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-11 18:54:13,801 - sqlalchemy.engine.Engine - INFO - [cached since 1826s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:54:13,807 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:54:13,814 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.022초
+2025-10-11 18:54:16,141 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:54:16,144 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:54:16,146 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:54:16,147 - sqlalchemy.engine.Engine - INFO - [cached since 1815s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:54:16,160 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:54:16,156 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:54:16,169 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.028초
+2025-10-11 18:54:16,176 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:54:16,178 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:54:16,181 - sqlalchemy.engine.Engine - INFO - [cached since 1815s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:54:16,187 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:54:16,192 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.033초
+2025-10-11 18:54:57,203 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:54:57,207 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:54:57,212 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:54:57,216 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:54:57,218 - sqlalchemy.engine.Engine - INFO - [cached since 1856s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:54:57,226 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:54:57,259 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:54:57,261 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:54:57,263 - sqlalchemy.engine.Engine - INFO - [cached since 1856s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:54:57,267 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.064초
+2025-10-11 18:54:57,268 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:54:57,272 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.064초
+2025-10-11 18:55:04,363 - app.main - INFO - 요청 시작: DELETE http://192.168.0.24:8000/api/schedule/calendar/events/7
+2025-10-11 18:55:04,372 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:55:04,381 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-10-11 18:55:04,385 - sqlalchemy.engine.Engine - INFO - [generated in 0.00829s] {'id_1': 7, 'param_1': 1}
+2025-10-11 18:55:04,407 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(param_1)s
+2025-10-11 18:55:04,410 - sqlalchemy.engine.Engine - INFO - [generated in 0.00313s] {'param_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:55:04,419 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE %(param_1)s = alarms.calendar_event_id
+2025-10-11 18:55:04,421 - sqlalchemy.engine.Engine - INFO - [generated in 0.00219s] {'param_1': 7}
+2025-10-11 18:55:04,436 - sqlalchemy.engine.Engine - INFO - DELETE FROM calendars WHERE calendars.id = %(id)s
+2025-10-11 18:55:04,438 - sqlalchemy.engine.Engine - INFO - [generated in 0.00314s] {'id': 7}
+2025-10-11 18:55:04,480 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:55:04,487 - app.main - INFO - 요청 완료: DELETE http://192.168.0.24:8000/api/schedule/calendar/events/7 - 상태: 200 - 시간: 0.124초
+2025-10-11 18:55:14,675 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:55:14,678 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:55:14,680 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-11 18:55:14,681 - sqlalchemy.engine.Engine - INFO - [cached since 1887s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:55:14,685 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:55:14,687 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.012초
+2025-10-11 18:55:16,032 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:55:16,036 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:55:16,038 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:55:16,040 - sqlalchemy.engine.Engine - INFO - [cached since 1875s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:55:16,044 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:55:16,043 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:55:16,053 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:55:16,056 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:55:16,058 - sqlalchemy.engine.Engine - INFO - [cached since 1875s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:55:16,064 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.032초
+2025-10-11 18:55:16,063 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:55:16,071 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.027초
+2025-10-11 18:55:20,607 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:55:20,610 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:55:20,611 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-11 18:55:20,616 - sqlalchemy.engine.Engine - INFO - [cached since 1893s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:55:20,621 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:55:20,629 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.022초
+2025-10-11 18:55:22,507 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:55:22,511 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:55:22,512 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:55:22,514 - sqlalchemy.engine.Engine - INFO - [cached since 1882s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:55:22,519 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:55:22,519 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:55:22,529 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:55:22,532 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:55:22,534 - sqlalchemy.engine.Engine - INFO - [cached since 1882s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:55:22,537 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.030초
+2025-10-11 18:55:22,538 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:55:22,541 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.023초
+2025-10-11 18:55:56,445 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/ai/chat
+2025-10-11 18:55:56,449 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:55:56,450 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 18:55:56,450 - sqlalchemy.engine.Engine - INFO - [cached since 1.417e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:55:56,457 - sqlalchemy.engine.Engine - INFO - SELECT sessions.id AS sessions_id, sessions.user_uuid AS sessions_user_uuid, sessions.title AS sessions_title, sessions.category AS sessions_category, sessions.created_at AS sessions_created_at, sessions.updated_at AS sessions_updated_at 
+FROM sessions 
+WHERE sessions.id = %(id_1)s AND sessions.user_uuid = %(user_uuid_1)s 
+ LIMIT %(param_1)s
+2025-10-11 18:55:56,459 - sqlalchemy.engine.Engine - INFO - [cached since 2010s ago] {'id_1': 11, 'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:55:56,464 - sqlalchemy.engine.Engine - INFO - SELECT messages.id AS messages_id, messages.session_id AS messages_session_id, messages.content AS messages_content, messages.is_user AS messages_is_user, messages.intent AS messages_intent, messages.confidence AS messages_confidence, messages.created_at AS messages_created_at 
+FROM messages 
+WHERE messages.session_id = %(session_id_1)s ORDER BY messages.created_at DESC 
+ LIMIT %(param_1)s
+2025-10-11 18:55:56,466 - sqlalchemy.engine.Engine - INFO - [cached since 1.408e+04s ago] {'session_id_1': 11, 'param_1': 10}
+2025-10-11 18:55:57,779 - sqlalchemy.engine.Engine - INFO - INSERT INTO calendars (user_uuid, event_title, event_start_time, event_end_time, description, location_alias, location_lat, location_lng, created_at, updated_at) VALUES (%(user_uuid)s, %(event_title)s, %(event_start_time)s, %(event_end_time)s, %(description)s, %(location_alias)s, %(location_lat)s, %(location_lng)s, now(), now())
+2025-10-11 18:55:57,780 - sqlalchemy.engine.Engine - INFO - [cached since 1880s ago] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'event_title': '점심 뭐먹지 회의', 'event_start_time': datetime.datetime(2025, 10, 12, 15, 0), 'event_end_time': None, 'description': '점심 뭐먹지에 대한 내용', 'location_alias': None, 'location_lat': None, 'location_lng': None}
+2025-10-11 18:55:57,783 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:55:57,797 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:55:57,800 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id, calendars.user_uuid, calendars.event_title, calendars.event_start_time, calendars.event_end_time, calendars.description, calendars.location_alias, calendars.location_lat, calendars.location_lng, calendars.created_at, calendars.updated_at 
+FROM calendars 
+WHERE calendars.id = %(pk_1)s
+2025-10-11 18:55:57,813 - sqlalchemy.engine.Engine - INFO - [cached since 1880s ago] {'pk_1': 8}
+2025-10-11 18:55:58,690 - sqlalchemy.engine.Engine - INFO - UPDATE sessions SET updated_at=%(updated_at)s WHERE sessions.id = %(sessions_id)s
+2025-10-11 18:55:58,691 - sqlalchemy.engine.Engine - INFO - [cached since 1.408e+04s ago] {'updated_at': datetime.datetime(2025, 10, 11, 18, 55, 58, 689360), 'sessions_id': 11}
+2025-10-11 18:55:58,694 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 18:55:58,694 - sqlalchemy.engine.Engine - INFO - [cached since 1.408e+04s ago] {'session_id': 11, 'content': '일정 추가 내일 오후3시에 회의가 있어 회의 내용은 점심 뭐먹지에 대한 내용이야', 'is_user': 1, 'intent': None, 'confidence': None}
+2025-10-11 18:55:58,696 - sqlalchemy.engine.Engine - INFO - INSERT INTO messages (session_id, content, is_user, intent, confidence, created_at) VALUES (%(session_id)s, %(content)s, %(is_user)s, %(intent)s, %(confidence)s, now())
+2025-10-11 18:55:58,699 - sqlalchemy.engine.Engine - INFO - [cached since 1.408e+04s ago] {'session_id': 11, 'content': "알겠습니다. 내일 오후 3시에 '점심 뭐먹지 회의' 일정이 추가되었습니다.\n", 'is_user': 0, 'intent': None, 'confidence': None}
+2025-10-11 18:55:58,711 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:55:58,719 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:55:58,721 - sqlalchemy.engine.Engine - INFO - SELECT messages.id, messages.session_id, messages.content, messages.is_user, messages.intent, messages.confidence, messages.created_at 
+FROM messages 
+WHERE messages.id = %(pk_1)s
+2025-10-11 18:55:58,725 - sqlalchemy.engine.Engine - INFO - [cached since 1.408e+04s ago] {'pk_1': 144}
+2025-10-11 18:55:58,731 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:55:58,735 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/ai/chat - 상태: 200 - 시간: 2.291초
+2025-10-11 18:56:03,054 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:56:03,057 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:56:03,059 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:56:03,059 - sqlalchemy.engine.Engine - INFO - [cached since 1922s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:56:03,062 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:56:03,063 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:56:03,067 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.012초
+2025-10-11 18:56:03,073 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:56:03,077 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:56:03,081 - sqlalchemy.engine.Engine - INFO - [cached since 1922s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:56:03,088 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:56:03,093 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.031초
+2025-10-11 18:56:09,937 - app.main - INFO - 요청 시작: DELETE http://192.168.0.24:8000/api/schedule/calendar/events/8
+2025-10-11 18:56:09,941 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:56:09,943 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-10-11 18:56:09,945 - sqlalchemy.engine.Engine - INFO - [cached since 65.57s ago] {'id_1': 8, 'param_1': 1}
+2025-10-11 18:56:09,960 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(param_1)s
+2025-10-11 18:56:09,965 - sqlalchemy.engine.Engine - INFO - [cached since 65.56s ago] {'param_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:56:09,973 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE %(param_1)s = alarms.calendar_event_id
+2025-10-11 18:56:09,975 - sqlalchemy.engine.Engine - INFO - [cached since 65.56s ago] {'param_1': 8}
+2025-10-11 18:56:09,980 - sqlalchemy.engine.Engine - INFO - DELETE FROM calendars WHERE calendars.id = %(id)s
+2025-10-11 18:56:09,982 - sqlalchemy.engine.Engine - INFO - [cached since 65.55s ago] {'id': 8}
+2025-10-11 18:56:09,987 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:56:09,999 - app.main - INFO - 요청 완료: DELETE http://192.168.0.24:8000/api/schedule/calendar/events/8 - 상태: 200 - 시간: 0.062초
+2025-10-11 18:56:17,583 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:56:17,586 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:56:17,588 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-11 18:56:17,588 - sqlalchemy.engine.Engine - INFO - [cached since 1950s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:56:17,591 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:56:17,595 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.012초
+2025-10-11 18:56:27,928 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/schedule/alarms
+2025-10-11 18:56:27,953 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:56:27,958 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 18:56:27,959 - sqlalchemy.engine.Engine - INFO - [cached since 1.42e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:56:27,965 - sqlalchemy.engine.Engine - INFO - INSERT INTO alarms (user_uuid, calendar_event_id, alarm_time, label, is_enabled, repeat_days, sound_uri, created_at, updated_at) VALUES (%(user_uuid)s, %(calendar_event_id)s, %(alarm_time)s, %(label)s, %(is_enabled)s, %(repeat_days)s, %(sound_uri)s, now(), now())
+2025-10-11 18:56:27,967 - sqlalchemy.engine.Engine - INFO - [cached since 2040s ago] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'calendar_event_id': None, 'alarm_time': datetime.datetime(2025, 10, 11, 22, 32), 'label': '강강', 'is_enabled': 1, 'repeat_days': None, 'sound_uri': None}
+2025-10-11 18:56:27,974 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:56:27,983 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:56:27,987 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id, alarms.user_uuid, alarms.calendar_event_id, alarms.alarm_time, alarms.label, alarms.is_enabled, alarms.repeat_days, alarms.sound_uri, alarms.created_at, alarms.updated_at 
+FROM alarms 
+WHERE alarms.id = %(pk_1)s
+2025-10-11 18:56:27,989 - sqlalchemy.engine.Engine - INFO - [cached since 2040s ago] {'pk_1': 9}
+2025-10-11 18:56:27,997 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:56:28,002 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/schedule/alarms - 상태: 200 - 시간: 0.074초
+2025-10-11 18:57:11,925 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:57:11,928 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:57:11,929 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-11 18:57:11,931 - sqlalchemy.engine.Engine - INFO - [cached since 2004s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:57:11,936 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:57:11,941 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.016초
+2025-10-11 18:57:27,538 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:57:27,541 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:57:27,543 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-11 18:57:27,544 - sqlalchemy.engine.Engine - INFO - [cached since 2020s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:57:27,552 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:57:27,555 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.018초
+2025-10-11 18:57:32,018 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:57:32,021 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:57:32,023 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:57:32,024 - sqlalchemy.engine.Engine - INFO - [cached since 2011s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:57:32,031 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:57:32,030 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:57:32,040 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:57:32,043 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:57:32,045 - sqlalchemy.engine.Engine - INFO - [cached since 2011s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:57:32,051 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.033초
+2025-10-11 18:57:32,055 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:57:32,060 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.029초
+2025-10-11 18:57:43,595 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/schedule/calendar/events
+2025-10-11 18:57:43,604 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:57:43,606 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-11 18:57:43,608 - sqlalchemy.engine.Engine - INFO - [cached since 1.427e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-11 18:57:43,611 - sqlalchemy.engine.Engine - INFO - INSERT INTO calendars (user_uuid, event_title, event_start_time, event_end_time, description, location_alias, location_lat, location_lng, created_at, updated_at) VALUES (%(user_uuid)s, %(event_title)s, %(event_start_time)s, %(event_end_time)s, %(description)s, %(location_alias)s, %(location_lat)s, %(location_lng)s, now(), now())
+2025-10-11 18:57:43,612 - sqlalchemy.engine.Engine - INFO - [cached since 1986s ago] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'event_title': '너알', 'event_start_time': datetime.datetime(2025, 10, 14, 21, 57), 'event_end_time': None, 'description': '뉴아오촞', 'location_alias': None, 'location_lat': None, 'location_lng': None}
+2025-10-11 18:57:43,614 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-11 18:57:43,626 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:57:43,627 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id, calendars.user_uuid, calendars.event_title, calendars.event_start_time, calendars.event_end_time, calendars.description, calendars.location_alias, calendars.location_lat, calendars.location_lng, calendars.created_at, calendars.updated_at 
+FROM calendars 
+WHERE calendars.id = %(pk_1)s
+2025-10-11 18:57:43,628 - sqlalchemy.engine.Engine - INFO - [cached since 1986s ago] {'pk_1': 9}
+2025-10-11 18:57:43,631 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:57:43,633 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/schedule/calendar/events - 상태: 200 - 시간: 0.038초
+2025-10-11 18:58:12,542 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:58:12,547 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:58:12,548 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-11 18:58:12,549 - sqlalchemy.engine.Engine - INFO - [cached since 2065s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:58:12,552 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:58:12,554 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.012초
+2025-10-11 18:58:13,859 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:58:13,862 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:58:13,864 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:58:13,864 - sqlalchemy.engine.Engine - INFO - [cached since 2053s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:58:13,867 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:58:13,871 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.012초
+2025-10-11 18:58:13,900 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 18:58:13,905 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 18:58:13,908 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 18:58:13,910 - sqlalchemy.engine.Engine - INFO - [cached since 2053s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 18:58:13,918 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 18:58:13,923 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.023초
+2025-10-11 23:59:59,347 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 23:59:59,350 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-11 23:59:59,390 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 23:59:59,395 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 23:59:59,401 - sqlalchemy.engine.Engine - INFO - [cached since 2.016e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 23:59:59,431 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-11 23:59:59,434 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-11 23:59:59,438 - sqlalchemy.engine.Engine - INFO - [cached since 2.016e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-11 23:59:59,443 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 23:59:59,443 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-11 23:59:59,449 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.102초
+2025-10-11 23:59:59,456 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.106초
+2025-10-12 00:00:06,440 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-12 00:00:06,444 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:00:06,446 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-12 00:00:06,448 - sqlalchemy.engine.Engine - INFO - [cached since 2.018e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:00:06,452 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:00:06,454 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.014초
+2025-10-12 00:00:07,628 - app.main - INFO - 요청 시작: DELETE http://192.168.0.24:8000/api/schedule/alarms/9
+2025-10-12 00:00:07,633 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:00:07,646 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-10-12 00:00:07,648 - sqlalchemy.engine.Engine - INFO - [generated in 0.00365s] {'id_1': 9, 'param_1': 1}
+2025-10-12 00:00:07,662 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(param_1)s
+2025-10-12 00:00:07,665 - sqlalchemy.engine.Engine - INFO - [generated in 0.00380s] {'param_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:00:07,675 - sqlalchemy.engine.Engine - INFO - DELETE FROM alarms WHERE alarms.id = %(id)s
+2025-10-12 00:00:07,681 - sqlalchemy.engine.Engine - INFO - [generated in 0.00736s] {'id': 9}
+2025-10-12 00:00:07,688 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-12 00:00:07,696 - app.main - INFO - 요청 완료: DELETE http://192.168.0.24:8000/api/schedule/alarms/9 - 상태: 200 - 시간: 0.067초
+2025-10-12 00:00:41,582 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-12 00:00:41,583 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-12 00:00:41,587 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:00:41,588 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-12 00:00:41,589 - sqlalchemy.engine.Engine - INFO - [cached since 2.02e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:00:41,593 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:00:41,594 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-12 00:00:41,595 - sqlalchemy.engine.Engine - INFO - [cached since 2.02e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:00:41,599 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:00:41,600 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:00:41,603 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.021초
+2025-10-12 00:00:41,604 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.021초
+2025-10-12 00:00:55,992 - app.main - INFO - 요청 시작: PUT http://192.168.0.24:8000/api/schedule/calendar/events/9
+2025-10-12 00:00:55,997 - app.main - INFO - 요청 완료: PUT http://192.168.0.24:8000/api/schedule/calendar/events/9 - 상태: 405 - 시간: 0.006초
+2025-10-12 00:01:15,054 - app.main - INFO - 요청 시작: PUT http://192.168.0.24:8000/api/schedule/calendar/events/9
+2025-10-12 00:01:15,056 - app.main - INFO - 요청 완료: PUT http://192.168.0.24:8000/api/schedule/calendar/events/9 - 상태: 405 - 시간: 0.002초
+2025-10-12 00:01:37,693 - app.main - INFO - 요청 시작: PUT http://192.168.0.24:8000/api/schedule/calendar/events/9
+2025-10-12 00:01:37,695 - app.main - INFO - 요청 완료: PUT http://192.168.0.24:8000/api/schedule/calendar/events/9 - 상태: 405 - 시간: 0.002초
+2025-10-12 00:01:52,464 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-12 00:01:52,467 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:01:52,468 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-12 00:01:52,469 - sqlalchemy.engine.Engine - INFO - [cached since 2.028e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:01:52,473 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:01:52,475 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.011초
+2025-10-12 00:02:16,276 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-12 00:02:16,279 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:02:16,295 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-12 00:02:16,298 - sqlalchemy.engine.Engine - INFO - [cached since 2.031e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:02:16,306 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:02:16,310 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.034초
+2025-10-12 00:02:20,325 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/schedule/alarms
+2025-10-12 00:02:20,331 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:02:20,340 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-12 00:02:20,343 - sqlalchemy.engine.Engine - INFO - [cached since 3.255e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-12 00:02:20,355 - sqlalchemy.engine.Engine - INFO - INSERT INTO alarms (user_uuid, calendar_event_id, alarm_time, label, is_enabled, repeat_days, sound_uri, created_at, updated_at) VALUES (%(user_uuid)s, %(calendar_event_id)s, %(alarm_time)s, %(label)s, %(is_enabled)s, %(repeat_days)s, %(sound_uri)s, now(), now())
+2025-10-12 00:02:20,358 - sqlalchemy.engine.Engine - INFO - [cached since 2.039e+04s ago] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'calendar_event_id': None, 'alarm_time': datetime.datetime(2025, 10, 12, 4, 45), 'label': '알람', 'is_enabled': 1, 'repeat_days': None, 'sound_uri': None}
+2025-10-12 00:02:20,365 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-12 00:02:20,376 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:02:20,380 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id, alarms.user_uuid, alarms.calendar_event_id, alarms.alarm_time, alarms.label, alarms.is_enabled, alarms.repeat_days, alarms.sound_uri, alarms.created_at, alarms.updated_at 
+FROM alarms 
+WHERE alarms.id = %(pk_1)s
+2025-10-12 00:02:20,383 - sqlalchemy.engine.Engine - INFO - [cached since 2.039e+04s ago] {'pk_1': 10}
+2025-10-12 00:02:20,390 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:02:20,395 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/schedule/alarms - 상태: 200 - 시간: 0.070초
+2025-10-12 00:02:33,021 - app.main - INFO - 요청 시작: DELETE http://192.168.0.24:8000/api/schedule/alarms/10
+2025-10-12 00:02:33,025 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:02:33,026 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-10-12 00:02:33,027 - sqlalchemy.engine.Engine - INFO - [cached since 145.4s ago] {'id_1': 10, 'param_1': 1}
+2025-10-12 00:02:33,033 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(param_1)s
+2025-10-12 00:02:33,035 - sqlalchemy.engine.Engine - INFO - [cached since 145.4s ago] {'param_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:02:33,040 - sqlalchemy.engine.Engine - INFO - DELETE FROM alarms WHERE alarms.id = %(id)s
+2025-10-12 00:02:33,042 - sqlalchemy.engine.Engine - INFO - [cached since 145.4s ago] {'id': 10}
+2025-10-12 00:02:33,046 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-12 00:02:33,056 - app.main - INFO - 요청 완료: DELETE http://192.168.0.24:8000/api/schedule/alarms/10 - 상태: 200 - 시간: 0.035초
+2025-10-12 00:02:42,939 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-12 00:02:42,945 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-12 00:02:42,949 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:02:42,952 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-12 00:02:42,953 - sqlalchemy.engine.Engine - INFO - [cached since 2.032e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:02:42,961 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:02:42,964 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:02:42,967 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id AS calendars_id, calendars.user_uuid AS calendars_user_uuid, calendars.event_title AS calendars_event_title, calendars.event_start_time AS calendars_event_start_time, calendars.event_end_time AS calendars_event_end_time, calendars.description AS calendars_description, calendars.location_alias AS calendars_location_alias, calendars.location_lat AS calendars_location_lat, calendars.location_lng AS calendars_location_lng, calendars.created_at AS calendars_created_at, calendars.updated_at AS calendars_updated_at 
+FROM calendars 
+WHERE calendars.user_uuid = %(user_uuid_1)s ORDER BY calendars.event_start_time DESC
+2025-10-12 00:02:42,969 - sqlalchemy.engine.Engine - INFO - [cached since 2.032e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:02:42,974 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.035초
+2025-10-12 00:02:42,975 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:02:42,981 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/calendar/events/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.035초
+2025-10-12 00:02:50,923 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/schedule/calendar/events
+2025-10-12 00:02:50,930 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:02:50,933 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-12 00:02:50,936 - sqlalchemy.engine.Engine - INFO - [cached since 3.258e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-12 00:02:50,942 - sqlalchemy.engine.Engine - INFO - INSERT INTO calendars (user_uuid, event_title, event_start_time, event_end_time, description, location_alias, location_lat, location_lng, created_at, updated_at) VALUES (%(user_uuid)s, %(event_title)s, %(event_start_time)s, %(event_end_time)s, %(description)s, %(location_alias)s, %(location_lat)s, %(location_lng)s, now(), now())
+2025-10-12 00:02:50,944 - sqlalchemy.engine.Engine - INFO - [cached since 2.029e+04s ago] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'event_title': '도아ㅏ뉻', 'event_start_time': datetime.datetime(2025, 10, 15, 0, 2), 'event_end_time': None, 'description': '나애챠굳', 'location_alias': None, 'location_lat': None, 'location_lng': None}
+2025-10-12 00:02:50,959 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-12 00:02:50,971 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:02:50,975 - sqlalchemy.engine.Engine - INFO - SELECT calendars.id, calendars.user_uuid, calendars.event_title, calendars.event_start_time, calendars.event_end_time, calendars.description, calendars.location_alias, calendars.location_lat, calendars.location_lng, calendars.created_at, calendars.updated_at 
+FROM calendars 
+WHERE calendars.id = %(pk_1)s
+2025-10-12 00:02:50,977 - sqlalchemy.engine.Engine - INFO - [cached since 2.029e+04s ago] {'pk_1': 10}
+2025-10-12 00:02:50,982 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:02:50,986 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/schedule/calendar/events - 상태: 200 - 시간: 0.062초
+2025-10-12 00:03:01,281 - app.main - INFO - 요청 시작: PUT http://192.168.0.24:8000/api/schedule/calendar/events/10
+2025-10-12 00:03:01,282 - app.main - INFO - 요청 완료: PUT http://192.168.0.24:8000/api/schedule/calendar/events/10 - 상태: 405 - 시간: 0.001초
+2025-10-12 00:03:20,591 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-12 00:03:20,596 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:03:20,597 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-12 00:03:20,598 - sqlalchemy.engine.Engine - INFO - [cached since 2.037e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:03:20,604 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:03:20,608 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.016초
+2025-10-12 00:03:27,056 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/schedule/alarms
+2025-10-12 00:03:27,059 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:03:27,061 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-12 00:03:27,062 - sqlalchemy.engine.Engine - INFO - [cached since 3.262e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-12 00:03:27,066 - sqlalchemy.engine.Engine - INFO - INSERT INTO alarms (user_uuid, calendar_event_id, alarm_time, label, is_enabled, repeat_days, sound_uri, created_at, updated_at) VALUES (%(user_uuid)s, %(calendar_event_id)s, %(alarm_time)s, %(label)s, %(is_enabled)s, %(repeat_days)s, %(sound_uri)s, now(), now())
+2025-10-12 00:03:27,067 - sqlalchemy.engine.Engine - INFO - [cached since 2.046e+04s ago] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'calendar_event_id': None, 'alarm_time': datetime.datetime(2025, 10, 12, 4, 29), 'label': '아라아안', 'is_enabled': 1, 'repeat_days': None, 'sound_uri': None}
+2025-10-12 00:03:27,071 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-12 00:03:27,081 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:03:27,086 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id, alarms.user_uuid, alarms.calendar_event_id, alarms.alarm_time, alarms.label, alarms.is_enabled, alarms.repeat_days, alarms.sound_uri, alarms.created_at, alarms.updated_at 
+FROM alarms 
+WHERE alarms.id = %(pk_1)s
+2025-10-12 00:03:27,087 - sqlalchemy.engine.Engine - INFO - [cached since 2.046e+04s ago] {'pk_1': 11}
+2025-10-12 00:03:27,095 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:03:27,101 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/schedule/alarms - 상태: 200 - 시간: 0.044초
+2025-10-12 00:13:21,367 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-12 00:13:21,371 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:13:21,373 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-12 00:13:21,374 - sqlalchemy.engine.Engine - INFO - [cached since 2.097e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:13:21,379 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:13:21,383 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.016초
+2025-10-12 00:13:57,869 - app.main - INFO - 요청 시작: PUT http://192.168.0.24:8000/api/schedule/alarms/11
+2025-10-12 00:13:57,871 - app.main - INFO - 요청 완료: PUT http://192.168.0.24:8000/api/schedule/alarms/11 - 상태: 405 - 시간: 0.002초
+2025-10-12 00:14:04,403 - app.main - INFO - 요청 시작: DELETE http://192.168.0.24:8000/api/schedule/alarms/11
+2025-10-12 00:14:04,408 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:14:04,412 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-10-12 00:14:04,416 - sqlalchemy.engine.Engine - INFO - [cached since 836.8s ago] {'id_1': 11, 'param_1': 1}
+2025-10-12 00:14:04,425 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(param_1)s
+2025-10-12 00:14:04,428 - sqlalchemy.engine.Engine - INFO - [cached since 836.8s ago] {'param_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:14:04,437 - sqlalchemy.engine.Engine - INFO - DELETE FROM alarms WHERE alarms.id = %(id)s
+2025-10-12 00:14:04,439 - sqlalchemy.engine.Engine - INFO - [cached since 836.8s ago] {'id': 11}
+2025-10-12 00:14:04,444 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-12 00:14:04,461 - app.main - INFO - 요청 완료: DELETE http://192.168.0.24:8000/api/schedule/alarms/11 - 상태: 200 - 시간: 0.058초
+2025-10-12 00:14:11,005 - app.main - INFO - 요청 시작: POST http://192.168.0.24:8000/api/schedule/alarms
+2025-10-12 00:14:11,009 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:14:11,011 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(uuid_1)s AND users.is_deleted = false 
+ LIMIT %(param_1)s
+2025-10-12 00:14:11,012 - sqlalchemy.engine.Engine - INFO - [cached since 3.326e+04s ago] {'uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'param_1': 1}
+2025-10-12 00:14:11,017 - sqlalchemy.engine.Engine - INFO - INSERT INTO alarms (user_uuid, calendar_event_id, alarm_time, label, is_enabled, repeat_days, sound_uri, created_at, updated_at) VALUES (%(user_uuid)s, %(calendar_event_id)s, %(alarm_time)s, %(label)s, %(is_enabled)s, %(repeat_days)s, %(sound_uri)s, now(), now())
+2025-10-12 00:14:11,019 - sqlalchemy.engine.Engine - INFO - [cached since 2.11e+04s ago] {'user_uuid': '9abf9e1d-6c20-4120-b829-5af3ed6bce15', 'calendar_event_id': None, 'alarm_time': datetime.datetime(2025, 10, 12, 3, 20), 'label': '아아아아', 'is_enabled': 1, 'repeat_days': None, 'sound_uri': None}
+2025-10-12 00:14:11,024 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-12 00:14:11,033 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:14:11,034 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id, alarms.user_uuid, alarms.calendar_event_id, alarms.alarm_time, alarms.label, alarms.is_enabled, alarms.repeat_days, alarms.sound_uri, alarms.created_at, alarms.updated_at 
+FROM alarms 
+WHERE alarms.id = %(pk_1)s
+2025-10-12 00:14:11,035 - sqlalchemy.engine.Engine - INFO - [cached since 2.11e+04s ago] {'pk_1': 12}
+2025-10-12 00:14:11,040 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:14:11,043 - app.main - INFO - 요청 완료: POST http://192.168.0.24:8000/api/schedule/alarms - 상태: 200 - 시간: 0.038초
+2025-10-12 00:14:26,764 - app.main - INFO - 요청 시작: PUT http://192.168.0.24:8000/api/schedule/alarms/12
+2025-10-12 00:14:26,768 - app.main - INFO - 요청 완료: PUT http://192.168.0.24:8000/api/schedule/alarms/12 - 상태: 405 - 시간: 0.004초
+2025-10-12 00:14:33,454 - app.main - INFO - 요청 시작: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15
+2025-10-12 00:14:33,459 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:14:33,464 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.user_uuid = %(user_uuid_1)s AND alarms.is_enabled = true ORDER BY alarms.alarm_time
+2025-10-12 00:14:33,467 - sqlalchemy.engine.Engine - INFO - [cached since 2.105e+04s ago] {'user_uuid_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:14:33,475 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-10-12 00:14:33,478 - app.main - INFO - 요청 완료: GET http://192.168.0.24:8000/api/schedule/alarms/9abf9e1d-6c20-4120-b829-5af3ed6bce15 - 상태: 200 - 시간: 0.024초
+2025-10-12 00:14:46,057 - app.main - INFO - 요청 시작: DELETE http://192.168.0.24:8000/api/schedule/alarms/12
+2025-10-12 00:14:46,062 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:14:46,064 - sqlalchemy.engine.Engine - INFO - SELECT alarms.id AS alarms_id, alarms.user_uuid AS alarms_user_uuid, alarms.calendar_event_id AS alarms_calendar_event_id, alarms.alarm_time AS alarms_alarm_time, alarms.label AS alarms_label, alarms.is_enabled AS alarms_is_enabled, alarms.repeat_days AS alarms_repeat_days, alarms.sound_uri AS alarms_sound_uri, alarms.created_at AS alarms_created_at, alarms.updated_at AS alarms_updated_at 
+FROM alarms 
+WHERE alarms.id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-10-12 00:14:46,066 - sqlalchemy.engine.Engine - INFO - [cached since 878.4s ago] {'id_1': 12, 'param_1': 1}
+2025-10-12 00:14:46,073 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.uuid AS users_uuid, users.nickname AS users_nickname, users.prep_time AS users_prep_time, users.created_at AS users_created_at, users.last_active AS users_last_active, users.is_deleted AS users_is_deleted 
+FROM users 
+WHERE users.uuid = %(param_1)s
+2025-10-12 00:14:46,077 - sqlalchemy.engine.Engine - INFO - [cached since 878.4s ago] {'param_1': '9abf9e1d-6c20-4120-b829-5af3ed6bce15'}
+2025-10-12 00:14:46,085 - sqlalchemy.engine.Engine - INFO - DELETE FROM alarms WHERE alarms.id = %(id)s
+2025-10-12 00:14:46,086 - sqlalchemy.engine.Engine - INFO - [cached since 878.4s ago] {'id': 12}
+2025-10-12 00:14:46,091 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-12 00:14:46,104 - app.main - INFO - 요청 완료: DELETE http://192.168.0.24:8000/api/schedule/alarms/12 - 상태: 200 - 시간: 0.047초
+2025-10-12 00:15:22,323 - app.main - INFO - DaySync API 서버가 종료됩니다
+2025-10-12 00:15:32,990 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-12 00:15:32,996 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-12 00:15:33,019 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-12 00:15:33,033 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-12 00:15:33,052 - app.main - INFO - 일정/알람 라우터 등록 완료
+2025-10-12 00:15:33,055 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-12 00:15:33,056 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-12 00:15:33,126 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-12 00:15:33,127 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,135 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-12 00:15:33,136 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,140 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-12 00:15:33,141 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,145 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:15:33,147 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-12 00:15:33,148 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,180 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-12 00:15:33,182 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,192 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-12 00:15:33,193 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,205 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-12 00:15:33,207 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,219 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-12 00:15:33,221 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,231 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-12 00:15:33,232 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,242 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-12 00:15:33,244 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,251 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-12 00:15:33,253 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,263 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-12 00:15:33,265 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,274 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-12 00:15:33,275 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,282 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-12 00:15:33,284 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,292 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-12 00:15:33,293 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:33,299 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-12 00:15:33,302 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-12 00:15:33,303 - app.main - INFO - UUID 생성 테스트 성공: 924ece65-a534-4c70-b35d-e902a3567b2a
+2025-10-12 00:15:33,304 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
+2025-10-12 00:15:37,122 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-12 00:15:37,126 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-12 00:15:37,131 - app.main - INFO - 사용자 라우터 등록 완료
+2025-10-12 00:15:37,134 - app.main - INFO - AI 채팅 라우터 등록 완료
+2025-10-12 00:15:37,141 - app.main - INFO - 일정/알람 라우터 등록 완료
+2025-10-12 00:15:37,142 - app.main - INFO - DaySync API 서버가 시작됩니다
+2025-10-12 00:15:37,142 - app.main - INFO - 데이터베이스 테이블 확인 중...
+2025-10-12 00:15:37,167 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-10-12 00:15:37,168 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,171 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-10-12 00:15:37,171 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,173 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-10-12 00:15:37,173 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,175 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-10-12 00:15:37,175 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`users`
+2025-10-12 00:15:37,176 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,189 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`sessions`
+2025-10-12 00:15:37,189 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,192 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`messages`
+2025-10-12 00:15:37,193 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,197 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`route_cache`
+2025-10-12 00:15:37,197 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,200 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_patterns`
+2025-10-12 00:15:37,200 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,204 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`calendars`
+2025-10-12 00:15:37,205 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,208 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`alarms`
+2025-10-12 00:15:37,209 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,212 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`notifications`
+2025-10-12 00:15:37,213 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,217 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`favorite_places`
+2025-10-12 00:15:37,217 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,220 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`user_preferences`
+2025-10-12 00:15:37,221 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,224 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`weather_cache`
+2025-10-12 00:15:37,224 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,228 - sqlalchemy.engine.Engine - INFO - DESCRIBE `daysync_db`.`poi_cache`
+2025-10-12 00:15:37,228 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-10-12 00:15:37,232 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-10-12 00:15:37,233 - app.main - INFO - 데이터베이스 테이블 확인/생성 완료
+2025-10-12 00:15:37,234 - app.main - INFO - UUID 생성 테스트 성공: bfdca825-8fd1-4554-b78c-e9c92875d5df
+2025-10-12 00:15:37,234 - app.main - INFO - 서버 열림 _ http://localhost:8000/docs 에서 API 확인
