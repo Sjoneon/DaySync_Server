@@ -139,8 +139,10 @@ async def update_calendar_event(
         if not db_event:
             raise HTTPException(status_code=404, detail="일정을 찾을 수 없습니다.")
         
-        update_data = event_update.dict(exclude_unset=True)
+        # Pydantic v2에서는 model_dump() 사용
+        update_data = event_update.model_dump(exclude_unset=True)
         
+        # null이 아닌 값만 업데이트
         for field, value in update_data.items():
             if value is not None:
                 setattr(db_event, field, value)
@@ -232,8 +234,10 @@ async def update_alarm(
         if not db_alarm:
             raise HTTPException(status_code=404, detail="알람을 찾을 수 없습니다.")
         
-        update_data = alarm_update.dict(exclude_unset=True)
+        # Pydantic v2에서는 model_dump() 사용
+        update_data = alarm_update.model_dump(exclude_unset=True)
         
+        # null이 아닌 값만 업데이트
         for field, value in update_data.items():
             if value is not None:
                 setattr(db_alarm, field, value)
