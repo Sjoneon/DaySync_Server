@@ -40,21 +40,13 @@ async def lifespan(app: FastAPI):
     # 시작 시
     logger.info("DaySync API 서버가 시작됩니다")
     
-    # 데이터베이스 테이블 생성 (필요한 경우)
+    # 데이터베이스 테이블 생성
     try:
         logger.info("데이터베이스 테이블 확인 중...")
         models.Base.metadata.create_all(bind=engine)
         logger.info("데이터베이스 테이블 확인/생성 완료")
     except Exception as e:
         logger.error("데이터베이스 초기화 오류: {}".format(e))
-        raise
-    
-    # UUID 생성 테스트
-    try:
-        test_uuid = schemas.generate_uuid()
-        logger.info("UUID 생성 테스트 성공: {}".format(test_uuid))
-    except Exception as e:
-        logger.error("UUID 생성 테스트 실패: {}".format(e))
         raise
     
     logger.info("서버 열림 _ http://localhost:8000/docs 에서 API 확인")
