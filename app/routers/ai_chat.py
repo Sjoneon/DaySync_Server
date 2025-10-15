@@ -79,11 +79,12 @@ update_schedule_function = genai.protos.FunctionDeclaration(
     parameters=genai.protos.Schema(
         type=genai.protos.Type.OBJECT,
         properties={
-            "title": genai.protos.Schema(type=genai.protos.Type.STRING, description="수정할 일정 제목 (검색용)"),
-            "search_date": genai.protos.Schema(type=genai.protos.Type.STRING, description="수정할 일정의 날짜 (선택, ISO 8601 형식)"),
-            "new_start_time": genai.protos.Schema(type=genai.protos.Type.STRING, description="새로운 시작 시간 (선택, ISO 8601 형식) - 날짜 변경 시 사용"),
+            "title": genai.protos.Schema(type=genai.protos.Type.STRING, description="수정할 일정 제목"),
             "new_title": genai.protos.Schema(type=genai.protos.Type.STRING, description="새로운 제목 (선택)"),
-            "new_description": genai.protos.Schema(type=genai.protos.Type.STRING, description="새로운 설명 (선택)")
+            "new_start_time": genai.protos.Schema(type=genai.protos.Type.STRING, description="새로운 시작 시간 (선택)"),
+            "new_end_time": genai.protos.Schema(type=genai.protos.Type.STRING, description="새로운 종료 시간 (선택)"),
+            "new_description": genai.protos.Schema(type=genai.protos.Type.STRING, description="새로운 설명 (선택)"),
+            "new_location": genai.protos.Schema(type=genai.protos.Type.STRING, description="새로운 장소 (선택)")
         },
         required=["title"]
     )
@@ -95,8 +96,7 @@ delete_schedule_function = genai.protos.FunctionDeclaration(
     parameters=genai.protos.Schema(
         type=genai.protos.Type.OBJECT,
         properties={
-            "title": genai.protos.Schema(type=genai.protos.Type.STRING, description="삭제할 일정 제목"),
-            "search_date": genai.protos.Schema(type=genai.protos.Type.STRING, description="삭제할 일정의 날짜 (선택)")
+            "title": genai.protos.Schema(type=genai.protos.Type.STRING, description="삭제할 일정 제목")
         },
         required=["title"]
     )
@@ -143,6 +143,29 @@ tools = genai.protos.Tool(
 
 model = genai.GenerativeModel('gemini-2.0-flash-exp', tools=[tools])
 
+def is_question_message(message: str) -> bool:
+    """메시지가 질문 형태인지 확인"""
+    question_patterns = ['?', '할까요', '하시겠어요', '하실래요', '괜찮으세요', '좋으세요', '어때요', '어떠세요']
+    return any(pattern in message for pattern in question_patterns)
+
+def normalize_short_response(message: str, last_ai_message: str = None) -> tuple[str, bool]:
+    """짧은 긍정/부정 표현을 명확한 문장으로 변환"""
+    if not last_ai_message or not is_question_message(last_ai_message):
+        return message, False
+    
+    normalized_msg = message.strip().lower()
+    
+    positive_patterns = ['응', '어', 'ㅇ', 'ㅇㅇ', 'ᄋ', 'ᄋᄋ', '네', '넵', 'ㄴㅇ', 'yes', 'ok', '오키', '오케이', '좋아', 'ㅇㅋ']
+    negative_patterns = ['노', 'ㄴ', 'ㄴㄴ', 'ᄂ', 'ᄂᄂ', '시름', '아니', '아뇨', '싫어', 'no', 'ㄴㄴ', 'ㄴㄴㄴ', '노노']
+    
+    if normalized_msg in positive_patterns:
+        return "네, 그렇게 해주세요", True
+    
+    if normalized_msg in negative_patterns:
+        return "아니요, 필요 없습니다", True
+    
+    return message, False
+
 def format_datetime_korean(iso_datetime: str) -> str:
     """ISO 8601 형식을 한국어로 변환"""
     try:
@@ -162,8 +185,8 @@ def execute_function_call(function_name: str, args: dict, user_uuid: str, db: Se
             event_title=args.get("title"),
             event_start_time=datetime.fromisoformat(args.get("start_time")),
             event_end_time=datetime.fromisoformat(args.get("end_time")) if args.get("end_time") else None,
-            event_description=args.get("description"),
-            event_location=args.get("location")
+            description=args.get("description"),
+            location_alias=args.get("location")
         )
         db.add(new_event)
         db.commit()
@@ -202,93 +225,73 @@ def execute_function_call(function_name: str, args: dict, user_uuid: str, db: Se
         query = db.query(models.Calendar).filter(models.Calendar.user_uuid == user_uuid)
         
         if args.get("title"):
-            query = query.filter(models.Calendar.event_title.like(f"%{args.get('title')}%"))
+            query = query.filter(models.Calendar.event_title.contains(args.get("title")))
         
         if args.get("search_date"):
             search_date = datetime.fromisoformat(args.get("search_date"))
-            start_of_day = search_date.replace(hour=0, minute=0, second=0)
-            end_of_day = search_date.replace(hour=23, minute=59, second=59)
             query = query.filter(
-                models.Calendar.event_start_time >= start_of_day,
-                models.Calendar.event_start_time <= end_of_day
+                models.Calendar.event_start_time >= search_date,
+                models.Calendar.event_start_time < search_date + timedelta(days=1)
             )
         
         events = query.order_by(models.Calendar.event_start_time).all()
         
         if not events:
-            return {"status": "error", "message": "해당하는 일정을 찾을 수 없습니다."}
+            return {"status": "success", "message": "일정이 없습니다.", "events": []}
         
-        events_info = []
+        events_list = []
         for event in events:
-            korean_time = format_datetime_korean(event.event_start_time.isoformat())
-            events_info.append({
+            events_list.append({
                 "title": event.event_title,
-                "start_time": korean_time,
-                "description": event.event_description or "설명 없음",
-                "location": event.event_location or "장소 없음"
+                "start_time": event.event_start_time.isoformat(),
+                "end_time": event.event_end_time.isoformat() if event.event_end_time else None,
+                "description": event.description,
+                "location": event.location_alias
             })
         
-        return {
-            "status": "success",
-            "message": f"{len(events)}개의 일정을 찾았습니다.",
-            "events": events_info
-        }
+        return {"status": "success", "events": events_list}
     
     elif function_name == "update_schedule":
-        query = db.query(models.Calendar).filter(
+        if not args.get("title"):
+            return {"status": "error", "message": "수정할 일정 제목이 필요합니다."}
+        
+        event = db.query(models.Calendar).filter(
             models.Calendar.user_uuid == user_uuid,
-            models.Calendar.event_title.like(f"%{args.get('title')}%")
-        )
-        
-        if args.get("search_date"):
-            search_date = datetime.fromisoformat(args.get("search_date"))
-            start_of_day = search_date.replace(hour=0, minute=0, second=0)
-            end_of_day = search_date.replace(hour=23, minute=59, second=59)
-            query = query.filter(
-                models.Calendar.event_start_time >= start_of_day,
-                models.Calendar.event_start_time <= end_of_day
-            )
-        
-        event = query.first()
+            models.Calendar.event_title == args.get("title")
+        ).first()
         
         if not event:
-            return {"status": "error", "message": "해당하는 일정을 찾을 수 없습니다."}
+            return {"status": "error", "message": f"'{args.get('title')}' 일정을 찾을 수 없습니다."}
         
-        if args.get("new_start_time"):
-            event.event_start_time = datetime.fromisoformat(args.get("new_start_time"))
         if args.get("new_title"):
             event.event_title = args.get("new_title")
+        if args.get("new_start_time"):
+            event.event_start_time = datetime.fromisoformat(args.get("new_start_time"))
+        if args.get("new_end_time"):
+            event.event_end_time = datetime.fromisoformat(args.get("new_end_time"))
         if args.get("new_description"):
-            event.event_description = args.get("new_description")
+            event.description = args.get("new_description")
+        if args.get("new_location"):
+            event.location_alias = args.get("new_location")
         
         db.commit()
-        db.refresh(event)
         
-        korean_time = format_datetime_korean(event.event_start_time.isoformat())
         return {
             "status": "success",
-            "message": f"'{event.event_title}' 일정이 {korean_time}(으)로 수정되었습니다."
+            "message": f"'{args.get('title')}' 일정이 수정되었습니다."
         }
     
     elif function_name == "delete_schedule":
-        query = db.query(models.Calendar).filter(
+        if not args.get("title"):
+            return {"status": "error", "message": "삭제할 일정 제목이 필요합니다."}
+        
+        event = db.query(models.Calendar).filter(
             models.Calendar.user_uuid == user_uuid,
-            models.Calendar.event_title.like(f"%{args.get('title')}%")
-        )
-        
-        if args.get("search_date"):
-            search_date = datetime.fromisoformat(args.get("search_date"))
-            start_of_day = search_date.replace(hour=0, minute=0, second=0)
-            end_of_day = search_date.replace(hour=23, minute=59, second=59)
-            query = query.filter(
-                models.Calendar.event_start_time >= start_of_day,
-                models.Calendar.event_start_time <= end_of_day
-            )
-        
-        event = query.first()
+            models.Calendar.event_title == args.get("title")
+        ).first()
         
         if not event:
-            return {"status": "error", "message": "해당하는 일정을 찾을 수 없습니다."}
+            return {"status": "error", "message": f"'{args.get('title')}' 일정을 찾을 수 없습니다."}
         
         title = event.event_title
         db.delete(event)
@@ -300,13 +303,16 @@ def execute_function_call(function_name: str, args: dict, user_uuid: str, db: Se
         }
     
     elif function_name == "update_alarm":
+        if not args.get("label"):
+            return {"status": "error", "message": "수정할 알람 레이블이 필요합니다."}
+        
         alarm = db.query(models.Alarm).filter(
             models.Alarm.user_uuid == user_uuid,
-            models.Alarm.label.like(f"%{args.get('label')}%")
+            models.Alarm.label == args.get("label")
         ).first()
         
         if not alarm:
-            return {"status": "error", "message": "해당하는 알람을 찾을 수 없습니다."}
+            return {"status": "error", "message": f"'{args.get('label')}' 알람을 찾을 수 없습니다."}
         
         if args.get("new_time"):
             alarm.alarm_time = datetime.fromisoformat(args.get("new_time"))
@@ -314,22 +320,23 @@ def execute_function_call(function_name: str, args: dict, user_uuid: str, db: Se
             alarm.label = args.get("new_label")
         
         db.commit()
-        db.refresh(alarm)
         
-        korean_time = format_datetime_korean(alarm.alarm_time.isoformat())
         return {
             "status": "success",
-            "message": f"'{alarm.label}' 알람이 {korean_time}(으)로 수정되었습니다."
+            "message": f"'{args.get('label')}' 알람이 수정되었습니다."
         }
     
     elif function_name == "delete_alarm":
+        if not args.get("label"):
+            return {"status": "error", "message": "삭제할 알람 레이블이 필요합니다."}
+        
         alarm = db.query(models.Alarm).filter(
             models.Alarm.user_uuid == user_uuid,
-            models.Alarm.label.like(f"%{args.get('label')}%")
+            models.Alarm.label == args.get("label")
         ).first()
         
         if not alarm:
-            return {"status": "error", "message": "해당하는 알람을 찾을 수 없습니다."}
+            return {"status": "error", "message": f"'{args.get('label')}' 알람을 찾을 수 없습니다."}
         
         label = alarm.label
         db.delete(alarm)
@@ -344,7 +351,19 @@ def execute_function_call(function_name: str, args: dict, user_uuid: str, db: Se
         return {"status": "error", "message": "알 수 없는 함수입니다."}
 
 def cleanup_old_sessions(db: Session, user_uuid: str):
-    """오래된 세션 정리 (최근 15개 유지)"""
+    """오래된 세션 정리 (최근 15개 유지 + 30일 이상 된 세션 삭제)"""
+    thirty_days_ago = datetime.now() - timedelta(days=30)
+    
+    inactive_sessions = db.query(models.Session).filter(
+        models.Session.user_uuid == user_uuid,
+        models.Session.updated_at < thirty_days_ago
+    ).all()
+    
+    if inactive_sessions:
+        for session in inactive_sessions:
+            db.delete(session)
+        logger.info(f"사용자 {user_uuid}의 30일 이상 미사용 세션 {len(inactive_sessions)}개 삭제")
+    
     sessions = db.query(models.Session).filter(
         models.Session.user_uuid == user_uuid
     ).order_by(models.Session.updated_at.desc()).all()
@@ -353,7 +372,7 @@ def cleanup_old_sessions(db: Session, user_uuid: str):
         sessions_to_delete = sessions[MAX_SESSIONS_PER_USER:]
         for session in sessions_to_delete:
             db.delete(session)
-        logger.info(f"사용자 {user_uuid}의 오래된 세션 {len(sessions_to_delete)}개 삭제")
+        logger.info(f"사용자 {user_uuid}의 15개 초과 세션 {len(sessions_to_delete)}개 삭제")
 
 def cleanup_old_messages(db: Session, session_id: int):
     """오래된 메시지 정리 (최대 50개 유지)"""
@@ -379,6 +398,9 @@ class ChatResponse(BaseModel):
     session_id: int
     message_id: int
     function_called: Optional[str] = None
+
+class SessionUpdateRequest(BaseModel):
+    title: str
 
 @router.post("/chat", response_model=ChatResponse)
 async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
@@ -425,6 +447,22 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
                 "parts": [msg.content]
             })
         
+        # 짧은 긍정/부정 표현 전처리
+        processed_message = request.message
+        was_normalized = False
+        
+        if recent_messages:
+            last_ai_message = None
+            for msg in recent_messages:
+                if not msg.is_user:
+                    last_ai_message = msg.content
+                    break
+            
+            if last_ai_message:
+                processed_message, was_normalized = normalize_short_response(request.message, last_ai_message)
+                if was_normalized:
+                    logger.info(f"짧은 표현 정규화: '{request.message}' -> '{processed_message}'")
+        
         current_time = datetime.now()
         system_prompt = f"""당신은 DaySync 앱의 AI 비서입니다.
 
@@ -456,9 +494,9 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
         # Gemini API 호출
         if conversation_history:
             chat = model.start_chat(history=conversation_history)
-            response = chat.send_message(system_prompt + "\n\n" + request.message)
+            response = chat.send_message(system_prompt + "\n\n" + processed_message)
         else:
-            response = model.generate_content(system_prompt + "\n\n사용자: " + request.message)
+            response = model.generate_content(system_prompt + "\n\n사용자: " + processed_message)
         
         # Function Call 처리
         function_called = None
@@ -490,7 +528,7 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
                                 final_response = chat.send_message(function_response)
                             else:
                                 history = [
-                                    {"role": "user", "parts": [system_prompt + "\n\n사용자: " + request.message]},
+                                    {"role": "user", "parts": [system_prompt + "\n\n사용자: " + processed_message]},
                                     {"role": "model", "parts": [part]}
                                 ]
                                 chat = model.start_chat(history=history)
@@ -568,27 +606,33 @@ async def get_user_sessions(user_uuid: str, db: Session = Depends(get_db)):
 
 @router.get("/sessions/{session_id}/messages")
 async def get_session_messages(session_id: int, db: Session = Depends(get_db)):
-    """메시지 목록 조회 (최대 50개)"""
+    """세션의 메시지 목록 조회"""
+    session = db.query(models.Session).filter(models.Session.id == session_id).first()
+    
+    if not session:
+        raise HTTPException(status_code=404, detail="세션을 찾을 수 없습니다.")
+    
     messages = db.query(models.Message).filter(
         models.Message.session_id == session_id
-    ).order_by(models.Message.created_at.asc()).limit(MAX_MESSAGES_PER_SESSION).all()
+    ).order_by(models.Message.created_at).all()
     
     messages_data = []
-    for message in messages:
+    for msg in messages:
         messages_data.append({
-            "id": message.id,
-            "content": message.content,
-            "is_user": message.is_user,
-            "created_at": message.created_at.isoformat()
+            "id": msg.id,
+            "content": msg.content,
+            "is_user": msg.is_user,
+            "created_at": msg.created_at.isoformat()
         })
     
     return {"success": True, "messages": messages_data}
 
 @router.delete("/sessions/{session_id}")
-async def delete_session(session_id: int, db: Session = Depends(get_db)):
+async def delete_session(session_id: int, user_uuid: str, db: Session = Depends(get_db)):
     """세션 삭제"""
     session = db.query(models.Session).filter(
-        models.Session.id == session_id
+        models.Session.id == session_id,
+        models.Session.user_uuid == user_uuid
     ).first()
     
     if not session:
@@ -598,3 +642,24 @@ async def delete_session(session_id: int, db: Session = Depends(get_db)):
     db.commit()
     
     return {"success": True, "message": "세션이 삭제되었습니다."}
+
+@router.patch("/sessions/{session_id}")
+async def update_session(
+    session_id: int, 
+    user_uuid: str, 
+    request: SessionUpdateRequest, 
+    db: Session = Depends(get_db)
+):
+    """세션 제목 수정"""
+    session = db.query(models.Session).filter(
+        models.Session.id == session_id,
+        models.Session.user_uuid == user_uuid
+    ).first()
+    
+    if not session:
+        raise HTTPException(status_code=404, detail="세션을 찾을 수 없습니다.")
+    
+    session.title = request.title
+    db.commit()
+    
+    return {"success": True, "message": "세션 제목이 수정되었습니다."}
