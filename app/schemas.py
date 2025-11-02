@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, validator
-from typing import Optional, List
+from typing import Optional, List, Any
 from datetime import datetime
 import uuid as uuid_pkg
 
@@ -94,3 +94,102 @@ def validate_uuid_format(uuid_string: str) -> bool:
         return str(uuid_obj) == uuid_string
     except (ValueError, TypeError):
         return False
+    
+# === 경로 관리 함수 ===
+class RouteSaveRequest(BaseModel):
+    """경로 저장 요청 스키마"""
+    start_lat: float = Field(..., description="출발지 위도", ge=-90, le=90)
+    start_lng: float = Field(..., description="출발지 경도", ge=-180, le=180)
+    end_lat: float = Field(..., description="도착지 위도", ge=-90, le=90)
+    end_lng: float = Field(..., description="도착지 경도", ge=-180, le=180)
+    route_data: List[dict] = Field(..., description="경로 정보 JSON 배열")
+    user_uuid: Optional[str] = Field(None, description="사용자 UUID (선택사항)")
+    
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "start_lat": 36.6243,
+                "start_lng": 127.4828,
+                "end_lat": 36.7224,
+                "end_lng": 127.4958,
+                "route_data": [
+                    {
+                        "type": "대중교통",
+                        "duration": 25,
+                        "bus_wait_time": 5,
+                        "bus_number": "501",
+                        "start_stop_name": "서원대학교",
+                        "end_stop_name": "청주공항"
+                    }
+                ],
+                "user_uuid": "test-uuid-1234"
+            }
+        }
+
+class RouteResponse(BaseModel):
+    """경로 응답 스키마"""
+    id: int = Field(..., description="경로 ID")
+    start_lat: float = Field(..., description="출발지 위도")
+    start_lng: float = Field(..., description="출발지 경도")
+    end_lat: float = Field(..., description="도착지 위도")
+    end_lng: float = Field(..., description="도착지 경도")
+    route_data: List[dict] = Field(..., description="경로 정보 JSON")
+    created_at: datetime = Field(..., description="생성 시간")
+    
+    class Config:
+        from_attributes = True
+        json_schema_extra = {
+            "example": {
+                "id": 1,
+                "start_lat": 36.6357,
+                "start_lng": 127.4914,
+                "end_lat": 36.6500,
+                "end_lng": 127.5000,
+                "route_data": [
+                    {
+                        "type": "대중교통",
+                        "duration": 25,
+                        "bus_number": "501"
+                    }
+                ],
+                "created_at": "2025-11-02T10:30:00"
+            }
+        }
+
+class RouteSearchRequest(BaseModel):
+    """경로 검색 요청 스키마"""
+    start_lat: float = Field(..., description="출발지 위도", ge=-90, le=90)
+    start_lng: float = Field(..., description="출발지 경도", ge=-180, le=180)
+    end_lat: float = Field(..., description="도착지 위도", ge=-90, le=90)
+    end_lng: float = Field(..., description="도착지 경도", ge=-180, le=180)
+    
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "start_lat": 36.6357,
+                "start_lng": 127.4914,
+                "end_lat": 36.6500,
+                "end_lng": 127.5000
+            }
+        }
+
+class RouteSearchResponse(BaseModel):
+    """경로 검색 응답 스키마"""
+    found: bool = Field(..., description="경로 발견 여부")
+    route: Optional[RouteResponse] = Field(None, description="발견된 경로 정보")
+    
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "found": True,
+                "route": {
+                    "id": 1,
+                    "start_lat": 36.6357,
+                    "start_lng": 127.4914,
+                    "end_lat": 36.6500,
+                    "end_lng": 127.5000,
+                    "route_data": [],
+                    "created_at": "2025-11-02T10:30:00"
+                }
+            }
+        }

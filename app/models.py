@@ -1,7 +1,8 @@
-# app/models.py
+
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, DateTime, Boolean, Text, Float, ForeignKey, Index, DECIMAL, JSON, func
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, Text, Float, ForeignKey, Index, DECIMAL, JSON, func 
 from sqlalchemy.orm import relationship, Mapped, mapped_column
+from sqlalchemy.sql import func, text
 from .database import Base
 
 class User(Base):
@@ -11,12 +12,11 @@ class User(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
     uuid: Mapped[str] = mapped_column(String(36), unique=True, nullable=False, index=True)
     nickname: Mapped[str] = mapped_column(String(50), default='사용자')
-    prep_time: Mapped[int] = mapped_column(Integer, default=1800)  # 준비 시간 (초)
+    prep_time: Mapped[int] = mapped_column(Integer, default=1800)
     created_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now())
     last_active: Mapped[DateTime] = mapped_column(DateTime, default=func.now(), onupdate=func.now())
     is_deleted: Mapped[bool] = mapped_column(Boolean, default=False)
 
-    # Relationships
     sessions: Mapped[list["Session"]] = relationship("Session", back_populates="user", cascade="all, delete-orphan")
     favorite_places: Mapped[list["FavoritePlace"]] = relationship("FavoritePlace", back_populates="user_owner", cascade="all, delete-orphan")
     user_preferences: Mapped[list["UserPreference"]] = relationship("UserPreference", back_populates="user_owner", cascade="all, delete-orphan")
@@ -41,7 +41,6 @@ class Session(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=func.now(), onupdate=func.now())
     
-    # Relationships
     user = relationship("User", back_populates="sessions")
     messages = relationship("Message", back_populates="session", cascade="all, delete-orphan")
 
@@ -61,28 +60,10 @@ class Message(Base):
     confidence: Mapped[float] = mapped_column(Float, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
     
-    # Relationships
     session = relationship("Session", back_populates="messages")
 
     __table_args__ = (
         Index('idx_session_created', 'session_id', 'created_at'),
-    )
-
-class RouteCache(Base):
-    """검색된 경로 정보 캐싱 테이블"""
-    __tablename__ = "route_cache"
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
-    start_lat: Mapped[DECIMAL] = mapped_column(DECIMAL(10, 8), nullable=False)
-    start_lng: Mapped[DECIMAL] = mapped_column(DECIMAL(11, 8), nullable=False)
-    end_lat: Mapped[DECIMAL] = mapped_column(DECIMAL(10, 8), nullable=False)
-    end_lng: Mapped[DECIMAL] = mapped_column(DECIMAL(11, 8), nullable=False)
-    route_data: Mapped[dict] = mapped_column(JSON, nullable=False)
-    created_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now())
-
-    __table_args__ = (
-        Index('idx_coords', 'start_lat', 'start_lng', 'end_lat', 'end_lng'),
-        Index('idx_created', 'created_at'),
     )
 
 class UserPattern(Base):
@@ -96,7 +77,6 @@ class UserPattern(Base):
     frequency: Mapped[int] = mapped_column(Integer, default=1)
     last_used: Mapped[DateTime] = mapped_column(DateTime, default=func.now())
 
-    # Relationships
     user_owner: Mapped["User"] = relationship("User", back_populates="user_patterns")
 
     __table_args__ = (
@@ -119,7 +99,6 @@ class Calendar(Base):
     created_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now())
     updated_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now(), onupdate=func.now())
 
-    # Relationships
     user_owner: Mapped["User"] = relationship("User", back_populates="calendars")
     alarms: Mapped[list["Alarm"]] = relationship("Alarm", back_populates="calendar_event")
 
@@ -142,7 +121,6 @@ class Alarm(Base):
     created_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now())
     updated_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now(), onupdate=func.now())
 
-    # Relationships
     user_owner: Mapped["User"] = relationship("User", back_populates="alarms")
     calendar_event: Mapped["Calendar"] = relationship("Calendar", back_populates="alarms")
 
@@ -164,7 +142,6 @@ class Notification(Base):
     is_read: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now())
 
-    # Relationships
     user_owner: Mapped["User"] = relationship("User", back_populates="notifications")
 
     __table_args__ = (
@@ -184,7 +161,6 @@ class FavoritePlace(Base):
     created_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now())
     updated_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now(), onupdate=func.now())
 
-    # Relationships
     user_owner: Mapped["User"] = relationship("User", back_populates="favorite_places")
 
     __table_args__ = (
@@ -202,7 +178,6 @@ class UserPreference(Base):
     created_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now())
     updated_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now(), onupdate=func.now())
 
-    # Relationships
     user_owner: Mapped["User"] = relationship("User", back_populates="user_preferences")
 
     __table_args__ = (
@@ -240,3 +215,27 @@ class PoiCache(Base):
     __table_args__ = (
         Index('idx_poi_loc_cat_query_expires', 'latitude', 'longitude', 'category', 'expires_at'),
     )
+    
+class RouteCache(Base):
+    """경로 캐시 테이블 모델"""
+    __tablename__ = "route_cache"
+    
+    id = Column(Integer, primary_key=True, autoincrement=True, comment="경로 ID")
+    start_lat = Column(Float(precision=10), nullable=False, comment="출발지 위도")
+    start_lng = Column(Float(precision=11), nullable=False, comment="출발지 경도")
+    end_lat = Column(Float(precision=10), nullable=False, comment="도착지 위도")
+    end_lng = Column(Float(precision=11), nullable=False, comment="도착지 경도")
+    route_data = Column(JSON, nullable=False, comment="경로 정보 JSON")
+    created_at = Column(
+        DateTime,
+        server_default=func.now(),
+        comment="생성 시간"
+    )
+    
+    __table_args__ = (
+        Index('idx_coords', 'start_lat', 'start_lng', 'end_lat', 'end_lng'),
+        Index('idx_created', 'created_at'),
+    )
+    
+    def __repr__(self):
+        return f"<RouteCache(id={self.id}, start=({self.start_lat},{self.start_lng}), end=({self.end_lat},{self.end_lng}))>"

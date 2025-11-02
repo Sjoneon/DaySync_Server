@@ -3,9 +3,8 @@
 # uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload  <-- 이 명령어로 서버 실행
 # 현재 로컬에서 테스트 중이므로 안드로이드 스튜디오 - ApiClient.java에 있는 로컬 ip를 테스트 환경에 맞게 수정해야 정상 작동합니다.
 from fastapi import FastAPI, Depends, HTTPException, Request
-from .routers import users, ai_chat 
 from .database import engine, Base
-from .routers import users, ai_chat, calendar_alarm
+from .routers import users, ai_chat, calendar_alarm, routes  # routes 추가
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
@@ -20,7 +19,6 @@ import sys
 from . import models
 from . import schemas
 from .database import get_db
-
 
 # 로깅 설정
 logging.basicConfig(
@@ -152,8 +150,15 @@ try:
     app.include_router(users.router)
     logger.info("사용자 라우터 등록 완료")
     
-    app.include_router(ai_chat.router)  # AI 채팅 라우터 추가
+    app.include_router(ai_chat.router)
     logger.info("AI 채팅 라우터 등록 완료")
+    
+    app.include_router(calendar_alarm.router)
+    logger.info("일정/알람 라우터 등록 완료")
+    
+    app.include_router(routes.router)
+    logger.info("경로 라우터 등록 완료")
+    
 except Exception as e:
     logger.error("라우터 등록 실패: {}".format(e))
 
@@ -379,21 +384,6 @@ async def debug_db_test(db: Session = Depends(get_db)):
             status_code=500,
             detail=f"데이터베이스 테스트 실패: {str(e)}"
         )
-        
-try:
-    app.include_router(users.router)
-    logger.info("사용자 라우터 등록 완료")
-    
-    app.include_router(ai_chat.router)
-    logger.info("AI 채팅 라우터 등록 완료")
-    
-    # 새로 추가
-    app.include_router(calendar_alarm.router)
-    logger.info("일정/알람 라우터 등록 완료")
-    
-except Exception as e:
-    logger.error("라우터 등록 실패: {}".format(e))
-    
 
 if __name__ == "__main__":
     import uvicorn
