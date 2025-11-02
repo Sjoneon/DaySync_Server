@@ -33,21 +33,33 @@ async def save_route(
     try:
         # 동일한 좌표로 최근 1시간 내 저장된 데이터 확인
         one_hour_ago = datetime.now() - timedelta(hours=1)
-        existing = db.query(RouteCache).filter(
+        
+        # user_uuid가 있으면 해당 사용자의 경로만 확인
+        query = db.query(RouteCache).filter(
             RouteCache.start_lat == request.start_lat,
             RouteCache.start_lng == request.start_lng,
             RouteCache.end_lat == request.end_lat,
             RouteCache.end_lng == request.end_lng,
             RouteCache.created_at >= one_hour_ago
-        ).first()
+        )
+        
+        # user_uuid가 있으면 해당 사용자의 경로만 확인
+        if request.user_uuid:
+            query = query.filter(RouteCache.user_uuid == request.user_uuid)
+        
+        existing = query.first()
         
         if existing:
             # 기존 데이터 업데이트
             existing.route_data = json.dumps(request.route_data)
             existing.created_at = datetime.now()
+            # user_uuid 업데이트 (없었다면 추가)
+            if request.user_uuid and not existing.user_uuid:
+                existing.user_uuid = request.user_uuid
+            
             db.commit()
             db.refresh(existing)
-            logger.info(f"경로 캐시 업데이트: ID={existing.id}")
+            logger.info(f"경로 캐시 업데이트: ID={existing.id}, User={request.user_uuid}")
             return RouteResponse(
                 id=existing.id,
                 start_lat=existing.start_lat,
@@ -58,8 +70,9 @@ async def save_route(
                 created_at=existing.created_at
             )
         
-        # 새로운 경로 데이터 저장
+        # 새로운 경로 데이터 저장 (user_uuid 포함)
         new_route = RouteCache(
+            user_uuid=request.user_uuid,  # 추가됨
             start_lat=request.start_lat,
             start_lng=request.start_lng,
             end_lat=request.end_lat,
@@ -71,7 +84,7 @@ async def save_route(
         db.commit()
         db.refresh(new_route)
         
-        logger.info(f"새 경로 캐시 저장: ID={new_route.id}")
+        logger.info(f"새 경로 캐시 저장: ID={new_route.id}, User={request.user_uuid}")
         
         return RouteResponse(
             id=new_route.id,
@@ -88,7 +101,7 @@ async def save_route(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"경로 저장 중 오류 발생: {str(e)}"
-        )
+        )        
 
 @router.post("/search", response_model=RouteSearchResponse)
 async def search_route(
@@ -189,6 +202,136 @@ async def get_recent_routes(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"최근 경로 조회 중 오류 발생: {str(e)}"
+        )
+
+# 사용자별 경로 조회 API
+@router.get("/user/{user_uuid}", response_model=List[RouteResponse])
+async def get_user_routes(
+    user_uuid: str,
+    limit: int = 20,
+    db: Session = Depends(get_db)
+):
+    """
+    특정 사용자의 경로 목록 조회
+    
+    - **user_uuid**: 사용자 UUID
+    - **limit**: 반환할 경로 수 (기본 20개)
+    """
+    try:
+        routes = db.query(RouteCache).filter(
+            RouteCache.user_uuid == user_uuid
+        ).order_by(
+            RouteCache.created_at.desc()
+        ).limit(limit).all()
+        
+        logger.info(f"사용자 경로 조회: User={user_uuid}, Count={len(routes)}")
+        
+        return [
+            RouteResponse(
+                id=route.id,
+                start_lat=route.start_lat,
+                start_lng=route.start_lng,
+                end_lat=route.end_lat,
+                end_lng=route.end_lng,
+                route_data=json.loads(route.route_data),
+                created_at=route.created_at
+            )
+            for route in routes
+        ]
+        
+    except Exception as e:
+        logger.error(f"사용자 경로 조회 실패: User={user_uuid}, Error={e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"경로 조회 중 오류 발생: {str(e)}"
+        )
+
+
+@router.get("/recent", response_model=List[RouteResponse])
+async def get_recent_routes(
+    limit: int = 10,
+    user_uuid: Optional[str] = None,  # 수정됨: 실제로 사용
+    db: Session = Depends(get_db)
+):
+    """
+    최근 검색한 경로 목록 조회
+    
+    - **limit**: 반환할 경로 수 (기본 10개)
+    - **user_uuid**: 사용자별 필터링 (선택사항)
+    """
+    try:
+        query = db.query(RouteCache)
+        
+        # user_uuid가 제공되면 해당 사용자의 경로만 조회
+        if user_uuid:
+            query = query.filter(RouteCache.user_uuid == user_uuid)
+            logger.info(f"사용자별 최근 경로 조회: User={user_uuid}")
+        else:
+            logger.info("전체 최근 경로 조회")
+        
+        routes = query.order_by(
+            RouteCache.created_at.desc()
+        ).limit(limit).all()
+        
+        return [
+            RouteResponse(
+                id=route.id,
+                start_lat=route.start_lat,
+                start_lng=route.start_lng,
+                end_lat=route.end_lat,
+                end_lng=route.end_lng,
+                route_data=json.loads(route.route_data),
+                created_at=route.created_at
+            )
+            for route in routes
+        ]
+        
+    except Exception as e:
+        logger.error(f"최근 경로 조회 실패: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"최근 경로 조회 중 오류 발생: {str(e)}"
+        )
+
+# 사용자별 경로 통계 API
+@router.get("/user/{user_uuid}/stats")
+async def get_user_route_stats(
+    user_uuid: str,
+    db: Session = Depends(get_db)
+):
+    """
+    사용자의 경로 검색 통계
+    
+    - **user_uuid**: 사용자 UUID
+    
+    Returns:
+        - total_routes: 총 검색 횟수
+        - first_search: 첫 검색 날짜
+        - last_search: 마지막 검색 날짜
+    """
+    try:
+        from sqlalchemy import func as sql_func
+        
+        stats = db.query(
+            sql_func.count(RouteCache.id).label('total_routes'),
+            sql_func.min(RouteCache.created_at).label('first_search'),
+            sql_func.max(RouteCache.created_at).label('last_search')
+        ).filter(
+            RouteCache.user_uuid == user_uuid
+        ).first()
+        
+        return {
+            "user_uuid": user_uuid,
+            "total_routes": stats.total_routes or 0,
+            "first_search": stats.first_search,
+            "last_search": stats.last_search
+        }
+        
+    except Exception as e:
+        logger.error(f"사용자 경로 통계 조회 실패: User={user_uuid}, Error={e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"통계 조회 중 오류 발생: {str(e)}"
         )
 
 @router.delete("/{route_id}", status_code=status.HTTP_204_NO_CONTENT)

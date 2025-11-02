@@ -221,6 +221,8 @@ class RouteCache(Base):
     __tablename__ = "route_cache"
     
     id = Column(Integer, primary_key=True, autoincrement=True, comment="경로 ID")
+    user_uuid = Column(String(36), ForeignKey('users.uuid', ondelete='SET NULL'), 
+                      nullable=True, comment="사용자 UUID")
     start_lat = Column(Float(precision=10), nullable=False, comment="출발지 위도")
     start_lng = Column(Float(precision=11), nullable=False, comment="출발지 경도")
     end_lat = Column(Float(precision=10), nullable=False, comment="도착지 위도")
@@ -235,7 +237,9 @@ class RouteCache(Base):
     __table_args__ = (
         Index('idx_coords', 'start_lat', 'start_lng', 'end_lat', 'end_lng'),
         Index('idx_created', 'created_at'),
+        Index('idx_user_uuid', 'user_uuid'),
+        Index('idx_user_created', 'user_uuid', 'created_at'),
     )
     
     def __repr__(self):
-        return f"<RouteCache(id={self.id}, start=({self.start_lat},{self.start_lng}), end=({self.end_lat},{self.end_lng}))>"
+        return f"<RouteCache(id={self.id}, user={self.user_uuid}, start=({self.start_lat},{self.start_lng}), end=({self.end_lat},{self.end_lng}))>"
