@@ -138,6 +138,21 @@ search_route_function = genai.protos.FunctionDeclaration(
     )
 )
 
+get_weather_info_function = genai.protos.FunctionDeclaration(
+    name="get_weather_info",
+    description="날씨 정보를 조회합니다. 오늘, 내일, 모레까지의 날씨만 제공 가능합니다.",
+    parameters=genai.protos.Schema(
+        type=genai.protos.Type.OBJECT,
+        properties={
+            "target_date": genai.protos.Schema(
+                type=genai.protos.Type.STRING, 
+                description="조회할 날짜 (today, tomorrow, day_after_tomorrow 중 하나)"
+            )
+        },
+        required=["target_date"]
+    )
+)
+
 tools = genai.protos.Tool(
     function_declarations=[
         create_schedule_function,
@@ -147,11 +162,12 @@ tools = genai.protos.Tool(
         delete_schedule_function,
         update_alarm_function,
         delete_alarm_function,
-        search_route_function
+        search_route_function,
+        get_weather_info_function
     ]
 )
 
-model = genai.GenerativeModel('gemini-2.0-flash-exp', tools=[tools])
+model = genai.GenerativeModel('gemini-2.0-flash', tools=[tools])
 
 def is_question_message(message: str) -> bool:
     question_patterns = ['?', '할까요', '하시겠어요', '하실래요', '괜찮으세요', '좋으세요', '어때요', '어떠세요']
@@ -382,6 +398,26 @@ def execute_function_call(function_name: str, args: dict, user_uuid: str, db: Se
             "action": "search_route"
         }
     
+    elif function_name == "get_weather_info":
+        target_date = args.get("target_date")
+        
+        if not target_date:
+            return {"status": "error", "message": "날짜 정보가 필요합니다."}
+        
+        valid_dates = ["today", "tomorrow", "day_after_tomorrow"]
+        if target_date not in valid_dates:
+            return {
+                "status": "error", 
+                "message": "현재는 모레까지의 날씨만 알려드릴 수 있어요"
+            }
+        
+        return {
+            "status": "success",
+            "action": "get_weather",
+            "target_date": target_date,
+            "message": "날씨 정보를 조회합니다."
+        }
+    
     else:
         return {"status": "error", "message": "알 수 없는 함수입니다."}
 
@@ -434,6 +470,8 @@ class ChatResponse(BaseModel):
     route_search_requested: Optional[bool] = None
     start_location: Optional[str] = None
     destination: Optional[str] = None
+    weather_requested: Optional[bool] = None
+    weather_target_date: Optional[str] = None
 
 class SessionUpdateRequest(BaseModel):
     title: str
@@ -508,6 +546,7 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
 1. 일정 관리 (추가/조회/수정/삭제)
 2. 알람 설정 (추가/조회/수정/삭제)
 3. 경로 안내 및 교통 정보
+4. 날씨 정보 처리 및 날씨 정보
 
 == 경로 탐색 함수 호출 규칙 (매우 중요!) ==
 
@@ -534,6 +573,19 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
 사용자: "네" (또는 "응", "어")
 → 즉시 search_route(start_location="현재 위치", destination="송절중학교")
 
+날씨 정보 처리 규칙:
+- "오늘 날씨", "오늘 날씨 어때", "오늘 날씨 어떻게 돼" 등 → get_weather_info(target_date="today")
+- "내일 날씨", "내일 날씨 어때" 등 → get_weather_info(target_date="tomorrow")
+- "모레 날씨", "모레 날씨 어때" 등 → get_weather_info(target_date="day_after_tomorrow")
+- 3일 이후 날씨 질문 → "현재는 모레까지의 날씨만 알려드릴 수 있어요"
+- 날씨 조회 시 즉시 get_weather_info 함수 호출
+
+날씨 응답 스타일:
+- 시간대별 날씨는 "~부터 ~까지는 [날씨], ~부터는 [날씨] 소식이 있어요" 형식 사용
+- 예: "11시부터 15시까지는 맑고 16시부터는 비 소식이 있어요"
+- 친근하고 자연스러운 말투로 응답
+- 온도는 "최고 기온 28도, 최저 기온 18도예요" 형식 사용
+
 일정/알람 처리 규칙:
 - 필요한 정보가 모두 있으면 즉시 함수 호출
 - 정보가 부족하면 간단히 한 번만 질문
@@ -552,7 +604,12 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
 """
         
         if request.context:
-            system_prompt += f"\n\n추가 컨텍스트: {request.context}"
+            # Context에서 날씨 데이터 추출
+            if isinstance(request.context, dict) and "weather_data" in request.context:
+                weather_info = request.context["weather_data"]
+                system_prompt += f"\n\n### 날씨 정보\n{weather_info}\n\n위 날씨 정보를 바탕으로 사용자에게 자연스럽게 설명해주세요."
+            else:
+                system_prompt += f"\n\n추가 컨텍스트: {request.context}"
         
         # Gemini API 호출
         if conversation_history:
@@ -565,6 +622,7 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
         function_called = None
         ai_response_text = ""
         route_search_data = None  # 경로 탐색 데이터 저장용
+        weather_request_data = None
         
         if response and response.candidates and len(response.candidates) > 0:
             if response.candidates[0].content and response.candidates[0].content.parts:
@@ -587,6 +645,14 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
                                         "requested": True,
                                         "start_location": result.get("start_location"),
                                         "destination": result.get("destination")
+                                    }
+                                    
+                            # 날씨 조회 결과 저장
+                            if func_call.name == "get_weather_info" and isinstance(result, dict):
+                                if result.get("action") == "get_weather":
+                                    weather_request_data = {
+                                        "requested": True,
+                                        "target_date": result.get("target_date")
                                     }
                             
                             function_response = genai.protos.Part(
@@ -647,11 +713,19 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
         route_search_requested = False
         route_start_location = None
         route_destination = None
+        weather_requested = False
+        weather_target_date = None
         
         if route_search_data:
             route_search_requested = route_search_data.get("requested", False)
             route_start_location = route_search_data.get("start_location")
             route_destination = route_search_data.get("destination")
+            
+            
+        if weather_request_data:
+            weather_requested = weather_request_data.get("requested", False)
+            weather_target_date = weather_request_data.get("target_date")
+            
         
         return ChatResponse(
             success=True,
@@ -661,7 +735,9 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
             function_called=function_called,
             route_search_requested=route_search_requested,
             start_location=route_start_location,
-            destination=route_destination
+            destination=route_destination,
+            weather_requested=weather_requested,
+            weather_target_date=weather_target_date
         )
         
     except HTTPException:
