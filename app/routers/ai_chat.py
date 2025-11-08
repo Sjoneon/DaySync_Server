@@ -18,19 +18,16 @@ from .. import models
 router = APIRouter(prefix="/api/ai", tags=["AI Chat"])
 logger = logging.getLogger(__name__)
 
-# Gemini API 설정
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY 환경 변수가 설정되지 않았습니다.")
 
 genai.configure(api_key=GEMINI_API_KEY)
 
-# 세션 및 메시지 제한 설정
 MAX_SESSIONS_PER_USER = 15
 MAX_MESSAGES_PER_SESSION = 50
 MESSAGE_HISTORY_LIMIT = 10
 
-# 함수 정의
 create_schedule_function = genai.protos.FunctionDeclaration(
     name="create_schedule",
     description="사용자의 일정을 생성합니다.",
@@ -128,7 +125,19 @@ delete_alarm_function = genai.protos.FunctionDeclaration(
     )
 )
 
-# 함수 도구 정의
+search_route_function = genai.protos.FunctionDeclaration(
+    name="search_route",
+    description="사용자가 요청한 목적지까지의 경로를 탐색합니다. 출발지가 명시되지 않은 경우 현재 위치 사용 여부를 묻습니다.",
+    parameters=genai.protos.Schema(
+        type=genai.protos.Type.OBJECT,
+        properties={
+            "destination": genai.protos.Schema(type=genai.protos.Type.STRING, description="도착지 주소 또는 장소명"),
+            "start_location": genai.protos.Schema(type=genai.protos.Type.STRING, description="출발지 (선택, 없으면 현재 위치 사용 여부 확인)")
+        },
+        required=["destination"]
+    )
+)
+
 tools = genai.protos.Tool(
     function_declarations=[
         create_schedule_function,
@@ -137,19 +146,18 @@ tools = genai.protos.Tool(
         update_schedule_function,
         delete_schedule_function,
         update_alarm_function,
-        delete_alarm_function
+        delete_alarm_function,
+        search_route_function
     ]
 )
 
 model = genai.GenerativeModel('gemini-2.0-flash-exp', tools=[tools])
 
 def is_question_message(message: str) -> bool:
-    """메시지가 질문 형태인지 확인"""
     question_patterns = ['?', '할까요', '하시겠어요', '하실래요', '괜찮으세요', '좋으세요', '어때요', '어떠세요']
     return any(pattern in message for pattern in question_patterns)
 
 def normalize_short_response(message: str, last_ai_message: str = None) -> tuple[str, bool]:
-    """짧은 긍정/부정 표현을 명확한 문장으로 변환"""
     if not last_ai_message or not is_question_message(last_ai_message):
         return message, False
     
@@ -167,7 +175,6 @@ def normalize_short_response(message: str, last_ai_message: str = None) -> tuple
     return message, False
 
 def format_datetime_korean(iso_datetime: str) -> str:
-    """ISO 8601 형식을 한국어로 변환"""
     try:
         dt = datetime.fromisoformat(iso_datetime)
         return dt.strftime('%Y년 %m월 %d일 %H시 %M분')
@@ -175,7 +182,6 @@ def format_datetime_korean(iso_datetime: str) -> str:
         return iso_datetime
 
 def execute_function_call(function_name: str, args: dict, user_uuid: str, db: Session):
-    """함수 호출 실행 로직"""
     if function_name == "create_schedule":
         if not args.get("title") or not args.get("start_time"):
             return {"status": "error", "message": "제목과 시작 시간이 필요합니다."}
@@ -346,12 +352,40 @@ def execute_function_call(function_name: str, args: dict, user_uuid: str, db: Se
             "status": "success",
             "message": f"'{label}' 알람이 삭제되었습니다."
         }
+        
+    elif function_name == "search_route":
+        destination = args.get("destination")
+        start_location = args.get("start_location")
+        
+        if not destination:
+            return {"status": "error", "message": "도착지가 필요합니다."}
+        
+        # 출발지가 명시적으로 제공되지 않은 경우
+        if not start_location:
+            return {
+                "status": "pending",
+                "message": "현재 위치를 출발지로 사용할까요?",
+                "require_location_confirmation": True,
+                "destination": destination
+            }
+        
+        # "현재 위치" 키워드 처리
+        if start_location and any(keyword in start_location for keyword in ["현재", "지금", "여기"]):
+            start_location = "CURRENT_LOCATION"  # 안드로이드에서 GPS로 처리하도록 특수 값
+        
+        # 경로 탐색 준비 완료
+        return {
+            "status": "success",
+            "message": f"{start_location}에서 {destination}까지 경로를 탐색합니다.",
+            "start_location": start_location,
+            "destination": destination,
+            "action": "search_route"
+        }
     
     else:
         return {"status": "error", "message": "알 수 없는 함수입니다."}
 
 def cleanup_old_sessions(db: Session, user_uuid: str):
-    """오래된 세션 정리 (최근 15개 유지 + 30일 이상 된 세션 삭제)"""
     thirty_days_ago = datetime.now() - timedelta(days=30)
     
     inactive_sessions = db.query(models.Session).filter(
@@ -375,7 +409,6 @@ def cleanup_old_sessions(db: Session, user_uuid: str):
         logger.info(f"사용자 {user_uuid}의 15개 초과 세션 {len(sessions_to_delete)}개 삭제")
 
 def cleanup_old_messages(db: Session, session_id: int):
-    """오래된 메시지 정리 (최대 50개 유지)"""
     messages = db.query(models.Message).filter(
         models.Message.session_id == session_id
     ).order_by(models.Message.created_at.desc()).all()
@@ -398,6 +431,9 @@ class ChatResponse(BaseModel):
     session_id: int
     message_id: int
     function_called: Optional[str] = None
+    route_search_requested: Optional[bool] = None
+    start_location: Optional[str] = None
+    destination: Optional[str] = None
 
 class SessionUpdateRequest(BaseModel):
     title: str
@@ -473,6 +509,31 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
 2. 알람 설정 (추가/조회/수정/삭제)
 3. 경로 안내 및 교통 정보
 
+== 경로 탐색 함수 호출 규칙 (매우 중요!) ==
+
+반드시 search_route 함수를 호출해야 하는 경우:
+1. "현재 위치에서 A 가는 길" → search_route(start_location="현재 위치", destination="A") 즉시 호출
+2. "지금 위치에서 A까지" → search_route(start_location="현재 위치", destination="A") 즉시 호출
+3. "A 가는 길" → search_route(destination="A") 호출 (start_location 없이)
+4. "B에서 A까지" → search_route(start_location="B", destination="A") 즉시 호출
+
+사용자가 현재 위치 사용을 긍정한 경우:
+- 이전에 "현재 위치 사용 여부"를 물어봤고
+- 사용자가 "네", "응", "어", "그래", "좋아" 등으로 답변하면
+- 반드시 search_route(start_location="현재 위치", destination="[이전에 언급된 목적지]") 호출
+
+예시:
+사용자: "현재 위치에서 송절중학교 가는 길 알려줘"
+→ 즉시 search_route(start_location="현재 위치", destination="송절중학교")
+
+사용자: "송절중학교 가는 길 알려줘"
+→ search_route(destination="송절중학교")
+→ 서버 응답: "현재 위치를 출발지로 사용할까요?"
+→ AI: "현재 위치를 출발지로 사용할까요?"
+
+사용자: "네" (또는 "응", "어")
+→ 즉시 search_route(start_location="현재 위치", destination="송절중학교")
+
 일정/알람 처리 규칙:
 - 필요한 정보가 모두 있으면 즉시 함수 호출
 - 정보가 부족하면 간단히 한 번만 질문
@@ -486,7 +547,9 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
 
 답변 스타일:
 - 친절하고 간결하게 답변
-- 일정 관리 외 질문은 정중히 거절"""
+- 일정 관리 외 질문은 정중히 거절
+- 경로 관련 질문은 무조건 search_route 함수로만 처리
+"""
         
         if request.context:
             system_prompt += f"\n\n추가 컨텍스트: {request.context}"
@@ -501,6 +564,7 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
         # Function Call 처리
         function_called = None
         ai_response_text = ""
+        route_search_data = None  # 경로 탐색 데이터 저장용
         
         if response and response.candidates and len(response.candidates) > 0:
             if response.candidates[0].content and response.candidates[0].content.parts:
@@ -515,6 +579,15 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
                             
                             result = execute_function_call(func_call.name, func_args, request.user_uuid, db)
                             logger.info(f"함수 실행 결과: {result}")
+                            
+                            # 경로 탐색 결과 저장
+                            if func_call.name == "search_route" and isinstance(result, dict):
+                                if result.get("action") == "search_route":
+                                    route_search_data = {
+                                        "requested": True,
+                                        "start_location": result.get("start_location"),
+                                        "destination": result.get("destination")
+                                    }
                             
                             function_response = genai.protos.Part(
                                 function_response=genai.protos.FunctionResponse(
@@ -570,12 +643,25 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
         cleanup_old_sessions(db, request.user_uuid)
         db.commit()
         
+        # 경로 탐색 요청 확인
+        route_search_requested = False
+        route_start_location = None
+        route_destination = None
+        
+        if route_search_data:
+            route_search_requested = route_search_data.get("requested", False)
+            route_start_location = route_search_data.get("start_location")
+            route_destination = route_search_data.get("destination")
+        
         return ChatResponse(
             success=True,
             ai_response=ai_response_text,
             session_id=session.id,
             message_id=ai_message.id,
-            function_called=function_called
+            function_called=function_called,
+            route_search_requested=route_search_requested,
+            start_location=route_start_location,
+            destination=route_destination
         )
         
     except HTTPException:
@@ -587,7 +673,6 @@ async def chat_with_ai(request: ChatRequest, db: Session = Depends(get_db)):
 
 @router.get("/sessions/{user_uuid}")
 async def get_user_sessions(user_uuid: str, db: Session = Depends(get_db)):
-    """세션 목록 조회 (최대 15개)"""
     sessions = db.query(models.Session).filter(
         models.Session.user_uuid == user_uuid
     ).order_by(models.Session.updated_at.desc()).limit(MAX_SESSIONS_PER_USER).all()
@@ -606,7 +691,6 @@ async def get_user_sessions(user_uuid: str, db: Session = Depends(get_db)):
 
 @router.get("/sessions/{session_id}/messages")
 async def get_session_messages(session_id: int, db: Session = Depends(get_db)):
-    """세션의 메시지 목록 조회"""
     session = db.query(models.Session).filter(models.Session.id == session_id).first()
     
     if not session:
@@ -629,7 +713,6 @@ async def get_session_messages(session_id: int, db: Session = Depends(get_db)):
 
 @router.delete("/sessions/{session_id}")
 async def delete_session(session_id: int, user_uuid: str, db: Session = Depends(get_db)):
-    """세션 삭제"""
     session = db.query(models.Session).filter(
         models.Session.id == session_id,
         models.Session.user_uuid == user_uuid
@@ -650,7 +733,6 @@ async def update_session(
     request: SessionUpdateRequest, 
     db: Session = Depends(get_db)
 ):
-    """세션 제목 수정"""
     session = db.query(models.Session).filter(
         models.Session.id == session_id,
         models.Session.user_uuid == user_uuid
