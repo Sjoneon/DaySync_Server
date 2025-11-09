@@ -603,10 +603,25 @@ AI: "알람 레이블이 '나나'인 알람을 삭제할까요?"
 
 중요: 추가/수정 대화 중에는 절대 삭제 묻지 마세요!
 
-== 경로 탐색 규칙 ==
-"A 가는 길" → search_route(destination="A")
-"현재 위치에서 A" → search_route(start_location="현재 위치", destination="A")
-"B에서 A까지" → search_route(start_location="B", destination="A")
+== 경로 탐색 규칙 (최우선!) ==
+
+**CRITICAL: 사용자가 "현재 위치에서"라고 말하면 ALWAYS start_location="현재 위치"를 포함하세요!**
+
+**올바른 함수 호출 예시:**
+- 사용자: "현재 위치에서 청주 연일빌딩으로 가는 길"
+  → search_route(start_location="현재 위치", destination="청주 연일빌딩")
+  
+- 사용자: "청주역에서 청주대학교까지"
+  → search_route(start_location="청주역", destination="청주대학교")
+  
+- 사용자: "청주교도소 가는 법"
+  → search_route(destination="청주교도소")
+  ← 이 경우만 start_location 없음
+
+**절대 금지:**
+- "현재 위치에서"라고 말했는데 start_location을 빼먹는 것
+- destination만 있으면 된다고 생각하는 것
+- 사용자에게 다시 출발지를 물어보는 것
 
 == 날씨 정보 규칙 ==
 "오늘 날씨" → get_weather_info(target_date="today")
@@ -658,12 +673,20 @@ AI: "알람 레이블이 '나나'인 알람을 삭제할까요?"
                             
                             # 경로 탐색 결과 저장
                             if func_call.name == "search_route" and isinstance(result, dict):
-                                if result.get("action") == "search_route":
+                                logger.info(f"🔍 search_route 함수 감지됨")
+                                logger.info(f"🔍 result 내용: {result}")
+                                logger.info(f"🔍 status 값: '{result.get('status')}'")
+                                logger.info(f"🔍 action 값: '{result.get('action')}'")
+                                
+                                if result.get("status") == "success" and result.get("action") == "search_route":
                                     route_search_data = {
                                         "requested": True,
                                         "start_location": result.get("start_location"),
                                         "destination": result.get("destination")
                                     }
+                                    logger.info(f"✅ 경로 탐색 데이터 추출 완료: {route_search_data}")
+                                else:
+                                    logger.warning(f"❌ 조건 불일치 - status: {result.get('status')}, action: {result.get('action')}")
                                     
                             # 날씨 조회 결과 저장
                             if func_call.name == "get_weather_info" and isinstance(result, dict):
